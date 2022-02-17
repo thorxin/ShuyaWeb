@@ -1,0 +1,1 @@
+export const DEFAULT_TOWNSHIP = "All Township (မြိုနယ်အားလုံး)";

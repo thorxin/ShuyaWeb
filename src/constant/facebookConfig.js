@@ -1,0 +1,2 @@
+export const PROD_APP_ID = "432554365148736";
+export const DEV_APP_ID = "416043593168772";

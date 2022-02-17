@@ -1,0 +1,24 @@
+/* .thumbs-wrapper .control-arrow {
+    background: #95989e !important;
+}
+.thumbs-wrapper .control-prev {
+    background: #95989e !important;
+} */
+.control-arrow.control-next{
+    /* background : #feed02 !important; */
+    /* position: absolute!important;
+    height: 80px;
+    transform: translate(0%, -50%);
+    top: 50%!important;
+    right: 0; */
+    margin: 0px!important;
+}
+.control-arrow.control-prev{
+    /* background : #feed02 !important; */
+    /* position: absolute; 
+    height: 80px;
+    transform: translate(0%, -50%)!important;
+    top: 50%!important;
+    left: 0; */
+    margin: 0px!important;
+}

@@ -1,0 +1,170 @@
+/* ./src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    appearance: none;
+  }
+  input::-ms-reveal,
+  input::-ms-clear {
+    display: none;
+  }
+}
+
+@layer components {
+  .sub-heading-font {
+    @apply md:text-custom lg:text-2xl custom-font-header font-semibold !important;
+  }
+  .sub-heading-font-gray {
+    @apply md:text-custom lg:text-2xl custom-font-header text-color-secondary text-opacity-70 font-semibold !important;
+  }
+  .sub-heading-font-h3 {
+    @apply text-xl custom-font-regular font-semibold !important;
+  }
+  .sub-heading-font-h2 {
+    @apply text-2xl custom-font-regular font-semibold !important;
+  }
+  .primary-font {
+    @apply text-md custom-font-regular !important;
+  }
+  .primary-lg-font{
+    @apply text-lg custom-font-regular !important;
+
+  }
+  .tertiary-font {
+    @apply text-base custom-font-regular !important;
+  }
+  .caption-font {
+    @apply text-sm custom-font-regular !important;
+  }
+  .home-category-font{
+    @apply text-2xl custom-font-regular !important;
+  }
+
+  /* BackGround Colors */
+  .bg-promote-price-percent {
+    @apply bg-red-600;
+  }
+  .bg-notification-count-color {
+    @apply bg-red-500;
+  }
+
+  /* For Auth */
+  .auth-btn {
+    @apply w-full h-auto border-0 primary-font text-center text-color-white bg-custom-main rounded-md py-3;
+  }
+  .auth-text-box {
+    @apply w-full h-auto p-3 primary-font font-normal border rounded-md focus:outline-none focus:ring-2 shadow-md;
+  }
+  .auth-backdrop-filter {
+    @apply bg-gray-100 bg-opacity-50 backdrop-filter backdrop-blur-md;
+  }
+
+  /* For Button */
+  .primary-btn {
+    @apply w-full h-full bg-custom-detail text-color-white;
+  }
+  .secondary-btn {
+    @apply w-full h-full bg-white text-color-default border-2 border-black;
+  }
+  .tertiary-btn {
+    @apply w-full h-full bg-custom-main text-color-white;
+  }
+  .load-more_btn {
+    @apply bg-gray-100 tertiary-font text-color-default py-1 px-5;
+  }
+
+  /* For text-box */
+  .primary-text-box {
+    @apply w-full h-auto primary-font p-2 bg-gray-200 shadow-md;
+  }
+  .secondary-text-box {
+    @apply shadow-sm primary-font border outline-none focus:outline-none focus:ring w-full h-auto text-color-default;
+  }
+
+  /* For Layout */
+  .default-margin-layout {
+    @apply w-full md:w-10/12 2xl:w-10/12 h-auto mx-auto;
+  }
+  .default-margin-layout-auth {
+    @apply w-full md:w-8/12 2xl:w-8/12 h-auto mx-auto;
+  }
+  /* For DialogBox */
+  .primary-dialog-box {
+    @apply fixed inset-0 z-10 overflow-y-auto flex items-center w-full h-auto min-h-screen bg-black bg-opacity-60;
+  }
+
+  /* For Animation */
+  .hover-animation {
+    @apply transform transition duration-500 hover:scale-110;
+  }
+  .skeleton-loading-animation {
+    @apply bg-gray-200 animate-pulse;
+  }
+
+  /* Font face */
+  .custom-font-regular {
+    font-family: "custom-font-regular" !important;
+  }
+
+  .custom-font-bold {
+    font-family: "custom-font-bold" !important;
+  }
+
+  .custom-font-style {
+    font-family: 'custom-font-style' !important
+  }
+
+  .custom-font-header {
+    font-family: 'custom-font-header' !important
+  }
+
+  .carousel .carousel-status {
+    /* bottom: 0;
+    left: 0;
+    right: 30px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end; */
+    display:none;
+  }
+  
+  .carousel.carousel-slider .control-arrow {
+    margin-right: 35px;
+  }
+
+  @layer base {
+    h2 {
+      @apply sub-heading-font text-color-default font-semibold mt-2;
+    }
+  }
+}
+
+
+
+  /* Hide Scrollbar */
+/* Hide scrollbar for Chrome, Safari and Opera */
+.hide-scroll-bar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hide-scroll-bar {
+-ms-overflow-style: none;  /* IE and Edge */
+scrollbar-width: none;  /* Firefox */
+}
+
+/* custom scrollbar */
+.custom-scroll::-webkit-scrollbar{
+  width: 5px;
+}
+.custom-scroll::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+.custom-scroll::-webkit-scrollbar-thumb {
+  background: #fef102; 
+  border-radius: 3px;
+}

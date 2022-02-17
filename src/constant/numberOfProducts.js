@@ -1,0 +1,1 @@
+export const NUMBER_OF_LATEST_PRODUCT = 6;
