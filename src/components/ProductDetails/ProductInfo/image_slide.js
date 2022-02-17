@@ -27,7 +27,7 @@ const ProductImageSlide = ({
             <div
               key={image.id}
               className={`w-full h-96 md:border-2 cursor-pointer ${
-                IsGetOne ? 'bg-yellow-300' : 'bg-gray-50'
+                IsGetOne ? 'bg-custom-primary' : 'bg-gray-50'
               }`}
               onClick={openImageVariantBox}
             >

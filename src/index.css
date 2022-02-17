@@ -165,6 +165,6 @@ scrollbar-width: none;  /* Firefox */
   background: #f1f1f1; 
 }
 .custom-scroll::-webkit-scrollbar-thumb {
-  background: #fef102; 
+  background: #bc877e; 
   border-radius: 3px;
 }

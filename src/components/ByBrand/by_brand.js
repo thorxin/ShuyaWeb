@@ -32,7 +32,7 @@ const By_brand = (props) => {
 
   return (
     <>
-      <div className="bg-gray-200 w-full h-auto min-h-screen md:space-y-5">
+      <div className="bg-gray-200 w-full h-auto min-h-screen md:space-y-5 md:pt-20">
         <NavigationWeb />
 
         <div
@@ -51,10 +51,10 @@ const By_brand = (props) => {
 
         <div className="default-margin-layout">
           <div className="bg-white mx-auto space-y-5">
-            <div className="relative pt-10">
+            <div className="relative">
               <img
                 src={productsByBrand?.url}
-                className="w-full h-48 object-contain"
+                className="w-full h-52 object-cover object-top"
               />
               <div className="absolute inset-x-0 top-40">
                 <div className="flex justify-center">
@@ -73,11 +73,11 @@ const By_brand = (props) => {
             </div>
 
             {/* Brand name and description  */}
-            <div className="pt-6 ">
-              <p className=" sub-heading-font custom-font-bold text-color-default  text-center">
+            <div className="pt-8">
+              <p className="sub-heading-font-h3 custom-font-bold text-color-default  text-center">
                 {productsByBrand?.brandName}
               </p>
-              <p className="primary-font custom-font-bold  text-justify md:mx-8 mx-4">
+              <p className="primary-font md:mx-8 mx-4">
                 {productsByBrand?.description}
               </p>
               <p className="mx-4 md:mx-8  pt-2 border-b-2 border-gray-200"></p>
@@ -86,7 +86,7 @@ const By_brand = (props) => {
 
             <div className="bg-white h-auto">
               {/* Product Brands  */}
-              <p className="sub-heading-font text-color-default custom-font-bold pb-3 uppercase md:mx-8 mx-4">
+              <p className="sub-heading-font-h3 text-color-default custom-font-bold pb-3 uppercase md:mx-8 mx-4">
                 Products
               </p>
               <div className="w-full h-auto mx-auto">

@@ -67,7 +67,7 @@ export default function OrderHistory(props) {
     <>
       <div className="bg-gray-200 w-full h-auto min-h-screen md:space-y-5">
         <NavigationWeb />
-        <div className=" mx-auto space-y-5">
+        <div className=" mx-auto space-y-5 md:pt-20">
           <div className="default-margin-layout">
             <div className="sticky top-0 z-10 md:relative">
               <div className="bg-white py-3">

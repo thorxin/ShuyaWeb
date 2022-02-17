@@ -38,7 +38,7 @@ const SuccessBox = ({
             </p>
             <div className="w-full h-auto mx-auto">
               <button
-                className="primary-btn tertiary-font py-2"
+                className="primary-btn bg-custom-primary tertiary-font py-2"
                 onClick={continueProcess}
               >
                 {path === '/myaccount/changepassword' ||

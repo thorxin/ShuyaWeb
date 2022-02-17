@@ -1,16 +1,16 @@
 /** @format */
 
-import React from 'react';
+import React from 'react'
 
 //components
-import { Hook } from './hook';
-import NavigationWeb from '../CommonComponent/Navigation/NavigationWeb';
-import ProductInfo from './ProductInfo';
-import QuestionAndAnswer from './QuestionAndAnswer';
-import BoughtTogether from './BoughtTogether';
-import RelatedProducts from './RelatedProducts';
-import FooterWeb from '../CommonComponent/Footer/web_footer';
-import Loading from '../CommonComponent/Loading/main_loading';
+import { Hook } from './hook'
+import NavigationWeb from '../CommonComponent/Navigation/NavigationWeb'
+import ProductInfo from './ProductInfo'
+import QuestionAndAnswer from './QuestionAndAnswer'
+import BoughtTogether from './BoughtTogether'
+import RelatedProducts from './RelatedProducts'
+import FooterWeb from '../CommonComponent/Footer/web_footer'
+import Loading from '../CommonComponent/Loading/main_loading'
 
 export default function ProductDetails(props) {
   const [
@@ -32,16 +32,16 @@ export default function ProductDetails(props) {
     clickingOnProductWishIcon,
     clickingOnWishList,
     goBackTo,
-  ] = Hook(props);
+  ] = Hook(props)
 
-  if (Object.keys(details).length === 0 || isLoading) return <Loading />;
+  if (Object.keys(details).length === 0 || isLoading) return <Loading />
 
   return (
     <>
-      <div className='bg-white w-full h-auto min-h-screen md:space-y-5'>
+      <div className="bg-white w-full h-auto min-h-screen md:space-y-5 md:pt-20 pb-28 md:pb-0">
         <NavigationWeb />
-        <div className='mx-auto space-y-5'>
-          <div className='default-margin-layout md:space-y-2'>
+        <div className="mx-auto space-y-5">
+          <div className="default-margin-layout md:space-y-2">
             <ProductInfo
               isSecondaryLoading={isSecondaryLoading}
               Detail={details}
@@ -56,7 +56,7 @@ export default function ProductDetails(props) {
           </div>
         </div>
         <div>
-          <div className='h-1  bg-gray-100'></div>
+          <div className="h-1  bg-gray-100"></div>
 
           {/* <div className="mx-auto space-y-5">
             <div className="default-margin-layout md:space-y-2">
@@ -80,7 +80,7 @@ export default function ProductDetails(props) {
                 clickOnWishList={clickingOnWishList}
               />
 
-              <div className='h-1  bg-gray-100'></div>
+              <div className="h-1  bg-gray-100"></div>
             </>
           )}
 
@@ -95,5 +95,5 @@ export default function ProductDetails(props) {
         </div>
       </div>
     </>
-  );
+  )
 }

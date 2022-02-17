@@ -1,11 +1,11 @@
 /** @format */
 
-import React from 'react';
+import React from 'react'
 
 //components
-import { Hook } from './hook';
-import { MobileProductSearch } from './MobileProductSearch/mobile_product_search';
-import { WebProductSearch } from './WebProductSearch/web_product_search';
+import { Hook } from './hook'
+import { MobileProductSearch } from './MobileProductSearch/mobile_product_search'
+import { WebProductSearch } from './WebProductSearch/web_product_search'
 
 export default function ProductSearch(props) {
   const [
@@ -31,11 +31,11 @@ export default function ProductSearch(props) {
     delaySearchByText,
     clearData,
     onSearchCategory,
-  ] = Hook(props);
+  ] = Hook(props)
 
   return (
     <>
-      <div className='md:hidden'>
+      <div className="md:hidden">
         <MobileProductSearch
           isLoading={isLoading}
           isSecondaryLoading={isSecondaryLoading}
@@ -59,7 +59,7 @@ export default function ProductSearch(props) {
           clearData={clearData}
         />
       </div>
-      <div className='hidden md:block'>
+      <div className="hidden md:block">
         <WebProductSearch
           isLoading={isLoading}
           secondaryLoading={isSecondaryLoading}
@@ -82,5 +82,5 @@ export default function ProductSearch(props) {
         />
       </div>
     </>
-  );
+  )
 }

@@ -1,46 +1,46 @@
 /** @format */
 
-import React from 'react';
-import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import React from 'react'
+import { useTranslation } from 'react-i18next'
+import { Link } from 'react-router-dom'
 
 import {
   FONT_UNICODE,
   FONT_ENGLISH_US,
   FONT_ZAW_GYI,
-} from '../../../../constant/languageConfig';
+} from '../../../../constant/languageConfig'
 
 //images
-import Facebook from '../../../../assets/home/facebook.png';
-import Instagram from '../../../../assets/home/instagram.png';
-import Twitter from '../../../../assets/home/twitter.png';
-import { getLocalStorage, LANGUAGE_TYPE } from '../../../../util/storage';
+import Facebook from '../../../../assets/home/facebook.png'
+import Instagram from '../../../../assets/home/instagram.png'
+import Twitter from '../../../../assets/home/twitter.png'
+import { getLocalStorage, LANGUAGE_TYPE } from '../../../../util/storage'
 
-const default_style = ' space-y-4';
-const title_text_style = 'primary-lg-font custom-font-bold';
-const label_text_style = 'tertiary-font space-y-2 mr-4';
-const label_language_style = 'tertiary-font space-y-2 mr-4 cursor-pointer';
+const default_style = ' space-y-4'
+const title_text_style = 'primary-lg-font custom-font-bold'
+const label_text_style = 'tertiary-font space-y-2 mr-4'
+const label_language_style = 'tertiary-font space-y-2 mr-4 cursor-pointer'
 const label_text_active_style =
-  'tertiary-font space-y-2 -ml-2 w-16 rounded-full border-0 px-2 py-1 text-center';
+  'tertiary-font space-y-2 -ml-2 w-16 rounded-full border-0 px-2 py-1 text-center'
 
 const FooterItems = (props) => {
-  const unicode = FONT_UNICODE;
-  const english = FONT_ENGLISH_US;
+  const unicode = FONT_UNICODE
+  const english = FONT_ENGLISH_US
 
-  const { i18n } = useTranslation();
-  const lang = getLocalStorage(LANGUAGE_TYPE);
+  const { i18n } = useTranslation()
+  const lang = getLocalStorage(LANGUAGE_TYPE)
 
   const changeLanguage = (lang_value) => {
-    i18n.changeLanguage(lang_value);
-  };
+    i18n.changeLanguage(lang_value)
+  }
 
   return (
     <>
       <div className={default_style}>
         <p className={title_text_style}> Customer Service </p>
         <div className={label_text_style}>
-          <div className=' cursor-pointer '>
-            <Link to='/footer/termsandcondition'>Terms and Privacy Policy</Link>
+          <div className=" cursor-pointer ">
+            <Link to="/footer/termsandcondition">Terms and Privacy Policy</Link>
           </div>
           {/* <div className=" cursor-pointer">
             <Link to="/footer/policy">Return Policy</Link>
@@ -49,9 +49,15 @@ const FooterItems = (props) => {
       </div>
       <div className={default_style}>
         <p className={title_text_style}> Language </p>
-        <div className='cursor-pointer'>
+        <div
+          className={`cursor-pointer ${
+            lang === 'unicode'
+              ? 'bg-custom-primary text-color-white rounded-xl py-1 px-3'
+              : ''
+          }`}
+        >
           <Link
-            to='/chooselanguage'
+            to="/chooselanguage"
             onClick={() => changeLanguage('unicode')}
             className={`${
               lang === FONT_UNICODE ? label_text_active_style : label_text_style
@@ -60,9 +66,15 @@ const FooterItems = (props) => {
             Myanmar(Unicode)
           </Link>
         </div>
-        <div className='cursor-pointer'>
+        <div
+          className={`cursor-pointer ${
+            lang === 'zawgyi'
+              ? 'bg-custom-primary text-color-white rounded-xl py-1 px-3'
+              : ''
+          }`}
+        >
           <Link
-            to='/chooselanguage'
+            to="/chooselanguage"
             onClick={() => changeLanguage('zawgyi')}
             className={`${
               lang === FONT_ZAW_GYI ? label_text_active_style : label_text_style
@@ -71,9 +83,15 @@ const FooterItems = (props) => {
             Myanmar(Zawgyi)
           </Link>
         </div>
-        <div className='cursor-pointer'>
+        <div
+          className={`cursor-pointer ${
+            lang === 'en-US'
+              ? 'bg-custom-primary text-color-white rounded-xl py-1 px-3'
+              : ''
+          }`}
+        >
           <Link
-            to='/chooselanguage'
+            to="/chooselanguage"
             onClick={() => changeLanguage('en-US')}
             className={`${
               lang !== FONT_UNICODE && lang !== FONT_ZAW_GYI
@@ -107,7 +125,7 @@ const FooterItems = (props) => {
         </div>
       </div> */}
     </>
-  );
-};
+  )
+}
 
-export default FooterItems;
+export default FooterItems

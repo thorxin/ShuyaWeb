@@ -1,37 +1,37 @@
 /** @format */
 
-import React, { useEffect, useState } from 'react';
-import { Hook } from './hook';
-import { useHistory } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
+import { Hook } from './hook'
+import { useHistory } from 'react-router-dom'
 
 /**
  * images
  */
-import CloseIcon from '../../assets/common/close_icon.svg';
+import CloseIcon from '../../assets/common/close_icon.svg'
 
 /**
  * components
  */
-import Loading from '../CommonComponent/Loading/main_loading';
-import NavigationWeb from '../CommonComponent/Navigation/NavigationWeb';
-import NavigationMobile from '../CommonComponent/Navigation/NavigationMobile';
-import MainCategories from './Category';
-import HomeCategory from './Category/HomeCategory';
-import PromotionProducts from './PromotionProducts';
-import LatestProducts from './LatestProducts';
-import Brand from './Brand';
-import BestSellingProducts from './BestSellingProducts';
-import ProductListByCategory from './ProductListByCategory';
-import ProductListByCategoryMobile from './ProductListByCategory/ProductListByCategoryMobile';
-import BannerSlider from './BannerSlider';
-import ADSlider from './ADSlider';
-import FooterWeb from '../CommonComponent/Footer/web_footer';
-import FooterMobile from '../CommonComponent/Footer/mobile_footer';
-import BuyOneGetOne from './BuyOneGetOne';
-import DialogBox from '../CommonComponent/DialogBox/dialog_box';
-import placeholder from '../../assets/common/placeholder_icon.svg';
-import { goToProductSearchResult } from '../../util/goToSpecificPathName';
-import { SEARCH_PROMOTION } from '../../constant/search';
+import Loading from '../CommonComponent/Loading/main_loading'
+import NavigationWeb from '../CommonComponent/Navigation/NavigationWeb'
+import NavigationMobile from '../CommonComponent/Navigation/NavigationMobile'
+import MainCategories from './Category'
+import HomeCategory from './Category/HomeCategory'
+import PromotionProducts from './PromotionProducts'
+import LatestProducts from './LatestProducts'
+import Brand from './Brand'
+import BestSellingProducts from './BestSellingProducts'
+import ProductListByCategory from './ProductListByCategory'
+import ProductListByCategoryMobile from './ProductListByCategory/ProductListByCategoryMobile'
+import BannerSlider from './BannerSlider'
+import ADSlider from './ADSlider'
+import FooterWeb from '../CommonComponent/Footer/web_footer'
+import FooterMobile from '../CommonComponent/Footer/mobile_footer'
+import BuyOneGetOne from './BuyOneGetOne'
+import DialogBox from '../CommonComponent/DialogBox/dialog_box'
+import placeholder from '../../assets/common/placeholder_icon.svg'
+import { goToProductSearchResult } from '../../util/goToSpecificPathName'
+import { SEARCH_PROMOTION } from '../../constant/search'
 export default function HomePage(props) {
   const [
     isLoading,
@@ -48,44 +48,44 @@ export default function HomePage(props) {
      * action
      */
     clickingOnProductWishIcon, // need product id && whitelist state [local state]
-  ] = Hook(props);
+  ] = Hook(props)
 
-  const { popUpBanner = {} } = props;
+  const { popUpBanner = {} } = props
 
-  let history = useHistory();
+  let history = useHistory()
 
-  const [isOpenPopupBox, setIsOpenPopupBox] = useState(false);
-  const [bannnerClick, setIsBannerClick] = useState(true);
+  const [isOpenPopupBox, setIsOpenPopupBox] = useState(false)
+  const [bannnerClick, setIsBannerClick] = useState(true)
 
   useEffect(() => {
     if (popUpBanner?.url) {
-      setIsOpenPopupBox(true);
+      setIsOpenPopupBox(true)
     } else {
-      setIsOpenPopupBox(false);
+      setIsOpenPopupBox(false)
     }
-  }, [popUpBanner?.url]);
+  }, [popUpBanner?.url])
 
-  if (isLoading) return <Loading />;
+  if (isLoading) return <Loading />
 
   const goPromotionPage = () => {
     let propsData = {
       searchType: SEARCH_PROMOTION,
-    };
-    goToProductSearchResult(history, propsData);
-  };
+    }
+    goToProductSearchResult(history, propsData)
+  }
 
   return (
     <>
-      <div className='w-full h-auto min-h-screen '>
-        <div className=''>
+      <div className="w-full h-auto min-h-screen">
+        <div className="">
           <NavigationWeb />
           <NavigationMobile />
-          <div className='h-14 w-full block md:hidden'></div>
+          <div className="h-14 w-full block md:hidden"></div>
 
           {bannnerClick ? (
             <>
-              <div className='mx-auto space-y-2 md:mb-0 relative'>
-                <div className='my-2'>
+              <div className="mx-auto space-y-2 md:mb-0 relative w-full">
+                <div className="mt-20">
                   <BannerSlider BannerListArray={bannerList} />
                 </div>
               </div>
@@ -101,14 +101,14 @@ export default function HomePage(props) {
           </div> */}
         </div>
 
-        <div className='bg-white'>
-          <div className='w-full md:w-10/12 2xl:w-10/12 h-auto mx-auto'>
+        <div className="bg-white">
+          <div className="container">
             <HomeCategory categoryArray={mainCategoryDetail}></HomeCategory>
           </div>
         </div>
 
-        <div className='bg-custom-main rounded-t-2xl md:rounded-none'>
-          <div className='w-full md:w-10/12 2xl:w-9/12 h-auto mx-auto'>
+        <div className="bg-gradient-to-r from-custom-main to-custom-primary rounded-t-2xl md:rounded-none">
+          <div className="container">
             <BuyOneGetOne
               // toggleFav={clickingOnProductWishIcon}
               productsArray={buyOneGetOneList}
@@ -117,8 +117,8 @@ export default function HomePage(props) {
           </div>
         </div>
 
-        <div className='mx-auto space-y-2 md:mb-0 bg-gray-100'>
-          <div className='w-full md:w-9/12 2xl:w-9/12 h-auto mx-auto'>
+        <div className="mx-auto space-y-2 md:mb-0 bg-gray-100">
+          <div className="container">
             <PromotionProducts
               // toggleFav={clickingOnProductWishIcon}
               productArray={promotionProducts}
@@ -127,9 +127,9 @@ export default function HomePage(props) {
           </div>
         </div>
 
-        <div className='mx-auto space-y-2 bg-custom-main-light'>
-          <div className='w-full md:w-9/12 2xl:w-9/12 h-auto mx-auto'>
-            <div className=''>
+        <div className="mx-auto space-y-2 bg-custom-main-light">
+          <div className="container">
+            <div className="">
               <LatestProducts
                 // toggleFav={clickingOnProductWishIcon}
                 productArray={latestProducts}
@@ -139,12 +139,12 @@ export default function HomePage(props) {
           </div>
         </div>
 
-        {ADList.length >= 1 ? null : <div className='h-1  bg-gray-100'></div>}
+        {ADList.length >= 1 ? null : <div className="h-1  bg-gray-100"></div>}
 
         {ADList.length >= 1 ? (
           <>
-            <div className='mx-auto space-y-2 md:mb-0'>
-              <div className='md:mt-2'>
+            <div className="mx-auto space-y-2 md:mb-0">
+              <div className="md:mt-2">
                 <ADSlider ADListArray={ADList} />
               </div>
             </div>
@@ -176,11 +176,11 @@ export default function HomePage(props) {
           </div>
         </div> */}
 
-        <div className='h-1  bg-gray-100'></div>
+        <div className="h-1  bg-gray-100"></div>
 
-        <div className='mx-auto space-y-2 mb-20 md:mb-0 block md:hidden'>
-          <div className='w-full'>
-            <div className='md:mt-2'>
+        <div className="mx-auto space-y-2 mb-20 md:mb-0 block md:hidden">
+          <div className="w-full">
+            <div className="md:mt-2">
               {Array.isArray(productListByCategory) &&
                 productListByCategory.length > 0 &&
                 productListByCategory.map((c, i) => (
@@ -198,8 +198,8 @@ export default function HomePage(props) {
           </div>
         </div>
 
-        <div className='mx-auto space-y-2 mb-20 md:mb-0 hidden md:block'>
-          <div className='w-full md:w-9/12 2xl:w-9/12 h-auto mx-auto'>
+        <div className="mx-auto space-y-2 mb-20 md:mb-0 hidden md:block">
+          <div className="w-full md:w-9/12 2xl:w-9/12 h-auto mx-auto">
             {Array.isArray(productListByCategory) &&
               productListByCategory.length > 0 && (
                 <ProductListByCategory categories={productListByCategory} />
@@ -224,5 +224,5 @@ export default function HomePage(props) {
         </DialogBox> */}
       </div>
     </>
-  );
+  )
 }

@@ -1,17 +1,17 @@
-import React from "react";
-import { useTranslation } from "react-i18next";
-import { useHistory } from "react-router-dom";
+import React from 'react'
+import { useTranslation } from 'react-i18next'
+import { useHistory } from 'react-router-dom'
 
 //components
-import { Hook } from "./hook";
-import Box from "../../../../CommonComponent/AddressDropBox/box";
-import AuthenticationLoading from "../../../../CommonComponent/Loading/auth_loading";
-import { ErrorMessageBoxValidation } from "../../../../CommonComponent/error_box";
-import ConfirmationBox from "../../../../CommonComponent/DialogBox/confirmation_box";
-import { goBack } from "../../../../../util/goToSpecificPathName";
+import { Hook } from './hook'
+import Box from '../../../../CommonComponent/AddressDropBox/box'
+import AuthenticationLoading from '../../../../CommonComponent/Loading/auth_loading'
+import { ErrorMessageBoxValidation } from '../../../../CommonComponent/error_box'
+import ConfirmationBox from '../../../../CommonComponent/DialogBox/confirmation_box'
+import { goBack } from '../../../../../util/goToSpecificPathName'
 
 //images
-import LocationPinIcon from "../../../../../assets/common/location_pin_icon.svg";
+import LocationPinIcon from '../../../../../assets/common/location_pin_icon.svg'
 
 export default function AddNewAddress(props) {
   const [
@@ -48,23 +48,25 @@ export default function AddNewAddress(props) {
     onChangeAddress,
     clickingConfirmBtn,
     onChangeLandMark,
-    clickedCancel
-  ] = Hook(props);
+    clickedCancel,
+  ] = Hook(props)
 
-  const { t } = useTranslation();
-  const history = useHistory();
-  const goBackAccount =()=> {
-    history.goBack();
+  const { t } = useTranslation()
+  const history = useHistory()
+  const goBackAccount = () => {
+    history.goBack()
   }
-  let confirmMessage = `${t("Authentication.change-address-confirm-msg-1")} ${t(
-    "Authentication.city"
-  )} - ${selectedCity?.name} ${!notHaveTownship
-    ? `${t("Common.and")} ${t("Authentication.township")} - ${selectedTownship
-      ? selectedTownship?.name
-      : initialSelectedTownship?.name
-    }`
-    : ""
-    } ${t("Authentication.change-address-confirm-msg-2")}`;
+  let confirmMessage = `${t('Authentication.change-address-confirm-msg-1')} ${t(
+    'Authentication.city',
+  )} - ${selectedCity?.name} ${
+    !notHaveTownship
+      ? `${t('Common.and')} ${t('Authentication.township')} - ${
+          selectedTownship
+            ? selectedTownship?.name
+            : initialSelectedTownship?.name
+        }`
+      : ''
+  } ${t('Authentication.change-address-confirm-msg-2')}`
 
   return (
     <>
@@ -72,7 +74,7 @@ export default function AddNewAddress(props) {
         <div>
           <Box
             Loading={isLoading}
-            AddressTypeName={t("Authentication.search-city")}
+            AddressTypeName={t('Authentication.search-city')}
             List={cityList}
             InitialSelectedData={initialSelectedCity}
             SelectedData={selectedCity}
@@ -87,14 +89,14 @@ export default function AddNewAddress(props) {
           />
           {isRequiredCity && (
             <ErrorMessageBoxValidation
-              errorMessage={t("Authentication.add-city")}
+              errorMessage={t('Authentication.add-city')}
             />
           )}
         </div>
         <div>
           <Box
             Loading={isLoading}
-            AddressTypeName={t("Authentication.search-township")}
+            AddressTypeName={t('Authentication.search-township')}
             List={townshipList}
             InitialSelectedData={initialSelectedTownship}
             SelectedData={selectedTownship}
@@ -111,23 +113,23 @@ export default function AddNewAddress(props) {
         </div>
         {isRequiredTownship && (
           <ErrorMessageBoxValidation
-            errorMessage={`${t("Authentication.error-message-en")} ${t(
-              "Authentication.address"
-            )} ${t("Authentication.error-message")}`}
+            errorMessage={`${t('Authentication.error-message-en')} ${t(
+              'Authentication.address',
+            )} ${t('Authentication.error-message')}`}
           />
         )}
         <div>
           <textarea
             className="primary-font resize-y shadow-lg border w-full h-28 py-2 px-3"
-            placeholder={t("Authentication.add-address")}
+            placeholder={t('Authentication.add-address')}
             onChange={(e) => onChangeAddress(e.target.value)}
             value={address}
           />
           {isRequiredAddress && (
             <ErrorMessageBoxValidation
-              errorMessage={`${t("Authentication.error-message-en")} ${t(
-                "Authentication.address"
-              )} ${t("Authentication.error-message")}`}
+              errorMessage={`${t('Authentication.error-message-en')} ${t(
+                'Authentication.address',
+              )} ${t('Authentication.error-message')}`}
             />
           )}
         </div>
@@ -143,17 +145,22 @@ export default function AddNewAddress(props) {
           <div className="w-8/12 ml-auto pb-4">
             <div className="grid grid-cols-2 gap-x-2">
               <div>
-                <button className="secondary-btn tertiary-font py-2" onClick={goBackAccount}>
-                  {t("Common.not-do")}
+                <button
+                  className="secondary-btn tertiary-font py-2"
+                  onClick={goBackAccount}
+                >
+                  {t('Common.not-do')}
                 </button>
               </div>
               <div>
-                <button disabled={false} className={`primary-btn tertiary-font py-2 ${false && 'cursor-not-allowed opacity-50'}`} onClick={clickingConfirmBtn}>
-                  {isSecondaryLoading ? (
-                    <AuthenticationLoading />
-                  ) : (
-                    <p>Save</p>
-                  )}
+                <button
+                  disabled={false}
+                  className={`primary-btn tertiary-font py-2 ${
+                    false && 'cursor-not-allowed opacity-50'
+                  }`}
+                  onClick={clickingConfirmBtn}
+                >
+                  {isSecondaryLoading ? <AuthenticationLoading /> : <p>Save</p>}
                 </button>
               </div>
             </div>
@@ -171,5 +178,5 @@ export default function AddNewAddress(props) {
         confirmBox={onSubmit}
       />
     </>
-  );
+  )
 }

@@ -1,44 +1,45 @@
-import React from "react";
-import { useTranslation } from "react-i18next";
+import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 //components
-import PlaceHolderImage from "../../../CommonComponent/placeholder_image";
-import moneyFormatter from "../../../../util/moneyFormatter";
-import VariantItems from "../ProductVariation/variant_items";
-import { BUY_NOW, ADD_TO_SHOP_CART, NO_VARIANT_CONFIG } from "../../util";
+import PlaceHolderImage from '../../../CommonComponent/placeholder_image'
+import moneyFormatter from '../../../../util/moneyFormatter'
+import VariantItems from '../ProductVariation/variant_items'
+import { BUY_NOW, ADD_TO_SHOP_CART, NO_VARIANT_CONFIG } from '../../util'
 
 //images
-import MinusIcon from "../../../../assets/productDetail/minus_icon.svg";
-import PlusIcon from "../../../../assets/productDetail/plus_icon.svg";
-import BuyNowIcon from "../../../../assets/productDetail/buy_now_icon.svg";
-import ShopCartIcon from "../../../../assets/productDetail/shopping_cart_icon.svg";
-import AuthLoadingBlack from "../../../../assets/Authentication/Loading/auth_loading_black.gif";
-import BackArrowIcon from "../../../../assets/common/back_arrow.svg";
+import MinusIcon from '../../../../assets/productDetail/minus_icon.svg'
+import PlusIcon from '../../../../assets/productDetail/plus_icon.svg'
+import BuyNowIcon from '../../../../assets/productDetail/buy_now_icon.svg'
+import BuyNowIconWhite from '../../../../assets/productDetail/buy_now_icon_white.svg'
+import ShopCartIcon from '../../../../assets/productDetail/shopping_cart_icon.svg'
+import AuthLoadingBlack from '../../../../assets/Authentication/Loading/auth_loading_black.gif'
+import BackArrowIcon from '../../../../assets/common/back_arrow.svg'
 
 export const PriceLabel = ({
   original_price = 0,
   promote_price = 0,
   promote_percent = 0,
 }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
   if (promote_percent > 0)
     return (
       <div className="space-y-1">
         <p className="primary-font text-color-primary custom-font-bold">
-          {moneyFormatter(promote_price)} {t("Common.kyats")}
+          {moneyFormatter(promote_price)} {t('Common.kyats')}
         </p>
         <p className="tertiary-font text-color-secondary line-through">
-          {moneyFormatter(original_price)} {t("Common.kyats")}
+          {moneyFormatter(original_price)} {t('Common.kyats')}
         </p>
       </div>
-    );
+    )
 
   return (
     <p className="primary-font text-color-primary">
-      {moneyFormatter(original_price)} {t("Common.kyats")}
+      {moneyFormatter(original_price)} {t('Common.kyats')}
     </p>
-  );
-};
+  )
+}
 
 export const VariantLoading = () => {
   return (
@@ -54,8 +55,8 @@ export const VariantLoading = () => {
         {/* <p className="tertiary-font text-color-default">Loading ....</p> */}
       </div>
     </>
-  );
-};
+  )
+}
 
 export const ProductImage = ({ ImageArray = [] }) => {
   return (
@@ -72,20 +73,20 @@ export const ProductImage = ({ ImageArray = [] }) => {
         )}
       </div>
     </>
-  );
-};
+  )
+}
 
 const ProductVariantDialogBox = ({
   isLoading,
   ProductImageArray = [],
-  ProductName = "",
+  ProductName = '',
   OriginalPrice = 0,
   PromotePercent = 0,
   PromotePrice = 0,
   VariantList = [],
   SelectedVariantList = [],
   SelectedSku = [],
-  VariantConfig = "",
+  VariantConfig = '',
   ItemCount = 0,
   CurrentIndex,
   /**
@@ -99,17 +100,17 @@ const ProductVariantDialogBox = ({
   BuyNow,
   closeVariantBox,
 }) => {
-  const { t } = useTranslation();
-  console.log(SelectedSku);
-  console.log(ItemCount);
+  const { t } = useTranslation()
+  console.log(SelectedSku)
+  console.log(ItemCount)
 
   const exceedQtyCheck = () => {
-    if (SelectedSku.length <= 0) return;
+    if (SelectedSku.length <= 0) return
     if (SelectedSku[0].qty < ItemCount) {
-      return true;
+      return true
     }
-    return false;
-  };
+    return false
+  }
 
   return (
     <>
@@ -127,14 +128,20 @@ const ProductVariantDialogBox = ({
                   alt="Back Arrow Icon"
                 />
               </div>
-              <p className="sub-heading-font text-color-default">
+              <p className="sub-heading-font-h3 text-color-default">
                 Select Variations
               </p>
               <div
                 className="w-3 mr-1.5 h-auto cursor-pointer"
                 onClick={closeVariantBox}
               >
-                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="24px"
+                  viewBox="0 0 24 24"
+                  width="24px"
+                  fill="#000000"
+                >
                   <path d="M0 0h24v24H0z" fill="none" />
                   <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
                 </svg>
@@ -148,9 +155,11 @@ const ProductVariantDialogBox = ({
               ) : (
                 <ProductImage ImageArray={ProductImageArray} />
               )} */}
-              
+
               <div className="space-y-1 my-auto">
-                <p className="primary-font text-color-primary custom-font-bold">{ProductName}</p>
+                <p className="primary-font text-color-primary custom-font-bold">
+                  {ProductName}
+                </p>
                 {SelectedSku.length > 0 ? (
                   <PriceLabel
                     original_price={SelectedSku[0].originalPrice}
@@ -175,7 +184,7 @@ const ProductVariantDialogBox = ({
                       {variant.name}
                     </p>
                     {CurrentIndex.currentVariantIndex + 1 === variant_index &&
-                      isLoading ? (
+                    isLoading ? (
                       <VariantLoading />
                     ) : variant.show ? (
                       <div className="overflow-x-auto">
@@ -198,11 +207,11 @@ const ProductVariantDialogBox = ({
                                       variant,
                                       variant_value,
                                       variant_index,
-                                      variant_value_index
+                                      variant_value_index,
                                     )
                                   }
                                 />
-                              )
+                              ),
                             )}
                         </div>
                       </div>
@@ -239,8 +248,9 @@ const ProductVariantDialogBox = ({
                     disabled={SelectedSku.length > 0 ? false : true}
                   />
                   <div
-                    className={`w-20 md:w-8 h-auto cursor-pointer ${exceedQtyCheck() && "opacity-60"
-                      }`}
+                    className={`w-20 md:w-8 h-auto cursor-pointer ${
+                      exceedQtyCheck() && 'opacity-60'
+                    }`}
                     onClick={IncreaseItemCount}
                   >
                     <img
@@ -265,7 +275,7 @@ const ProductVariantDialogBox = ({
                           alt="Buy Now Icon"
                         />
                       </div>
-                      <p className="truncate">{t("ProductDetails.buy-now")}</p>
+                      <p className="truncate">{t('ProductDetails.buy-now')}</p>
                     </div>
                   </button>
                 )}
@@ -283,7 +293,7 @@ const ProductVariantDialogBox = ({
                         />
                       </div>
                       <p className="truncate">
-                        {t("ProductDetails.add-to-cart")}
+                        {t('ProductDetails.add-to-cart')}
                       </p>
                     </div>
                   </button>
@@ -291,24 +301,24 @@ const ProductVariantDialogBox = ({
                 {VariantConfig === NO_VARIANT_CONFIG && (
                   <div className="grid grid-cols-2 gap-x-2">
                     <button
-                      className="primary-btn tertiary-font text-color-white py-2"
+                      className="primary-btn bg-custom-primary tertiary-font text-color-white py-2"
                       onClick={BuyNow}
                     >
                       <div className="flex items-center justify-center space-x-2">
                         <div className="w-4 h-auto">
                           <img
-                            src={BuyNowIcon}
+                            src={BuyNowIconWhite}
                             className="w-full h-full"
                             alt="Buy Now Icon"
                           />
                         </div>
                         <p className="truncate">
-                          {t("ProductDetails.buy-now")}
+                          {t('ProductDetails.buy-now')}
                         </p>
                       </div>
                     </button>
                     <button
-                      className="secondary-btn tertiary-font text-color-default py-2"
+                      className="secondary-btn  tertiary-font text-color-default py-2 border-custom-primary"
                       onClick={AddToCart}
                     >
                       <div className="flex items-center justify-center space-x-2">
@@ -320,7 +330,7 @@ const ProductVariantDialogBox = ({
                           />
                         </div>
                         <p className="truncate">
-                          {t("ProductDetails.add-to-cart")}
+                          {t('ProductDetails.add-to-cart')}
                         </p>
                       </div>
                     </button>
@@ -332,7 +342,7 @@ const ProductVariantDialogBox = ({
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default ProductVariantDialogBox;
+export default ProductVariantDialogBox

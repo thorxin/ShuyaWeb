@@ -6,8 +6,8 @@ import { useHistory } from 'react-router'
 import moneyFormatter from '../../../util/moneyFormatter'
 import PlaceHolderImage from '../../CommonComponent/placeholder_image'
 import { goProductDetails } from '../../../util/goToSpecificPathName'
-import WishIconOne from '../../../assets/productDetail/wish_icon_1.svg'
-import ActiveWishIconOne from './../../../assets/productDetail/wish_icon_active_1.svg'
+import WishIconOne from '../../../assets/home/wishlist_no_active.svg'
+import ActiveWishIconOne from './../../../assets/home/wishlist_active.svg'
 
 export const ProductCard = ({ Product }) => {
   const { t } = useTranslation()

@@ -19,7 +19,7 @@ const Tag = ({
     <div
       className={`mr-2 outline-none rounded-full cursor-pointer px-4 py-1 mb-2 ${
         selected
-          ? 'bg-custom-detail text-color-white'
+          ? 'bg-custom-primary text-color-white'
           : 'bg-gray-100 text-color-default'
       }`}
       onClick={clickingTag}

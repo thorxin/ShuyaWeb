@@ -77,7 +77,7 @@ export default function ShoppingCart(props) {
     <>
       <div className="bg-gray-200 w-full h-auto min-h-screen md:space-y-4">
         <NavigationWeb />
-        <div className="mx-auto md:space-y-4">
+        <div className="mx-auto md:space-y-4 md:pt-20">
           <SubHeadingWithBackArrow goTo={goBack} />
           <div className="default-margin-layout hidden md:block">
             <div

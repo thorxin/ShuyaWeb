@@ -1,14 +1,14 @@
 /** @format */
 
-import React from 'react';
-import { useTranslation } from 'react-i18next';
+import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 //components
-import PaymentInfo from './payment_info';
-import PaymentServices from './payment_service';
+import PaymentInfo from './payment_info'
+import PaymentServices from './payment_service'
 
 //images
-import DollarSign from '../../../assets/shoppingcart/dollarSign.jpg';
+import DollarSign from '../../../assets/shoppingcart/dollarSign.jpg'
 
 const Payment = ({
   DeliveryInfo,
@@ -24,21 +24,21 @@ const Payment = ({
    */
   clickingPayment,
 }) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
   if (DeliveryInfo?.mainDeliveryService) {
     return (
       <>
-        <div className='bg-white py-3 md:py-4'>
-          <div className='mx-4 md:mx-8 space-y-4'>
-            <div className='flex items-center space-x-2'>
-              <div className='w-6 md:w-5 h-auto'>
+        <div className="bg-white py-3 md:py-4">
+          <div className="mx-4 md:mx-8 space-y-4">
+            <div className="flex items-center space-x-2">
+              <div className="w-6 md:w-5 h-auto">
                 <img
                   src={DollarSign}
-                  className='w-full h-full'
-                  alt='DollarIcon'
+                  className="w-full h-full"
+                  alt="DollarIcon"
                 />
               </div>
-              <p className='text-lg custom-font-bold text-color-default'>
+              <p className="text-lg custom-font-bold text-color-default">
                 {t('ShoppingCart.payment-service')}
               </p>
             </div>
@@ -51,14 +51,14 @@ const Payment = ({
               CommercialTax={CommercialTax}
               Discount={Discount}
             />
-            <div className='w-full h-1 bg-gray-200' />
+            <div className="w-full h-1 bg-gray-200" />
             <div>
               {/* <p className='primary-font text-color-default'>{DeliveryInfoNoDelivery.deliveryFee}</p> */}
-              <p className='primary-font text-color-default'>
+              <p className="primary-font text-color-default">
                 {t('ShoppingCart.select-payment-option')}
               </p>
             </div>
-            <div className='grid grid-cols-12 gap-x-2 gap-y-3'>
+            <div className="grid grid-cols-12 gap-x-2 gap-y-3">
               {PaymentService.length > 0 &&
                 PaymentService.map((service) => (
                   <PaymentServices
@@ -74,22 +74,22 @@ const Payment = ({
           </div>
         </div>
       </>
-    );
+    )
   }
 
   return (
     <>
-      <div className='bg-white py-3 md:py-4'>
-        <div className='mx-4 md:mx-8 space-y-4'>
-          <div className='flex items-center space-x-2'>
-            <div className='w-6 md:w-5 h-auto'>
+      <div className="bg-white py-3 md:py-4">
+        <div className="mx-4 md:mx-8 space-y-4">
+          <div className="flex items-center space-x-2">
+            <div className="w-6 md:w-5 h-auto">
               <img
                 src={DollarSign}
-                className='w-full h-full'
-                alt='DollarIcon'
+                className="w-full h-full"
+                alt="DollarIcon"
               />
             </div>
-            <p className='sub-heading-font text-color-default'>
+            <p className="sub-heading-font text-color-default">
               {t('ShoppingCart.payment-service')}
             </p>
           </div>
@@ -102,13 +102,13 @@ const Payment = ({
             CommercialTax={CommercialTax}
             Discount={Discount}
           />
-          <div className='w-full h-1 bg-gray-200' />
+          <div className="w-full h-1 bg-gray-200" />
           <div>
-            <p className='primary-font text-color-default'>
+            <p className="primary-font text-color-default">
               {t('ShoppingCart.select-payment-option')}
             </p>
           </div>
-          <div className='grid grid-cols-12 gap-x-2 gap-y-3'>
+          <div className="grid grid-cols-12 gap-x-2 gap-y-3">
             {PaymentService.length > 0 &&
               PaymentService.map((service) => (
                 <PaymentServices
@@ -124,7 +124,7 @@ const Payment = ({
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Payment;
+export default Payment

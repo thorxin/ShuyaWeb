@@ -1,13 +1,13 @@
 /** @format */
 
-import React from 'react';
-import { useTranslation } from 'react-i18next';
+import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 //components
-import { Hook } from './hook';
-import SettingItems from './items';
-import LogoutItem from './logout_item';
-import { DEFAULT_TOWNSHIP } from '../../../constant/defaultTownship';
+import { Hook } from './hook'
+import SettingItems from './items'
+import LogoutItem from './logout_item'
+import { DEFAULT_TOWNSHIP } from '../../../constant/defaultTownship'
 import {
   CHANGE_ADDRESS,
   CHOOSE_LANGUAGE,
@@ -16,19 +16,20 @@ import {
   CHANGE_PASSWORD_BY_MY_ACCOUNT,
   CHANGE_EMAIL_OR_PHONE_BY_MY_ACCOUNT,
   CHANGE_ADDRESS_V2,
-} from '../../../constant/locationPathName';
+} from '../../../constant/locationPathName'
 //images
-import WishIcon from '../../../assets/myaccount/wish_icon.svg';
-import PhoneIcon from '../../../assets/myaccount/phone_icon.svg';
-import AddressIcon from '../../../assets/myaccount/address_icon.svg';
-import PasswordIcon from '../../../assets/myaccount/password_icon.svg';
-import RulesAndTermOfUseIcon from '../../../assets/myaccount/rules_icon.svg';
-import LogoutIcon from '../../../assets/myaccount/log_out_icon.svg';
-import ChooseLanguageIcon from '../../../assets/myaccount/choose_language.svg';
+import WishIcon from '../../../assets/myaccount/wish_icon.svg'
+import PhoneIcon from '../../../assets/myaccount/phone_icon.svg'
+import AddressIcon from '../../../assets/myaccount/address_icon.svg'
+import PasswordIcon from '../../../assets/myaccount/password_icon.svg'
+import RulesAndTermOfUseIcon from '../../../assets/myaccount/rules_icon.svg'
+import LogoutIcon from '../../../assets/myaccount/log_out_icon.svg'
+import ChooseLanguageIcon from '../../../assets/myaccount/choose_language.svg'
 
 const AccountSettingList = ({
   account_info = {},
   deliveryAddress = [],
+  wishList,
   /**
    * action
    */
@@ -43,25 +44,25 @@ const AccountSettingList = ({
     setIsShowLogoutBox,
     clickingLogout,
     confirmLogout,
-  ] = Hook();
+  ] = Hook()
 
-  const { t } = useTranslation();
+  const { t } = useTranslation()
 
-  let full_address = '';
+  let full_address = ''
   // alert (deliveryAddress?selected)
   if (deliveryAddress.length > 0) {
-    let filterAddress = deliveryAddress.filter((data) => data.selected);
+    let filterAddress = deliveryAddress.filter((data) => data.selected)
     if (filterAddress.length > 0) {
-      let delAddress = filterAddress[0];
+      let delAddress = filterAddress[0]
       // let delAddress = deliveryAddress[0];
       full_address = `${delAddress?.address}${
         delAddress?.townshipName === DEFAULT_TOWNSHIP
           ? ''
           : `, ${delAddress?.townshipName}`
-      }, ${delAddress?.cityName}`;
+      }, ${delAddress?.cityName}`
     }
   }
-  let address_info;
+  let address_info
   if (account_info.cityId > 0) {
     address_info = {
       city: {
@@ -73,7 +74,7 @@ const AccountSettingList = ({
         name: account_info.townName,
       },
       address: account_info.address,
-    };
+    }
   }
 
   return (
@@ -82,6 +83,7 @@ const AccountSettingList = ({
         Icon={WishIcon}
         Label={t('MyAccount.wishlist')}
         clickingItem={() => goTo(WISH_LIST)}
+        wishListCount={wishList}
       />
       <SettingItems
         Icon={PhoneIcon}
@@ -120,7 +122,7 @@ const AccountSettingList = ({
         clickingLogout={clickingLogout}
       />
     </>
-  );
-};
+  )
+}
 
-export default AccountSettingList;
+export default AccountSettingList

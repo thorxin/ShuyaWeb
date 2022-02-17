@@ -42,7 +42,7 @@ const Index = (props) => {
 
   return (
     <>
-      <div className="md:bg-gray-200 w-full h-auto md:space-y-5">
+      <div className="md:bg-gray-200 w-full h-auto md:space-y-5 md:pt-20">
         <NavigationWeb />
         <div className=" mx-auto space-y-5 mb-20 md:mb-0">
           <div className="default-margin-layout h-auto mx-auto">
@@ -65,7 +65,7 @@ const Index = (props) => {
             </div>
             <div className="bg-white pb-5 min-h-screen">
               <div className="flex justify-between items-center mx-4 md:mx-8 py-3">
-                <p className="truncate h-auto sub-heading-font text-color-default">
+                <p className="truncate h-auto sub-heading-font-h3 custom-font-regular text-color-default">
                   WishList ({WishListProduct.length})
                 </p>
                 {WishListProduct.length > 0 && (

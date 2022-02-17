@@ -1,14 +1,14 @@
-import React from "react";
-import { useTranslation } from "react-i18next";
-import {useHistory} from "react-router-dom";
+import React from 'react'
+import { useTranslation } from 'react-i18next'
+import { useHistory } from 'react-router-dom'
 //components
-import CostLabel from "./cost_label";
-import { STOCK_LEFT_PRODUCT, OUT_OF_STOCK_PRODUCT } from "../util";
+import CostLabel from './cost_label'
+import { STOCK_LEFT_PRODUCT, OUT_OF_STOCK_PRODUCT } from '../util'
 
 //images
-import MinusIcon from "../../../assets/productDetail/minus_icon.svg";
-import PlusIcon from "../../../assets/productDetail/plus_icon.svg";
-import TrashIcon from "../../../assets/shoppingcart/Trash_icon.svg";
+import MinusIcon from '../../../assets/productDetail/minus_icon.svg'
+import PlusIcon from '../../../assets/productDetail/plus_icon.svg'
+import TrashIcon from '../../../assets/shoppingcart/Trash_icon.svg'
 
 export const ProductCart = ({
   Item = {},
@@ -22,22 +22,22 @@ export const ProductCart = ({
   increaseProductCount,
   onClickTrashIcon,
 }) => {
-  const { t } = useTranslation();
-  let history = useHistory();
+  const { t } = useTranslation()
+  let history = useHistory()
   const isStockLeft = () => {
-    if (PRODUCT_TYPE === STOCK_LEFT_PRODUCT) return true;
+    if (PRODUCT_TYPE === STOCK_LEFT_PRODUCT) return true
 
-    return false;
-  };
+    return false
+  }
 
   const isOutOfStock = () => {
-    if (PRODUCT_TYPE === OUT_OF_STOCK_PRODUCT) return true;
+    if (PRODUCT_TYPE === OUT_OF_STOCK_PRODUCT) return true
 
-    return false;
-  };
+    return false
+  }
 
   const goPage = (productId) => {
-    history.push(`/productdetails?productId=${productId}`);
+    history.push(`/productdetails?productId=${productId}`)
   }
 
   return (
@@ -46,8 +46,9 @@ export const ProductCart = ({
         <div className="grid grid-cols-8">
           <div
             // onClick={() => goPage(Item.productId)}
-            className={`col-span-7 ${isOutOfStock() ? "opacity-40" : "opacity-100"
-              } `}
+            className={`col-span-7 ${
+              isOutOfStock() ? 'opacity-40' : 'opacity-100'
+            } `}
           >
             <div className="flex space-x-4 items-start">
               <div className="w-36 md:w-32 h-auto">
@@ -61,13 +62,13 @@ export const ProductCart = ({
                 {/* Product Price And Point */}
                 <div className="space-y-1">
                   {/* Buy 1 Get 1  */}
-                  {
-                    Item.isGetOne && (
-                      <div className="w-24 text-center">
-                        <p className="py-0.5 px-2 bg-red-500 text-color-white text-base">Buy 1 Get 1</p>
-                      </div>
-                    )
-                  }
+                  {Item.isGetOne && (
+                    <div className="w-24 text-center">
+                      <p className="py-0.5 px-2 bg-red-500 text-color-white text-base">
+                        Buy 1 Get 1
+                      </p>
+                    </div>
+                  )}
                   <p className="primary-font custom-font-bold text-color-default">
                     {Item.name}
                   </p>
@@ -76,30 +77,28 @@ export const ProductCart = ({
                     PromotePrice={Item.promotePrice}
                   />
                   <p className="tertiary-font text-color-secondary">
-                    {Item.variation === "Default" ? '' : Item.variation}
+                    {Item.variation === 'Default' ? '' : Item.variation}
                   </p>
                 </div>
                 {/* For Mobile Buy 1 Get 1  */}
-                {
-                  Item.isGetOne && (
-                    <div className="flex md:hidden gap-2 items-center">
-                      <img
-                        src={Item.productUrl}
-                        className="w-7 h-full object-contain"
-                        alt="ItemImage"
-                      />
-                      <p className="tertiary-font text-base text-color-secondary">
-                        Buy 1 get 1 same item
-                      </p>
-                    </div>
-                  )
-                }
+                {Item.isGetOne && (
+                  <div className="flex md:hidden gap-2 items-center">
+                    <img
+                      src={Item.productUrl}
+                      className="w-7 h-full object-contain"
+                      alt="ItemImage"
+                    />
+                    <p className="tertiary-font text-base text-color-secondary">
+                      Buy 1 get 1 same item
+                    </p>
+                  </div>
+                )}
 
                 {/* End  */}
                 {isOutOfStock() ? (
                   <div className="my-auto">
                     <p className="caption-font text-color-default">
-                      {t("ShoppingCart.out-of-stock")}
+                      {t('ShoppingCart.out-of-stock')}
                     </p>
                   </div>
                 ) : (
@@ -124,8 +123,9 @@ export const ProductCart = ({
                       {Item.qty}
                     </div>
                     <div
-                      className={`w-7 h-auto ${isStockLeft() ? "opacity-40" : "opacity-100"
-                        }`}
+                      className={`w-7 h-auto ${
+                        isStockLeft() ? 'opacity-40' : 'opacity-100'
+                      }`}
                       onClick={() =>
                         increaseProductCount({
                           type: PRODUCT_TYPE,
@@ -145,27 +145,29 @@ export const ProductCart = ({
               </div>
             </div>
             {/* For Web Buy 1 Get 1  */}
-            {
-              Item.isGetOne && (
-                <div className="md:flex hidden gap-2 items-center py-3 md:py-2">
-                  <div className="w-24 ml-1 md:w-24 md:ml-2.5 "></div>
-                  <img
-                    src={Item?.promotionGetOne.url}
-                    className="w-7 h-full object-contain"
-                    alt="ItemImage"
-                  />
-                  {Item?.productId === Item?.promotionGetOne.getOneProductId ? (
-                    <p className="tertiary-font text-base text-color-secondary">
-                      Buy 1 get 1 {Item?.productId === Item?.promotionGetOne.getOneProductId ? 'same' : 'different'} item
-                    </p>
-                  ) : (
-                    <p className="tertiary-font text-base text-color-secondary">
-                      Free "{Item?.promotionGetOne.getOneProductName}"
-                    </p>
-                  )}
-                </div>
-              )
-            }
+            {Item.isGetOne && (
+              <div className="md:flex hidden gap-2 items-center py-3 md:py-2">
+                <div className="w-24 ml-1 md:w-24 md:ml-2.5 "></div>
+                <img
+                  src={Item?.promotionGetOne.url}
+                  className="w-7 h-full object-contain"
+                  alt="ItemImage"
+                />
+                {Item?.productId === Item?.promotionGetOne.getOneProductId ? (
+                  <p className="tertiary-font text-base text-color-secondary">
+                    Buy 1 get 1{' '}
+                    {Item?.productId === Item?.promotionGetOne.getOneProductId
+                      ? 'same'
+                      : 'different'}{' '}
+                    item
+                  </p>
+                ) : (
+                  <p className="tertiary-font text-base text-color-secondary">
+                    Free "{Item?.promotionGetOne.getOneProductName}"
+                  </p>
+                )}
+              </div>
+            )}
 
             {/* End  */}
           </div>
@@ -175,10 +177,10 @@ export const ProductCart = ({
                 className=" w-4 h-auto float-right"
                 onClick={() =>
                   onClickTrashIcon(
-                    t("ShoppingCart.remove-each-product"),
+                    t('ShoppingCart.remove-each-product'),
                     Item.productId,
                     Item.skuId,
-                    PRODUCT_TYPE
+                    PRODUCT_TYPE,
                   )
                 }
               >
@@ -193,5 +195,5 @@ export const ProductCart = ({
         </div>
       </div>
     </div>
-  );
-};
+  )
+}

@@ -35,9 +35,9 @@ const PaymentRegistration = ({
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm()
 
-    const phNumberIdentifier = /^9([0-9]{7,9}$)/;
+  const phNumberIdentifier = /^9([0-9]{7,9}$)/
 
   return (
     <>
@@ -113,11 +113,11 @@ const PaymentRegistration = ({
               {t('ShoppingCart.total')}
             </p>
             {isNaN(TotalAmount) ? (
-              <p className="sub-heading-font text-color-default">
+              <p className="tertiary-font text-color-default">
                 {moneyFormatter(NetAmount)} {t('Common.kyats')}
               </p>
             ) : (
-              <p className="sub-heading-font text-color-default">
+              <p className="tertiary-font text-color-default">
                 {moneyFormatter(TotalAmount)} {t('Common.kyats')}
               </p>
             )}
@@ -125,7 +125,7 @@ const PaymentRegistration = ({
           <div className="w-full h-auto">
             <button
               type="submit"
-              className="primary-btn primary-font flex justify-center items-center space-x-2 py-3 md:py-2 lg:w-3/5"
+              className="primary-btn bg-custom-primary primary-font flex justify-center items-center space-x-2 py-3 md:py-2 lg:w-3/5"
             >
               <img
                 src={WhiteDollarIcon}

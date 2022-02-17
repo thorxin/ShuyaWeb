@@ -6,6 +6,7 @@ import { getLocalStorage, LANGUAGE_TYPE } from './../../../util/storage'
 import Packed from '../../../assets/notification/packed.png'
 import Commanded from '../../../assets/notification/commanded.svg'
 import Transported from '../../../assets/notification/transported.svg'
+import Payment from '../../../assets/notification/confirmed_payment.svg'
 import Removed from '../../../assets/notification/removed.png'
 import Default from '../../../assets/notification/default.png'
 
@@ -23,6 +24,7 @@ const ListItem = ({
   const transported = noti.body.match('ပို့ဆောင်ပြီး')
   const packed = noti.body.match('ထုပ်ပိုးပြီး')
   const commanded = noti.body.match('ပို့ဆောင်ရန်')
+  const payment = noti.body.match('ငွေ')
 
   const iconSize = 'w-9 md:w-7 h-auto'
 
@@ -36,6 +38,10 @@ const ListItem = ({
       : currentLang === 'zawgyi'
       ? noti.bodyChn
       : noti.body
+
+  // console.log(noti.body.split(' '))
+  // console.log(noti.body.match('ငွေပေး‌ချေမှု'))
+  console.log(noti.body.includes(payment))
 
   return (
     <>
@@ -55,6 +61,9 @@ const ListItem = ({
             )) ||
             (noti.body.includes(removed) && (
               <img src={Removed} alt="notiItem" className={iconSize} />
+            )) ||
+            (noti.body.includes(payment) && (
+              <img src={Payment} alt="notiItem" className={iconSize} />
             )) || <img src={Default} alt="notiItem" className={iconSize} />}
         </div>
 

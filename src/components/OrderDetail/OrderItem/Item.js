@@ -69,9 +69,19 @@ const Item = ({ item = {}, DiscountPrice }) => {
                       className="w-7 h-full object-contain"
                       alt="ItemImage"
                     />
-                    <p className="tertiary-font text-base text-color-secondary">
-                      {item.promotionGetOne?.getOneProductName}
-                    </p>
+                    <article>
+                      <p>Get Product</p>
+                      <p className="tertiary-font text-base text-color-secondary">
+                        {item.promotionGetOne?.getOneProductName}
+                      </p>
+                      <p>
+                        {
+                          item.promotionGetOne.getProductDetailSkuValueForGetOne
+                            .value
+                        }{' '}
+                        / 1 item
+                      </p>
+                    </article>
                   </div>
                 )}
               </div>

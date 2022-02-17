@@ -251,7 +251,9 @@ const ChangePassword = (props) => {
           <div>
             <button
               type="submit"
-              className={`auth-btn ${isValidation() && 'bg-opacity-40'}`}
+              className={`auth-btn bg-custom-primary ${
+                isValidation() && 'bg-opacity-40'
+              }`}
               disabled={isValidation()}
             >
               {IsLoading ? (

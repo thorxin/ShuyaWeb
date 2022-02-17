@@ -4,6 +4,16 @@ module.exports = {
   purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
   darkMode: false, // or 'media' or 'class',
   theme: {
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: '1rem',
+        sm: '4rem',
+        lg: '6rem',
+        xl: '8rem',
+        '2xl': '12rem',
+      },
+    },
     fontSize: {
       tiny: '0.625rem',
       sm: '0.75rem',
@@ -26,7 +36,7 @@ module.exports = {
 
     textColor: {
       'color-default': '#000000',
-      'color-primary': '#2b2b2b',
+      'color-primary': '#bc877e',
       'color-brown': '#bc877e',
       'color-secondary': '#95989e',
       'color-white': '#ffffff',
@@ -90,4 +100,4 @@ module.exports = {
     require('@tailwindcss/line-clamp'),
     require('tailwind-scrollbar-hide'),
   ],
-};
+}

@@ -12,14 +12,14 @@ const ProductCard = ({ productData = {} }) => {
   const history = useHistory()
 
   let productPriceSection = (
-    <p className="primary-font text-color-orange custom-font-bold">
+    <p className="primary-font text-color-primary custom-font-bold">
       {moneyFormatter(productData.originalPrice)} {t('Common.kyats')}
     </p>
   )
   if (productData.promotePrice > 0)
     productPriceSection = (
       <>
-        <p className="primary-font text-color-orange custom-font-bold">
+        <p className="primary-font text-color-primary custom-font-bold">
           {moneyFormatter(productData.promotePrice)} {t('Common.kyats')}
         </p>
         <p className="tertiary-font text-color-secondary line-through">

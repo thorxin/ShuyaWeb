@@ -1,10 +1,10 @@
 /** @format */
 
-import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
-import { useHistory } from 'react-router';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { useHistory } from 'react-router'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import {
   FacebookShareButton,
   FacebookIcon,
@@ -14,45 +14,45 @@ import {
   ViberIcon,
   TelegramShareButton,
   TelegramIcon,
-} from 'react-share';
+} from 'react-share'
 
 //components
-import { Hook } from './hook';
-import ProductImageSlide from './image_slide';
-import { CostLabel } from './CommonUI/cost_label';
-import ProductVariation from './ProductVariation/product_variation';
-import ProductCategory from './ProductCategory/product_category';
-import ProductOffers from './ProductOffers';
-import SizeChart from './SizeChart';
-import ProductDescription from './ProductDescription';
-import ProductClip from './ProductClip';
-import ProductVariantDialogBox from './ProductVariantDialogBox';
-import ProductImageDialogBox from './ProductImageDialogBox';
-import { BUY_NOW, ADD_TO_SHOP_CART, NO_VARIANT_CONFIG } from '../util';
-import DialogBox from '../../CommonComponent/DialogBox/dialog_box';
-import { APP_NAME } from '../../../constant/appName';
+import { Hook } from './hook'
+import ProductImageSlide from './image_slide'
+import { CostLabel } from './CommonUI/cost_label'
+import ProductVariation from './ProductVariation/product_variation'
+import ProductCategory from './ProductCategory/product_category'
+import ProductOffers from './ProductOffers'
+import SizeChart from './SizeChart'
+import ProductDescription from './ProductDescription'
+import ProductClip from './ProductClip'
+import ProductVariantDialogBox from './ProductVariantDialogBox'
+import ProductImageDialogBox from './ProductImageDialogBox'
+import { BUY_NOW, ADD_TO_SHOP_CART, NO_VARIANT_CONFIG } from '../util'
+import DialogBox from '../../CommonComponent/DialogBox/dialog_box'
+import { APP_NAME } from '../../../constant/appName'
 
 //images
-import ActiveRatingStar from '../../../assets/productDetail/active_rating_star.svg';
-import RatingStar from '../../../assets/productDetail/rating_star.svg';
-import MinusIcon from '../../../assets/productDetail/minus_icon.svg';
-import PlusIcon from '../../../assets/productDetail/plus_icon.svg';
-import MessageIcon from '../../../assets/productDetail/message.svg';
-import BuyNowIcon from '../../../assets/productDetail/buy_now_icon.svg';
-import BuyNowIconMobile from '../../../assets/productDetail/dollar_mobile.svg';
-import ShopCartIcon from '../../../assets/productDetail/shopping_cart_icon.svg';
-import ShopCartIconMobile from '../../../assets/productDetail/shopping_cart_mobile.svg';
-import WishIcon from '../../../assets/productDetail/wish_icon.svg';
-import ActiveWishIcon from '../../../assets/productDetail/wish_icon_active.svg';
-import WishIconOne from '../../../assets/productDetail/wish_icon_1.svg';
-import ActiveWishIconOne from '../../../assets/productDetail/wish_icon_active_1.svg';
-import ShareIconMobile from '../../../assets/productDetail/share_icon_mobile.svg';
-import ShareIconOne from '../../../assets/productDetail/share_icon_one.svg';
-import BackIconMobile from '../../../assets/productDetail/back_icon_mobile.svg';
-import BackArrowImage from '../../../assets/common/left_arrow_image.png';
-import placeholder from '../../../assets/common/placeholder_icon.svg';
-import Brand from './Brand/Brand';
-import moneyFormatter from '../../../util/moneyFormatter';
+import ActiveRatingStar from '../../../assets/productDetail/active_rating_star.svg'
+import RatingStar from '../../../assets/productDetail/rating_star.svg'
+import MinusIcon from '../../../assets/productDetail/minus_icon.svg'
+import PlusIcon from '../../../assets/productDetail/plus_icon.svg'
+import MessageIcon from '../../../assets/productDetail/message.svg'
+import BuyNowIcon from '../../../assets/productDetail/buy_now_icon.svg'
+import BuyNowIconMobile from '../../../assets/productDetail/dollar_mobile.svg'
+import ShopCartIcon from '../../../assets/productDetail/shopping_cart_icon.svg'
+import ShopCartIconMobile from '../../../assets/productDetail/shopping_cart_mobile.svg'
+import WishIcon from '../../../assets/productDetail/wish_icon.svg'
+import ActiveWishIcon from '../../../assets/productDetail/wish_icon_active.svg'
+import WishIconOne from '../../../assets/productDetail/wish_icon_1.svg'
+import ActiveWishIconOne from '../../../assets/home/wishlist_active.svg'
+import ShareIconMobile from '../../../assets/home/wishlist_no_active.svg'
+import ShareIconOne from '../../../assets/productDetail/share_icon_one.svg'
+import BackIconMobile from '../../../assets/productDetail/back_icon_mobile.svg'
+import BackArrowImage from '../../../assets/common/left_arrow_image.png'
+import placeholder from '../../../assets/common/placeholder_icon.svg'
+import Brand from './Brand/Brand'
+import moneyFormatter from '../../../util/moneyFormatter'
 import {
   FACEBOOK,
   FACEBOOK_NAME,
@@ -61,7 +61,7 @@ import {
   PHONE,
   WEBSITE,
   WEBSITE_NAME,
-} from '../../../constant/contactUs';
+} from '../../../constant/contactUs'
 
 export const ProductSharingBox = ({ shared_url = '', isShow = false }) => {
   return (
@@ -71,9 +71,9 @@ export const ProductSharingBox = ({ shared_url = '', isShow = false }) => {
           isShow ? 'block' : 'hidden'
         } w-full h-auto bg-white shadow-lg border py-3 px-3`}
       >
-        <div className='default-margin-layout space-y-4'>
-          <div className='flex flex-1'>
-            <div className='tertiary-font mx-auto'>
+        <div className="default-margin-layout space-y-4">
+          <div className="flex flex-1">
+            <div className="tertiary-font mx-auto">
               <FacebookShareButton
                 url={shared_url}
                 quote={'The best e-Commerce website in Myanmar'}
@@ -87,12 +87,12 @@ export const ProductSharingBox = ({ shared_url = '', isShow = false }) => {
                 <FacebookMessengerIcon size={30} round={true} />
               </FacebookMessengerShareButton>
             </div> */}
-            <div className='tertiary-font mx-auto'>
+            <div className="tertiary-font mx-auto">
               <ViberShareButton url={shared_url}>
                 <ViberIcon size={30} round={true} />
               </ViberShareButton>
             </div>
-            <div className='tertiary-font mx-auto'>
+            <div className="tertiary-font mx-auto">
               <TelegramShareButton url={shared_url}>
                 <TelegramIcon size={30} round={true} />
               </TelegramShareButton>
@@ -101,55 +101,55 @@ export const ProductSharingBox = ({ shared_url = '', isShow = false }) => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
 export const ContactUsMobile = ({ setOpenContactUsMobile }) => {
   return (
     <>
-      <div className='fixed bottom-0 z-10 h-screen w-full bg-black opacity-40'></div>
-      <div className='grid grid-cols-1 z-20 px-3 py-4 gap-0.5 fixed bottom-0 w-full bg-gray-300'>
-        <div className='bg-white w-full rounded-md rounded-b-none'>
-          <p className='py-3 pl-5'>
+      <div className="fixed bottom-0 z-10 h-screen w-full bg-black opacity-40"></div>
+      <div className="grid grid-cols-1 z-20 px-3 py-4 gap-0.5 fixed bottom-0 w-full bg-gray-300">
+        <div className="bg-white w-full rounded-md rounded-b-none">
+          <p className="py-3 pl-5">
             <a
               href={`tel:${PHONE}`}
-              className='text-md font-semibold text-color-secondary'
+              className="text-md font-semibold text-color-secondary"
             >
               (Contact) {PHONE}
             </a>
           </p>
         </div>
-        <div className='bg-white w-full'>
-          <p className='py-3 pl-5'>
+        <div className="bg-white w-full">
+          <p className="py-3 pl-5">
             <a
               href={MESSENGER}
-              target='_blank'
-              rel='noopener noreferrer'
-              className='text-md font-semibold text-color-secondary'
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-md font-semibold text-color-secondary"
             >
               (Messenger) {MESSENGER_NAME}
             </a>
           </p>
         </div>
-        <div className='bg-white w-full'>
-          <p className='py-3 pl-5'>
+        <div className="bg-white w-full">
+          <p className="py-3 pl-5">
             <a
               href={FACEBOOK}
-              target='_blank'
-              rel='noopener noreferrer'
-              className='text-md font-semibold text-color-secondary'
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-md font-semibold text-color-secondary"
             >
               (Facebook) {FACEBOOK_NAME}
             </a>
           </p>
         </div>
-        <div className='bg-white w-full rounded-md rounded-t-none'>
-          <p className='py-3 pl-5'>
+        <div className="bg-white w-full rounded-md rounded-t-none">
+          <p className="py-3 pl-5">
             <a
               href={WEBSITE}
-              target='_blank'
-              rel='noopener noreferrer'
-              className='text-md font-semibold text-color-secondary'
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-md font-semibold text-color-secondary"
             >
               (Website) {WEBSITE_NAME}
             </a>
@@ -158,76 +158,76 @@ export const ContactUsMobile = ({ setOpenContactUsMobile }) => {
         {/* Cancle Btn */}
         <button
           onClick={() => setOpenContactUsMobile(false)}
-          className='text-color-secondary font-semibold text-md w-full bg-white mt-4 rounded-md py-3'
+          className="text-color-secondary font-semibold text-md w-full bg-white mt-4 rounded-md py-3"
         >
           Cancel
         </button>
       </div>
     </>
-  );
-};
+  )
+}
 
 export const ContactUsWeb = ({ setOpenContactUsWebsite }) => {
   return (
-    <div className='w-full h-auto max-w-screen-sm md:mx-auto backdrop-filter backdrop-blur-sm'>
-      <div className='bg-white w-7/12 relative h-auto mx-auto py-5 rounded-lg'>
+    <div className="w-full h-auto max-w-screen-sm md:mx-auto backdrop-filter backdrop-blur-sm">
+      <div className="bg-white w-7/12 relative h-auto mx-auto py-5 rounded-lg">
         <div
-          className='absolute cursor-pointer right-0.5 top-1'
+          className="absolute cursor-pointer right-0.5 top-1"
           onClick={() => setOpenContactUsWebsite(false)}
         >
           <svg
-            xmlns='http://www.w3.org/2000/svg'
-            height='24px'
-            viewBox='0 0 24 24'
-            width='24px'
-            fill='#000000'
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 0 24 24"
+            width="24px"
+            fill="#000000"
           >
-            <path d='M0 0h24v24H0z' fill='none' />
-            <path d='M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z' />
+            <path d="M0 0h24v24H0z" fill="none" />
+            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
           </svg>
         </div>
-        <div className='mx-4'>
-          <div className='bg-white w-full rounded-md rounded-b-none'>
-            <p className='py-2'>
+        <div className="mx-4">
+          <div className="bg-white w-full rounded-md rounded-b-none">
+            <p className="py-2">
               <a
                 href={`tel:09 - 777001947`}
-                className='text-md font-semibold text-color-secondary'
+                className="text-md font-semibold text-color-secondary"
               >
                 (Contact) 09 - 777001947 / 09 - 777001946
               </a>
             </p>
           </div>
-          <div className='bg-white w-full'>
-            <p className='py-2'>
+          <div className="bg-white w-full">
+            <p className="py-2">
               <a
                 href={MESSENGER}
-                target='_blank'
-                rel='noopener noreferrer'
-                className='text-md font-semibold text-color-secondary'
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-md font-semibold text-color-secondary"
               >
                 (Messenger) {MESSENGER_NAME}
               </a>
             </p>
           </div>
-          <div className='bg-white w-full'>
-            <p className='py-2'>
+          <div className="bg-white w-full">
+            <p className="py-2">
               <a
                 href={FACEBOOK}
-                target='_blank'
-                rel='noopener noreferrer'
-                className='text-md font-semibold text-color-secondary'
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-md font-semibold text-color-secondary"
               >
                 (Facebook) {FACEBOOK_NAME}
               </a>
             </p>
           </div>
-          <div className='bg-white w-full rounded-md rounded-t-none'>
-            <p className='py-2'>
+          <div className="bg-white w-full rounded-md rounded-t-none">
+            <p className="py-2">
               <a
                 href={WEBSITE}
-                target='_blank'
-                rel='noopener noreferrer'
-                className='text-md font-semibold text-color-secondary'
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-md font-semibold text-color-secondary"
               >
                 (Website) {WEBSITE_NAME}
               </a>
@@ -236,8 +236,8 @@ export const ContactUsWeb = ({ setOpenContactUsWebsite }) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
 const ProductInfo = ({
   isSecondaryLoading,
@@ -275,117 +275,117 @@ const ProductInfo = ({
     buyNow,
     changeOnCountTextBox,
     clickOnShopCart,
-  ] = Hook(Detail);
+  ] = Hook(Detail)
 
-  const { t } = useTranslation();
-  const history = useHistory();
-  const [openContactUsMobile, setOpenContactUsMobile] = useState(false);
-  const [openContactUsWebsite, setOpenContactUsWebsite] = useState(false);
-  const sharedUrl = String(window.location.href);
+  const { t } = useTranslation()
+  const history = useHistory()
+  const [openContactUsMobile, setOpenContactUsMobile] = useState(false)
+  const [openContactUsWebsite, setOpenContactUsWebsite] = useState(false)
+  const sharedUrl = String(window.location.href)
   let shareButton = (
     <>
       <div
-        className='hidden md:flex justify-end cursor-pointer'
+        className="hidden md:flex justify-end cursor-pointer"
         onClick={() => setIsShowShareBox(!isShowShareBox)}
       >
-        <img src={ShareIconOne} className='w-4 h-auto' alt='Share Icon One' />
-        <p className='text-lg text-color-secondary py-1 px-2'>
+        <img src={ShareIconOne} className="w-4 h-auto" alt="Share Icon One" />
+        <p className="text-lg text-color-secondary py-1 px-2">
           {t('ProductDetails.share')}
         </p>
       </div>
       <div
-        className='block md:hidden'
+        className="block md:hidden"
         onClick={() => setIsShowShareBox(!isShowShareBox)}
       >
-        <div className=' mr-5 mt-1'>
-          <img src={ShareIconMobile} className='w-8 h-auto' alt='Share Icon' />
+        <div className=" mr-5 mt-1">
+          <img src={ShareIconMobile} className="w-8 h-auto" alt="Share Icon" />
         </div>
       </div>
       <div
-        className='w-full h-auto absolute left-0 top-8
-       hidden md:block'
+        className="w-full h-auto absolute left-0 top-8
+       hidden md:block"
       >
         <ProductSharingBox shared_url={sharedUrl} isShow={isShowShareBox} />
       </div>
     </>
-  );
+  )
 
   let AppRating = (
-    <div className='flex space-x-1 items-center'>
+    <div className="flex space-x-1 items-center">
       <div>
-        <p className='tertiary-font text-color-default'> 4.5 </p>
+        <p className="tertiary-font text-color-default"> 4.5 </p>
       </div>
       <div>
         <img
           src={ActiveRatingStar}
-          className='w-4 md:w-3 h-auto'
-          alt='RatingStarIcons'
+          className="w-4 md:w-3 h-auto"
+          alt="RatingStarIcons"
         />
       </div>
       <div>
         <img
           src={ActiveRatingStar}
-          className='w-4 md:w-3 h-auto'
-          alt='RatingStarIcons'
+          className="w-4 md:w-3 h-auto"
+          alt="RatingStarIcons"
         />
       </div>
       <div>
         <img
           src={RatingStar}
-          className='w-4 md:w-3 h-auto'
-          alt='RatingStarIcons'
+          className="w-4 md:w-3 h-auto"
+          alt="RatingStarIcons"
         />
       </div>
       <div>
         <img
           src={RatingStar}
-          className='w-4 md:w-3 h-auto'
-          alt='RatingStarIcons'
+          className="w-4 md:w-3 h-auto"
+          alt="RatingStarIcons"
         />
       </div>
       <div>
         <img
           src={RatingStar}
-          className='w-4 md:w-3 h-auto'
-          alt='RatingStarIcons'
+          className="w-4 md:w-3 h-auto"
+          alt="RatingStarIcons"
         />
       </div>
     </div>
-  );
+  )
 
   return (
     <>
       {/* Back Arrow, Share Icon and ShopCart Icon Section - Header - For only Mobile View */}
-      <div className='bg-custom-orange z-30 h-auto md:hidden px-4 sticky top-0 w-full'>
-        <div className='flex justify-between py-3 default-margin-layout'>
-          <div className='my-auto' onClick={goBackTo}>
+      <div className="bg-custom-orange z-30 h-auto md:hidden px-4 sticky top-0 w-full bg-white shadow-md">
+        <div className="flex justify-between py-3 default-margin-layout">
+          <div className="my-auto" onClick={goBackTo}>
             <img
               src={BackIconMobile}
-              className='w-8 h-auto'
-              alt='Back Arrow White'
+              className="w-8 h-auto"
+              alt="Back Arrow White"
             />
           </div>
-          <div className='flex space-x-3'>
+          <div className="flex space-x-3">
             {shareButton}
-            <div className='relative' onClick={clickOnShopCart}>
+            <div className="relative" onClick={clickOnShopCart}>
               {CartCount > 0 && (
-                <div className='absolute -top-2 right-4 w-5 h-5 rounded-full flex items-center justify-center bg-red-600'>
-                  <p className='text-color-white caption-font'>{CartCount}</p>
+                <div className="absolute -top-2 right-4 w-5 h-5 rounded-full flex items-center justify-center bg-red-600">
+                  <p className="text-color-white caption-font">{CartCount}</p>
                 </div>
               )}
-              <div className='pt-1'>
+              <div className="pt-1">
                 <img
                   src={ShopCartIconMobile}
-                  className='w-8 h-auto'
-                  alt='Cart Icon'
+                  className="w-8 h-auto"
+                  alt="Cart Icon"
                 />
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div className='flex flex-col md:flex-row md:pb-0'>
-        <div className='bg-white h-auto relative w-full md:w-5/12'>
+      <div className="flex flex-col md:flex-row md:pb-0">
+        <div className="bg-white h-auto relative w-full md:w-5/12">
           <ProductImageSlide
             ProductImageArray={Detail.productImage}
             openImageVariantBox={openImageVariantBox}
@@ -404,29 +404,29 @@ const ProductInfo = ({
           <img
             onClick={clickOnWishList}
             src={IsFavWish ? ActiveWishIconOne : WishIconOne}
-            className='w-6 h-6 absolute top-2 right-2 cursor-pointer'
-            alt='Wish Icon'
+            className="w-6 h-6 absolute top-2 right-2 cursor-pointer z-10"
+            alt="Wish Icon"
           />
         </div>
 
-        <div className=' w-full md:w-9/12'>
-          <div className='bg-white pb-4 md:py-4'>
-            <div className=' space-y-2'>
+        <div className=" w-full md:w-9/12">
+          <div className="bg-white pb-4 md:py-4">
+            <div className=" space-y-2">
               {/* For Web  */}
               {/* Buy 1 Get 1  */}
               {Detail.isGetOne &&
                 (Detail?.promotionGetOne.productId ===
                 Detail?.promotionGetOne.getOneProductId ? (
-                  <div className='hidden ml-8 md:flex bg-gradient-to-r md:-mt-4 md:mb-6 bg-yellow-300 h-12 items-center text-color-white'>
-                    <span className='h-7 w-7 ml-3 bg-black rounded-full flex items-center justify-center font-bold text-color-yellow'>
+                  <div className="hidden ml-8 md:flex  md:-mt-4 md:mb-6 bg-gradient-to-r from-custom-main to-custom-primary h-12 items-center text-color-white">
+                    <span className="h-7 w-7 ml-3 bg-black rounded-full flex items-center justify-center font-bold text-color-yellow">
                       +1
                     </span>
-                    <p className='text-color-white custom-font-bold ml-2 primary-font'>
+                    <p className="text-color-white custom-font-bold ml-2 primary-font">
                       Buy 1 get 1 same item
                     </p>
                   </div>
                 ) : (
-                  <div className='hidden ml-8 md:flex items-center text-color-white bg-gradient-to-r -mt-3 py-2 px-2 from-yellow-300 to-yellow-500'>
+                  <div className="hidden ml-8 md:flex items-center text-color-white -mt-3 py-2 px-2 bg-gradient-to-r from-custom-main to-custom-primary">
                     <img
                       src={
                         Detail?.promotionGetOne?.getOneProductImage[0]
@@ -435,22 +435,22 @@ const ProductInfo = ({
                               ?.thumbnailUrl
                           : placeholder
                       }
-                      alt='ProductImg'
-                      className='h-14 w-14 flex flex-shrink-0 object-cover'
+                      alt="ProductImg"
+                      className="h-14 w-14 flex flex-shrink-0 object-cover"
                       onError={(e) => (e.target.src = placeholder)}
                     />
-                    <div className='flex flex-col pl-3'>
-                      <span className='text-sm font-normal'>
+                    <div className="flex flex-col pl-3">
+                      <span className="text-sm font-normal">
                         Get this item free for buying
                       </span>
-                      <span className='text-base font-medium'>
+                      <span className="text-base font-medium">
                         {Detail?.promotionGetOne.getOneProductName}
                       </span>
-                      <div className='flex gap-2 items-center'>
-                        <span className='text-sm font-normal'>Only</span>
-                        <span className='text-md font-semibold text-color-primary'>
+                      <div className="flex gap-2 items-center">
+                        <span className="text-sm font-normal">Only</span>
+                        <span className="text-md font-semibold text-color-primary">
                           {moneyFormatter(
-                            Detail?.promotionGetOne.getOneOriginalPrice
+                            Detail?.promotionGetOne.getOneOriginalPrice,
                           )}{' '}
                           {t('Common.kyats')}
                         </span>
@@ -460,32 +460,32 @@ const ProductInfo = ({
                 ))}
               {/* End For Web  */}
 
-              <div className='flex justify-between relative'>
+              <div className="flex justify-between relative">
                 {Detail.promotePercent > 0 && (
-                  <div className='md:col-span-2 md:my-2 mx-4 md:mx-8'>
-                    <div className='flex '>
-                      <p className='tertiary-font text-color-white bg-promote-price-percent px-3 py-1'>
+                  <div className="md:col-span-2 md:my-2 mx-4 md:mx-8">
+                    <div className="flex ">
+                      <p className="tertiary-font text-color-white bg-promote-price-percent px-3 py-1">
                         {Detail.promotePercent}% Off
                       </p>
                     </div>
                   </div>
                 )}
-                <div className='md:flex gap-3 md:my-2 mx-4 md:mx-8'>
-                  <div className='col-span-6 hidden md:block'>
+                <div className="md:flex gap-3 md:my-2 mx-4 md:mx-8">
+                  <div className="col-span-6 hidden md:block">
                     {shareButton}
                   </div>
-                  <div className='flex items-center space-x-2 '>
+                  <div className="flex items-center space-x-2 ">
                     <div
-                      className=' w-6 md:w-6 h-auto cursor-pointer md:mr-auto mr-4 hidden md:block'
+                      className=" w-6 md:w-6 h-auto cursor-pointer md:mr-auto mr-4 hidden md:block"
                       onClick={clickOnWishList}
                     >
                       <img
                         src={IsFavWish ? ActiveWishIcon : WishIcon}
-                        className='w-full h-full -mb-2 md:mb-0'
-                        alt='Wish Icon'
+                        className="w-full h-full -mb-2 md:mb-0"
+                        alt="Wish Icon"
                       />
                     </div>
-                    <p className='text-lg text-color-secondary hidden md:block'>
+                    <p className="text-lg text-color-secondary hidden md:block">
                       Add to wishlist
                     </p>
                   </div>
@@ -494,20 +494,20 @@ const ProductInfo = ({
               <ProductCategory CategoryArray={Detail?.categorySteps} />
 
               {Detail.isGetOne && (
-                <div className='w-24 text-center mx-4 md:mx-8'>
-                  <p className='py-1 px-1 bg-red-500 text-color-white primary-font'>
+                <div className="w-24 text-center mx-4 md:mx-8">
+                  <p className="py-1 px-1 bg-red-500 text-color-white primary-font">
                     Buy 1 Get 1
                   </p>
                 </div>
               )}
-              <div className='mx-4 md:mx-8'>
-                <p className='sub-heading-font-h3 text-xl text-color-default'>
+              <div className="mx-4 md:mx-8">
+                <p className="sub-heading-font-h3 text-xl text-color-default">
                   {Detail.name}
                 </p>
               </div>
 
-              <div className='flex flex-wrap md:flex-wrap-reverse space-y-2 md:space-y-0 mx-5 md:mx-auto mt-0'>
-                <div className='w-full h-auto'>
+              <div className="flex flex-wrap md:flex-wrap-reverse space-y-2 md:space-y-0 md:mx-5 md:mx-auto mt-0">
+                <div className="w-full h-auto">
                   {selectedSku.length > 0 ? (
                     <CostLabel
                       PromotePercent={selectedSku[0]?.promotePercent}
@@ -537,21 +537,21 @@ const ProductInfo = ({
             OpenVariantBox={() => openVariantBox(NO_VARIANT_CONFIG)}
           />
           {/* For Mobile  */}
-          <div className='bg-custom-orange md:hidden mt-1 fixed md:relative bottom-0 w-full h-auto z-30'>
+          <div className="bg-custom-orange md:hidden mt-1 fixed md:relative bottom-0 w-full h-auto z-30">
             {/* Buy 1 Get 1  */}
             {Detail.isGetOne &&
               (Detail?.promotionGetOne.productId ===
               Detail?.promotionGetOne.getOneProductId ? (
-                <div className=' bg-custom-buyone h-16 flex items-center text-color-white'>
-                  <span className='h-9 w-9 ml-3 bg-black rounded-full flex items-center justify-center font-bold text-color-yellow'>
+                <div className=" bg-custom-primary h-16 flex items-center text-color-white">
+                  <span className="h-9 w-9 ml-3 bg-black rounded-full flex items-center justify-center font-bold text-color-yellow">
                     +1
                   </span>
-                  <p className='text-color-default font-medium ml-5'>
+                  <p className="text-color-white font-medium ml-5">
                     Buy 1 get 1 same item
                   </p>
                 </div>
               ) : (
-                <div className=' bg-gradient-to-r from-custom-primary to-custom-primary-light h-20 flex items-center text-color-white'>
+                <div className=" bg-gradient-to-r from-custom-main to-custom-primary h-20 flex items-center text-color-white">
                   <img
                     src={
                       Detail?.promotionGetOne?.getOneProductImage[0]
@@ -560,22 +560,22 @@ const ProductInfo = ({
                             ?.thumbnailUrl
                         : placeholder
                     }
-                    alt='ProductImg'
-                    className='h-16 w-16 ml-2 flex flex-shrink-0 object-cover'
+                    alt="ProductImg"
+                    className="h-16 w-16 ml-2 flex flex-shrink-0 object-cover"
                     onError={(e) => (e.target.src = placeholder)}
                   />
-                  <div className='flex flex-col pl-3'>
-                    <span className='text-sm font-normal'>
+                  <div className="flex flex-col pl-3">
+                    <span className="text-sm font-normal">
                       Get this item free for buying
                     </span>
-                    <span className='text-base font-medium'>
+                    <span className="text-base font-medium">
                       {Detail?.promotionGetOne.getOneProductName}
                     </span>
-                    <div className='flex gap-2 items-center'>
-                      <span className='text-sm font-normal'>Only</span>
-                      <span className='text-md font-semibold text-color-primary'>
+                    <div className="flex gap-2 items-center">
+                      <span className="text-sm font-normal">Only</span>
+                      <span className="text-md font-semibold text-color-primary">
                         {moneyFormatter(
-                          Detail?.promotionGetOne.getOneOriginalPrice
+                          Detail?.promotionGetOne.getOneOriginalPrice,
                         )}{' '}
                         {t('Common.kyats')}
                       </span>
@@ -583,133 +583,135 @@ const ProductInfo = ({
                   </div>
                 </div>
               ))}
-            <div className='grid grid-cols-3'>
+            <div className="grid grid-cols-3">
               <button
-                className='bg-gray-400 py-4 tertiary-font text-color-white'
+                className="bg-gray-400 py-4 tertiary-font text-color-white"
                 onClick={() => setOpenContactUsMobile(true)}
               >
-                <div className='flex items-center justify-center space-x-2'>
-                  <div className='w-5 h-auto'>
+                <div className="flex items-center justify-center space-x-2">
+                  <div className="w-5 h-auto">
                     <img
                       src={MessageIcon}
-                      className='w-full h-full'
-                      alt='Buy Now Icon'
+                      className="w-full h-full"
+                      alt="Buy Now Icon"
                     />
                   </div>
-                  <p className='truncate'>Contact Us</p>
+                  <p className="truncate">Contact Us</p>
                 </div>
               </button>
               <button
-                className='bg-custom-buyone border-r-2 border-gray-200 tertiary-font text-color-default py-4 '
+                className="bg-custom-primary border-r-2 border-gray-200 tertiary-font text-color-default py-4 "
                 onClick={() => openVariantBox(BUY_NOW)}
               >
-                <div className='flex items-center justify-center space-x-2'>
-                  <div className='w-4 h-auto'>
+                <div className="flex items-center justify-center space-x-2">
+                  <div className="w-4 h-auto">
                     <img
                       src={BuyNowIconMobile}
-                      className='w-4 h-5'
-                      alt='Buy Now Icon'
+                      className="w-4 h-5"
+                      alt="Buy Now Icon"
                     />
                   </div>
-                  <p className='truncate'>{t('ProductDetails.buy-now')}</p>
+                  <p className="truncate text-color-white">
+                    {t('ProductDetails.buy-now')}
+                  </p>
                 </div>
               </button>
               <button
-                className='border-custom-orange bg-gray-50 tertiary-font py-4'
+                className="border-custom-orange bg-gray-50 tertiary-font py-4"
                 onClick={() => openVariantBox(ADD_TO_SHOP_CART)}
               >
-                <div className='flex items-center justify-center space-x-2'>
-                  <div className='w-5 h-auto'>
+                <div className="flex items-center justify-center space-x-2">
+                  <div className="w-5 h-auto">
                     <img
                       src={ShopCartIcon}
-                      className='w-full h-full'
-                      alt='Add To Cart Icon'
+                      className="w-full h-full"
+                      alt="Add To Cart Icon"
                     />
                   </div>
-                  <p className='truncate'>{t('ProductDetails.add-to-cart')}</p>
+                  <p className="truncate">{t('ProductDetails.add-to-cart')}</p>
                 </div>
               </button>
             </div>
           </div>
           {/* For Web  */}
-          <div className='bg-white hidden md:block mt-1 py-4 md:py-2 fixed md:relative bottom-0 w-full h-auto z-10'>
-            <div className='mx-4 md:ml-8'>
-              <div className='grid grid-cols-8 gap-x-2 md:grid-cols-1 md:gap-x-0 md:gap-y-6'>
-                <div className=''>
-                  <div className='lg:flex lg:justify-between items-center grid grid-cols-2 gap-x-3 gap-y-3'>
-                    <div className='grid grid-cols-3 flex-1'>
+          <div className="bg-white hidden md:block mt-1 py-4 md:py-2 fixed md:relative bottom-0 w-full h-auto z-10">
+            <div className="mx-4 md:ml-8">
+              <div className="grid grid-cols-8 gap-x-2 md:grid-cols-1 md:gap-x-0 md:gap-y-6">
+                <div className="">
+                  <div className="lg:flex lg:justify-between items-center grid grid-cols-2 gap-x-3 gap-y-3">
+                    <div className="grid grid-cols-3 flex-1">
                       <div
-                        className='w-11 md:w-11 h-auto cursor-pointer'
+                        className="w-11 md:w-11 h-auto cursor-pointer"
                         onClick={decreaseItemCount}
                       >
                         <img
                           src={MinusIcon}
-                          className='w-full h-full rounded-lg'
-                          alt='Minus Icon'
+                          className="w-full h-full rounded-lg"
+                          alt="Minus Icon"
                         />
                       </div>
                       <input
-                        type='number'
+                        type="number"
                         value={itemCount}
-                        className='w-full md:w-2/12 h-auto ml-4 bg-white text-color-default text-center primary-font py-2'
+                        className="w-full md:w-2/12 h-auto ml-4 bg-white text-color-default text-center primary-font py-2"
                         onChange={changeOnCountTextBox}
                         disabled={selectedSku.length > 0 ? false : true}
                       />
                       <div
-                        className='w-11 md:w-11 h-auto cursor-pointer'
+                        className="w-11 md:w-11 h-auto cursor-pointer"
                         onClick={increaseItemCount}
                       >
                         <img
                           src={PlusIcon}
-                          className='w-full h-full rounded-lg'
-                          alt='Plus Icon'
+                          className="w-full h-full rounded-lg"
+                          alt="Plus Icon"
                         />
                       </div>
                     </div>
                     <button
-                      className='flex-1 rounded-lg border-2 border-custom-primary tertiary-font py-4'
+                      className="border-2 flex-1 border-custom-main rounded-lg tertiary-font py-2.5"
                       onClick={() => openVariantBox(BUY_NOW)}
                     >
-                      <div className='flex items-center justify-center space-x-2'>
-                        <div className='w-5 h-auto'>
+                      <div className="flex items-center justify-center space-x-2">
+                        <div className="w-5 h-auto">
                           <img
                             src={BuyNowIcon}
-                            className='w-full h-full'
-                            alt='Buy Now Icon'
+                            className="w-full h-full"
+                            alt="Buy Now Icon"
                           />
                         </div>
-                        <p className='truncate'>
+                        <p className="truncate text-color-primary font-semibold">
                           {t('ProductDetails.buy-now')}
                         </p>
                       </div>
                     </button>
                     <button
-                      className='border-2 flex-1 border-custom-main rounded-lg tertiary-font text-color-white py-2.5'
+                      className="border-2 flex-1 border-custom-main rounded-lg tertiary-font text-color-white py-2.5"
                       onClick={() => openVariantBox(ADD_TO_SHOP_CART)}
                     >
-                      <div className='flex items-center justify-center space-x-2'>
-                        <div className='w-5 h-auto'>
+                      <div className="flex items-center justify-center space-x-2">
+                        <div className="w-5 h-auto">
                           <img
                             src={ShopCartIcon}
-                            className='w-full h-full'
-                            alt='Add To Cart Icon'
+                            className="w-full h-full"
+                            alt="Add To Cart Icon"
                           />
                         </div>
-                        <p className='truncate text-color-primary font-semibold'>
+                        <p className="truncate text-color-primary font-semibold">
                           {t('ProductDetails.add-to-cart')}
                         </p>
                       </div>
                     </button>
                     <button
-                      className='bg-gray-400 w-16 rounded-lg tertiary-font text-color-white py-2.5'
+                      className="bg-custom-primary w-16 rounded-lg tertiary-font text-color-white py-2.5"
                       onClick={() => setOpenContactUsWebsite(true)}
                     >
-                      <div className='flex items-center justify-center space-x-2'>
-                        <div className='w-5 h-auto'>
+                      <div className="flex items-center justify-center space-x-2">
+                        <div className="w-5 h-auto">
                           <img
                             src={MessageIcon}
-                            className='w-full h-full'
-                            alt='Buy Now Icon'
+                            className="w-full h-full"
+                            alt="Buy Now Icon"
                           />
                         </div>
                       </div>
@@ -771,14 +773,14 @@ const ProductInfo = ({
         />
       </DialogBox>
       <ToastContainer
-        position='top-center'
+        position="top-center"
         autoClose={2000}
         limit={3}
         closeOnClick
         draggable
         hideProgressBar={true}
       />
-      <div className='fixed bottom-0 w-full h-auto md:hidden'>
+      <div className="fixed bottom-0 w-full h-auto md:hidden">
         <ProductSharingBox shared_url={sharedUrl} isShow={isShowShareBox} />
       </div>
       <DialogBox
@@ -795,7 +797,7 @@ const ProductInfo = ({
         />
       </DialogBox>
     </>
-  );
-};
+  )
+}
 
-export default ProductInfo;
+export default ProductInfo
