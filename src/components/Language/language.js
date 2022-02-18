@@ -61,7 +61,7 @@ export default function LanguageChanges() {
           <img src={BackArrowIcon} className="w-3 h-auto" alt="Back Arrow" />
         </div>
       </div>
-      <div className="container w-11/12 h-auto max-w-screen-lg mx-auto py-14">
+      <div className="container w-11/12 h-auto mx-auto py-14">
         <div
           className="grid grid-cols-1 gap-y-10
         md:grid-cols-2
