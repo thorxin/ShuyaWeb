@@ -1,21 +1,21 @@
-import React from 'react'
-import { useHistory } from 'react-router'
+import React from "react";
+import { useHistory } from "react-router";
 
-import 'react-responsive-carousel/lib/styles/carousel.min.css'
-import { Carousel } from 'react-responsive-carousel'
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from "react-responsive-carousel";
 
 // component
-import { goToProductSearchResult } from '../../../util/goToSpecificPathName'
+import { goToProductSearchResult } from "../../../util/goToSpecificPathName";
 import {
   SEARCH_BEST_SELLING,
   SEARCH_LATEST,
   SEARCH_PROMOTION,
-} from '../../../constant/search'
+} from "../../../constant/search";
 import {
   BEST_SELLING_BANNER_LINK,
   DISCOUNT_PRODUCT_BANNER_LINK_ID,
   LATEST_PRODUCT_BANNER_LINK_ID,
-} from '../../../constant/bannerConfig'
+} from "../../../constant/bannerConfig";
 
 const ADSlider = ({
   ADListArray = [],
@@ -23,39 +23,39 @@ const ADSlider = ({
    * action
    */
 }) => {
-  const history = useHistory()
+  const history = useHistory();
   // let WebBanner = ADListArray;
   // let MobileBanner = ADListArray;
-  let WebBanner = ADListArray.filter((banner) => banner.isWeb === 1)
-  let MobileBanner = ADListArray.filter((banner) => banner.isWeb !== 1)
+  let WebBanner = ADListArray.filter((banner) => banner.isWeb === 1);
+  let MobileBanner = ADListArray.filter((banner) => banner.isWeb !== 1);
   const goToProductSearch = (banner_link_id = 0) => {
-    let propsData
+    let propsData;
     switch (banner_link_id) {
       case DISCOUNT_PRODUCT_BANNER_LINK_ID:
         propsData = {
           searchType: SEARCH_PROMOTION,
-        }
-        break
+        };
+        break;
       case LATEST_PRODUCT_BANNER_LINK_ID:
         propsData = {
           searchType: SEARCH_LATEST,
-        }
-        break
+        };
+        break;
       case BEST_SELLING_BANNER_LINK:
         propsData = {
           searchType: SEARCH_BEST_SELLING,
-        }
-        break
+        };
+        break;
       default:
-        break
+        break;
     }
 
-    goToProductSearchResult(history, propsData)
-  }
+    goToProductSearchResult(history, propsData);
+  };
 
   return (
     <>
-      <div className="mx-auto my-4 hidden md:block w-full">
+      <div className="mx-auto hidden md:block w-full">
         <Carousel showThumbs={false} infiniteLoop={true} autoPlay={true}>
           {WebBanner.length > 0 &&
             WebBanner.map((ad, index) => (
@@ -92,7 +92,7 @@ const ADSlider = ({
         </Carousel>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default ADSlider
+export default ADSlider;

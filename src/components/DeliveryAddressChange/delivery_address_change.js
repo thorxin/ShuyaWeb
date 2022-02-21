@@ -1,25 +1,25 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 // lib
-import { useTranslation } from 'react-i18next'
-import FooterWeb from '../CommonComponent/Footer/web_footer'
-import FooterMobile from '../CommonComponent/Footer/mobile_footer'
-import NavigationWeb from '../CommonComponent/Navigation/NavigationWeb'
+import { useTranslation } from "react-i18next";
+import FooterWeb from "../CommonComponent/Footer/web_footer";
+import FooterMobile from "../CommonComponent/Footer/mobile_footer";
+import NavigationWeb from "../CommonComponent/Navigation/NavigationWeb";
 //images
-import LeftArrowImage from '../../assets/productSearch/left_arrow_image.png'
+import LeftArrowImage from "../../assets/productSearch/left_arrow_image.png";
 // hook
-import { Hook } from './hook'
-import Box from '../CommonComponent/AddressDropBox/box'
-import { ErrorMessageBoxValidation } from '../CommonComponent/error_box'
-import { DEFAULT_TOWNSHIP } from '../../constant/defaultTownship'
-import AuthenticationLoading from '../CommonComponent/Loading/auth_loading'
-import Loading from '../CommonComponent/Loading/main_loading'
-import AddNewAddress from '../../containers/Order/container.addnewaddress'
+import { Hook } from "./hook";
+import Box from "../CommonComponent/AddressDropBox/box";
+import { ErrorMessageBoxValidation } from "../CommonComponent/error_box";
+import { DEFAULT_TOWNSHIP } from "../../constant/defaultTownship";
+import AuthenticationLoading from "../CommonComponent/Loading/auth_loading";
+import Loading from "../CommonComponent/Loading/main_loading";
+import AddNewAddress from "../../containers/Order/container.addnewaddress";
 import {
   HOME_LABEL,
   OTHER_LABEL,
   WORK_LABEL,
-} from '../../constant/deliveryLabelConfig'
-import { LabelIcon } from './label_icon'
+} from "../../constant/deliveryLabelConfig";
+import { LabelIcon } from "./label_icon";
 
 export default function DeliveryAddresChange(props) {
   const [
@@ -32,17 +32,17 @@ export default function DeliveryAddresChange(props) {
     goBack,
     changedSelectedDeliveryAddress,
     delete_address,
-  ] = Hook(props)
-  const { t } = useTranslation()
+  ] = Hook(props);
+  const { t } = useTranslation();
   const {
     deliveryAddress = [],
     isTeritaryLoading = false,
     isSecondaryLoading = false,
-  } = props
-  const [openAddAddress, setOpenAddAddress] = useState(false)
-  const checkEditSaveDisabled = parseInt(originVal) === parseInt(selectedVal)
-  const [labelFilter, setLabelFilter] = useState(HOME_LABEL)
-  if (isTeritaryLoading) return <Loading />
+  } = props;
+  const [openAddAddress, setOpenAddAddress] = useState(false);
+  const checkEditSaveDisabled = parseInt(originVal) === parseInt(selectedVal);
+  const [labelFilter, setLabelFilter] = useState(HOME_LABEL);
+  if (isTeritaryLoading) return <Loading />;
 
   return (
     <>
@@ -55,9 +55,9 @@ export default function DeliveryAddresChange(props) {
                 className="flex items-center space-x-3 cursor-pointer mt-4 ml-4 md:ml-auto"
                 onClick={() => {
                   if (openAddAddress) {
-                    setOpenAddAddress(false)
+                    setOpenAddAddress(false);
                   } else {
-                    goBack()
+                    goBack();
                   }
                 }}
               >
@@ -69,14 +69,14 @@ export default function DeliveryAddresChange(props) {
                   />
                 </div>
                 <p className="primary-font text-color-default">
-                  {t('Common.back')}
+                  {t("Common.back")}
                 </p>
               </div>
             </div>
             <div className="bg-white h-auto min-h-screen md:min-h-full">
               <div className="flex flex-col justify-between mx-4 md:mx-8 py-3">
                 <p className="truncate h-auto sub-heading-font-h3 text-color-default">
-                  {openAddAddress ? 'Add New Address' : 'Select Address'}
+                  {openAddAddress ? "Add New Address" : "Select Address"}
                 </p>
                 {!openAddAddress ? (
                   <>
@@ -98,7 +98,7 @@ export default function DeliveryAddresChange(props) {
                                 {data.address},
                                 {data.townshipName !== DEFAULT_TOWNSHIP && (
                                   <span>{data.townshipName},</span>
-                                )}{' '}
+                                )}{" "}
                                 {data.cityName}
                               </p>
                               {data.landmark && (
@@ -157,18 +157,18 @@ export default function DeliveryAddresChange(props) {
                       <div className="grid grid-cols-2 gap-x-2">
                         <div>
                           <button
-                            className="secondary-btn tertiary-font py-2"
+                            className="secondary-btn border-2 border-custom-primary tertiary-font py-2"
                             onClick={() => setSelectedVal(originVal)}
                           >
-                            {t('Common.not-do')}
+                            {t("Common.not-do")}
                           </button>
                         </div>
                         <div>
                           <button
                             disabled={checkEditSaveDisabled}
-                            className={`primary-btn tertiary-font py-2 ${
+                            className={`primary-btn bg-custom-primary tertiary-font py-2 ${
                               checkEditSaveDisabled &&
-                              'cursor-not-allowed opacity-50'
+                              "cursor-not-allowed opacity-50"
                             }`}
                             onClick={changedSelectedDeliveryAddress}
                           >
@@ -189,8 +189,8 @@ export default function DeliveryAddresChange(props) {
                         onClick={() => setLabelFilter(HOME_LABEL)}
                         className={`py-1.5 px-3 rounded-full uppercase text-sm font-semibold ${
                           labelFilter === HOME_LABEL
-                            ? 'bg-custom-primary text-color-white '
-                            : 'bg-gray-200'
+                            ? "bg-custom-primary text-color-white "
+                            : "bg-gray-200"
                         }`}
                       >
                         Home
@@ -199,8 +199,8 @@ export default function DeliveryAddresChange(props) {
                         onClick={() => setLabelFilter(WORK_LABEL)}
                         className={`py-1.5 px-3 rounded-full uppercase text-sm font-semibold ${
                           labelFilter === WORK_LABEL
-                            ? 'bg-custom-primary text-color-white '
-                            : 'bg-gray-200'
+                            ? "bg-custom-primary text-color-white "
+                            : "bg-gray-200"
                         }`}
                       >
                         Work
@@ -209,8 +209,8 @@ export default function DeliveryAddresChange(props) {
                         onClick={() => setLabelFilter(OTHER_LABEL)}
                         className={`py-1.5 px-3 rounded-full uppercase text-sm font-semibold ${
                           labelFilter === OTHER_LABEL
-                            ? 'bg-custom-primary text-color-white '
-                            : 'bg-gray-200'
+                            ? "bg-custom-primary text-color-white "
+                            : "bg-gray-200"
                         }`}
                       >
                         Other
@@ -232,5 +232,5 @@ export default function DeliveryAddresChange(props) {
       <FooterWeb />
       <FooterMobile />
     </>
-  )
+  );
 }

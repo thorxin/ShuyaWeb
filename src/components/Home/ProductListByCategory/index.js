@@ -1,28 +1,28 @@
 /** @format */
 
-import React from 'react'
-import { useTranslation } from 'react-i18next'
-import { useHistory } from 'react-router'
-import { SEARCH_CATEGORY } from '../../../constant/search'
-import { goToProductSearchResult } from '../../../util/goToSpecificPathName'
-import { Tab } from '@headlessui/react'
-import { Fragment } from 'react'
+import React from "react";
+import { useTranslation } from "react-i18next";
+import { useHistory } from "react-router";
+import { SEARCH_CATEGORY } from "../../../constant/search";
+import { goToProductSearchResult } from "../../../util/goToSpecificPathName";
+import { Tab } from "@headlessui/react";
+import { Fragment } from "react";
 
-import ProductCardHeading from './productCardHeading'
-import ProductCard from './productCard_Category'
+import ProductCardHeading from "./productCardHeading";
+import ProductCard from "./productCard_Category";
 
 const ProductListByCategory = ({ categories = [] }) => {
-  const { t } = useTranslation()
-  const history = useHistory()
+  const { t } = useTranslation();
+  const history = useHistory();
 
   const clickOnViewMore = (id, name) => {
     let propsData = {
       searchType: SEARCH_CATEGORY,
       categoryId: id,
       categoryName: name,
-    }
-    goToProductSearchResult(history, propsData)
-  }
+    };
+    goToProductSearchResult(history, propsData);
+  };
 
   return (
     <div className="mb-2 mt-10">
@@ -37,12 +37,12 @@ const ProductListByCategory = ({ categories = [] }) => {
                     <button
                       key={category.id}
                       className={`flex md:w-92 items-center space-x-2 ${
-                        selected ? 'border-b-2 border-custom-primary' : ''
+                        selected ? "border-b-2 border-custom-primary" : ""
                       }`}
                     >
                       <p
-                        className={`mx-auto text-center sub-heading-font-h3 ${
-                          selected ? '' : 'sub-heading-font-gray'
+                        className={`mx-auto text-center section-title-font sub-heading-font-h3 ${
+                          selected ? "" : "sub-heading-font-gray"
                         }`}
                       >
                         {category.name}
@@ -55,9 +55,9 @@ const ProductListByCategory = ({ categories = [] }) => {
               <Tab as={Fragment}>
                 <button
                   className="px-5 py-2 flex w-44 items-center space-x-2"
-                  onClick={() => history.push('/productsearch')}
+                  onClick={() => history.push("/productsearch")}
                 >
-                  <span className="sub-heading-font-gray sub-heading-font-h3">
+                  <span className="section-title-font sub-heading-font-gray sub-heading-font-h3">
                     {/* {t('Common.view-more')} */}
                     More
                   </span>
@@ -93,7 +93,7 @@ const ProductListByCategory = ({ categories = [] }) => {
                     onClick={() => clickOnViewMore(category.id, category.name)}
                   >
                     <span className="tertiary-font">
-                      {t('Common.view-more')}
+                      {t("Common.view-more")}
                     </span>
                   </button>
                 )}
@@ -108,7 +108,7 @@ const ProductListByCategory = ({ categories = [] }) => {
       </button> */}
       {/* <div className="h-1  bg-gray-300 block md:hidden"></div> */}
     </div>
-  )
-}
+  );
+};
 
-export default ProductListByCategory
+export default ProductListByCategory;

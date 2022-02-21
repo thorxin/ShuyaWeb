@@ -1,14 +1,14 @@
 /** @format */
 
-import React, { useState, useEffect } from 'react'
-import { useTranslation } from 'react-i18next'
-import { useHistory } from 'react-router'
-import { goProductDetails } from '../../../util/goToSpecificPathName'
+import React, { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
+import { useHistory } from "react-router";
+import { goProductDetails } from "../../../util/goToSpecificPathName";
 
 //components
-import moneyFormatter from '../../../util/moneyFormatter'
-import WishIconOne from '../../../assets/home/wishlist_active.svg'
-import ActiveWishIconOne from './../../../assets/home/wishlist_no_active.svg'
+import moneyFormatter from "../../../util/moneyFormatter";
+import WishIconOne from "../../../assets/home/wishlist_active.svg";
+import ActiveWishIconOne from "./../../../assets/home/wishlist_no_active.svg";
 
 const ProductCart = ({
   ProductId,
@@ -18,32 +18,32 @@ const ProductCart = ({
   TextColor_Price_2,
   clickOnWishList,
 }) => {
-  const { t } = useTranslation()
-  const history = useHistory()
-  const [isFav, setIsFav] = useState(false)
+  const { t } = useTranslation();
+  const history = useHistory();
+  const [isFav, setIsFav] = useState(false);
 
   useEffect(() => {
-    setIsFav(Product.isFav || false)
-  }, [Product?.isFav])
+    setIsFav(Product.isFav || false);
+  }, [Product?.isFav]);
 
   let price = (
     <div>
       <p className={`primary-font text-color-primary custom-font-bold`}>
-        {moneyFormatter(Product.originalPrice)} {t('ProductDetails.kyats')}{' '}
+        {moneyFormatter(Product.originalPrice)} {t("ProductDetails.kyats")}{" "}
       </p>
     </div>
-  )
+  );
   if (Product.promotePercent > 0) {
     price = (
       <div>
         <p className={`primary-font text-color-primary custom-font-bold`}>
-          {moneyFormatter(Product.promotePrice)} {t('ProductDetails.kyats')}{' '}
+          {moneyFormatter(Product.promotePrice)} {t("ProductDetails.kyats")}{" "}
         </p>
         <p className={`tertiary-font text-color-secondary line-through `}>
-          {moneyFormatter(Product.originalPrice)} {t('ProductDetails.kyats')}{' '}
+          {moneyFormatter(Product.originalPrice)} {t("ProductDetails.kyats")}{" "}
         </p>
       </div>
-    )
+    );
   }
 
   return (
@@ -55,9 +55,9 @@ const ProductCart = ({
         {/* Toggle Fav Btn */}
         <button
           onClick={(e) => {
-            e.stopPropagation()
-            setIsFav(!isFav)
-            clickOnWishList(ProductId, Product.isFav)
+            e.stopPropagation();
+            setIsFav(!isFav);
+            clickOnWishList(ProductId, Product.isFav);
           }}
           className="absolute z-10 right-1 top-2 w-6 h-6"
         >
@@ -77,7 +77,7 @@ const ProductCart = ({
           </div>
           {Product.promotePercent > 0 && (
             <div className="absolute bottom-0 bg-promote-price-percent">
-              <p className="caption-font text-color-default px-2">
+              <p className="caption-font text-color-white px-2">
                 {Product.promotePercent}% Off
               </p>
             </div>
@@ -92,7 +92,7 @@ const ProductCart = ({
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default ProductCart
+export default ProductCart;

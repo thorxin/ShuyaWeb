@@ -1,33 +1,33 @@
 /** @format */
 
-import React from 'react'
-import { useTranslation } from 'react-i18next'
-import { ToastContainer } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
+import React from "react";
+import { useTranslation } from "react-i18next";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 //components
-import { Hook } from './hook'
-import NavigationWeb from '../CommonComponent/Navigation/NavigationWeb'
-import FooterWeb from '../CommonComponent/Footer/web_footer'
-import { SubHeadingWithBackArrow } from '../CommonComponent/SubHeading/sub_heading_with_back_arrow'
+import { Hook } from "./hook";
+import NavigationWeb from "../CommonComponent/Navigation/NavigationWeb";
+import FooterWeb from "../CommonComponent/Footer/web_footer";
+import { SubHeadingWithBackArrow } from "../CommonComponent/SubHeading/sub_heading_with_back_arrow";
 
 //images
-import LeftArrowImage from '../../assets/productSearch/left_arrow_image.png'
-import DeliveryService from '../../assets/shoppingcart/deliveryService.svg'
+import LeftArrowImage from "../../assets/productSearch/left_arrow_image.png";
+import DeliveryService from "../../assets/shoppingcart/deliveryService.svg";
 
-import DefaultContainer from '../WrapperComponents/default_container_no_footer'
-import MyCart from './MyCart'
-import DialogBox from '../CommonComponent/DialogBox/dialog_box'
-import DeliverAddressAndPhoneNumber from './delivery_address_phone'
-import Payment from './Payment/payment'
-import PaymentOther from './PaymentOther/payment'
-import Loading from '../CommonComponent/Loading/main_loading'
-import NoProductShoppingCart from './no_product_shopping_cart'
-import { CheckCartBox } from './CommonUI/check_cart_box'
-import { RemovedCartBox } from './CommonUI/removed_cart_box'
-import { SuccessOrderBox } from './CommonUI/success_order_box'
-import { PaymentServiceBox } from './CommonUI/payment_service_box'
-import { useHistory } from 'react-router'
+import DefaultContainer from "../WrapperComponents/default_container_no_footer";
+import MyCart from "./MyCart";
+import DialogBox from "../CommonComponent/DialogBox/dialog_box";
+import DeliverAddressAndPhoneNumber from "./delivery_address_phone";
+import Payment from "./Payment/payment";
+import PaymentOther from "./PaymentOther/payment";
+import Loading from "../CommonComponent/Loading/main_loading";
+import NoProductShoppingCart from "./no_product_shopping_cart";
+import { CheckCartBox } from "./CommonUI/check_cart_box";
+import { RemovedCartBox } from "./CommonUI/removed_cart_box";
+import { SuccessOrderBox } from "./CommonUI/success_order_box";
+import { PaymentServiceBox } from "./CommonUI/payment_service_box";
+import { useHistory } from "react-router";
 
 export default function ShoppingCart(props) {
   const [
@@ -60,18 +60,23 @@ export default function ShoppingCart(props) {
     clickPayment,
     onClickServiceGateWay,
     goBack,
-  ] = Hook(props)
+  ] = Hook(props);
 
-  const { t } = useTranslation()
+  // const deliFee =
+  //   shopCartDetail?.deliveryInfo?.mainDeliveryService.length > 0
+  //     ? shopCartDetail?.deliveryInfo?.mainDeliveryService[0].deliveryFee
+  //     : 0;
 
-  if (isLoading) return <Loading />
+  const { t } = useTranslation();
+
+  if (isLoading) return <Loading />;
 
   if (
     availableProduct.length <= 0 &&
     stockLeftProduct.length <= 0 &&
     outOfStockProduct.length <= 0
   )
-    return <NoProductShoppingCart />
+    return <NoProductShoppingCart />;
 
   return (
     <>
@@ -92,7 +97,7 @@ export default function ShoppingCart(props) {
                 />
               </div>
               <p className="tertiary-font text-color-secondary">
-                {t('Common.back')}
+                {t("Common.back")}
               </p>
             </div>
           </div>
@@ -121,8 +126,8 @@ export default function ShoppingCart(props) {
               </div>
             </div>
 
-            {shopCartDetail?.deliveryInfo.mainDeliveryService.length === 0 &&
-            (shopCartDetail?.deliveryInfo.cityId === 206 ||
+            {shopCartDetail?.deliveryInfo?.mainDeliveryService.length === 0 &&
+            (shopCartDetail?.deliveryInfo.cityId === 260 ||
               shopCartDetail?.deliveryInfo.cityId === 104) ? (
               <div className="w-full md:w-9/12 2xl:w-9/12 h-auto md:mx-auto grid grid-cols-1 md:grid-cols-8 md:gap-x-4 mt-3 md:mt-2">
                 <div className="md:col-span-5 px-5 bg-white py-4">
@@ -234,5 +239,5 @@ export default function ShoppingCart(props) {
         />
       </div>
     </>
-  )
+  );
 }

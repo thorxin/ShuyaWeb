@@ -1,11 +1,11 @@
 /** @format */
 
-import React from 'react'
+import React from "react";
 
 const ProductCartHeading = ({
-  HeadingName = '',
+  HeadingName = "",
   TextColor_HeadingName,
-  ViewMore = '',
+  ViewMore = "",
   TextColor_ViewMore,
 
   /**
@@ -19,7 +19,9 @@ const ProductCartHeading = ({
       <div className="flex justify-between items-center">
         {/* <div className='hidden md:block'></div> */}
 
-        <p className={`sub-heading-font-h3 ${TextColor_HeadingName}`}>
+        <p
+          className={`sub-heading-font-h3 section-title-font ${TextColor_HeadingName}`}
+        >
           {HeadingName}
         </p>
         <div
@@ -32,7 +34,7 @@ const ProductCartHeading = ({
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default ProductCartHeading
+export default ProductCartHeading;

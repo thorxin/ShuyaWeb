@@ -106,20 +106,33 @@
   }
 
   /* Font face */
+  @font-face {
+    font-family: ACaslonPro;
+    src: url('./fonts/ACaslonPro-Regular.otf');
+  }
+  @font-face {
+    font-family: Los Andes;
+    src: url('./fonts/Los Andes  Lota Grotesque Alt 1 Regular.otf');
+  }
+
+  .section-title-font{
+    font-family: "ACaslonPro" !important;
+  }
+
   .custom-font-regular {
-    font-family: "custom-font-regular" !important;
+    font-family: "Los Andes" !important;
   }
 
   .custom-font-bold {
-    font-family: "custom-font-bold" !important;
+    font-family: "Los Andes" !important;
   }
 
   .custom-font-style {
-    font-family: 'custom-font-style' !important
+    font-family: 'Los Andes' !important
   }
 
   .custom-font-header {
-    font-family: 'custom-font-header' !important
+    font-family: 'Los Andes' !important
   }
 
   .carousel .carousel-status {
