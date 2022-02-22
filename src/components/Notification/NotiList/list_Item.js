@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { getLocalStorage, LANGUAGE_TYPE } from './../../../util/storage'
 
@@ -29,6 +29,8 @@ const ListItem = ({
   const iconSize = 'w-9 md:w-7 h-auto'
 
   const currentLang = getLocalStorage(LANGUAGE_TYPE)
+
+  const [more, setMore] = useState(false)
 
   let notiText =
     currentLang === 'en-US'
