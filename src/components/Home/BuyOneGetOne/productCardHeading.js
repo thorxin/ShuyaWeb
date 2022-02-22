@@ -1,10 +1,10 @@
 /** @format */
 
-import React from 'react'
+import React from "react";
 
 const ProductCardHeading = ({
-  Heading = '',
-  ViewAll = '',
+  Heading = "",
+  ViewAll = "",
   /**
    * action
    */
@@ -16,7 +16,7 @@ const ProductCardHeading = ({
       <div className="flex justify-between items-center">
         {/* <div className="hidden md:block"></div> */}
         {productLength.length > 0 && (
-          <p className="custom-font-regular text-xl md:text-2xl  h-auto text-color-white">
+          <p className="section-title-font text-xl md:text-2xl  h-auto text-color-white">
             {Heading}
           </p>
         )}
@@ -27,6 +27,6 @@ const ProductCardHeading = ({
         </div>
       </div>
     </div>
-  )
-}
-export default ProductCardHeading
+  );
+};
+export default ProductCardHeading;

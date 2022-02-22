@@ -1,20 +1,20 @@
 /** @format */
 
-import React, { useRef, useEffect, useState } from 'react'
-import { useTranslation } from 'react-i18next'
+import React, { useRef, useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 // lib
-import { Link, useLocation, useParams, useHistory } from 'react-router-dom'
-import { connect } from 'react-redux'
+import { Link, useLocation, useParams, useHistory } from "react-router-dom";
+import { connect } from "react-redux";
 //images
-import Logo from '../../../../assets/home/app_logo.png'
-import SearchIcon from '../../../../assets/home/search.png'
+import Logo from "../../../../assets/home/app_logo.png";
+import SearchIcon from "../../../../assets/home/search.png";
 // import CartIcon from '../../../../assets/common/orderlist.png';
-import OrderIcon from '../../../../assets/home/order_icon.png'
-import NotiIcon from '../../../../assets/home/noti_icon.png'
-import ProfileIcon from '../../../../assets/home/profile_icon.png'
+import OrderIcon from "../../../../assets/home/order_icon.png";
+import NotiIcon from "../../../../assets/home/noti_icon.png";
+import ProfileIcon from "../../../../assets/home/profile_icon.png";
 //components
-import Notification from '../../../Notification/notification'
-import { Hook } from './hook'
+import Notification from "../../../Notification/notification";
+import { Hook } from "./hook";
 import {
   HOME_DEFAULT,
   ORDER_HISTORY,
@@ -22,22 +22,22 @@ import {
   SHOPPING_CART,
   LOGIN,
   PRODUCT_SEARCH,
-} from '../../../../constant/locationPathName'
-import { PopOverBox } from '../../PopOverBox/pop_over_box'
-import ProductSuggestionList from '../../../ProductSearch/ProductSuggestionList/product_suggestion_list'
+} from "../../../../constant/locationPathName";
+import { PopOverBox } from "../../PopOverBox/pop_over_box";
+import ProductSuggestionList from "../../../ProductSearch/ProductSuggestionList/product_suggestion_list";
 import {
   GET_STORED_ACCESS_TOKEN,
   saveLastRoute,
-} from '../../../../util/storage'
+} from "../../../../util/storage";
 // action
 import {
   fetch_notification,
   notification_HideShowAction,
   seen_notification,
   set_PageDefault,
-} from '../../../../modules/action.notification'
-import UserOutsideClick from '../../../../util/outsideClickDetect'
-import { change_noti_count } from '../../../../modules/reducer.notifications'
+} from "../../../../modules/action.notification";
+import UserOutsideClick from "../../../../util/outsideClickDetect";
+import { change_noti_count } from "../../../../modules/reducer.notifications";
 
 // const maximum_cart_count = 9;
 
@@ -59,37 +59,37 @@ const NavigationWeb = (props) => {
     handleKeyPress,
     setIsFocus,
     dispatchClearDataList,
-  ] = Hook(props)
+  ] = Hook(props);
 
-  const { t } = useTranslation()
-  let history = useHistory()
-  const { id } = useParams()
-  const location = useLocation()
-  const pathName = location.pathname.toLowerCase() || ''
-  const { isShowNoti, notificationHideOrShowAction } = props
+  const { t } = useTranslation();
+  let history = useHistory();
+  const { id } = useParams();
+  const location = useLocation();
+  const pathName = location.pathname.toLowerCase() || "";
+  const { isShowNoti, notificationHideOrShowAction } = props;
   const onclickRoute = (routeName) => {
-    if (GET_STORED_ACCESS_TOKEN) return
-    saveLastRoute(routeName)
-  }
+    if (GET_STORED_ACCESS_TOKEN) return;
+    saveLastRoute(routeName);
+  };
   // custom hook // control outside of end user noti zone
-  const scopeOfNotiSpaceRef = useRef(null)
+  const scopeOfNotiSpaceRef = useRef(null);
   UserOutsideClick(scopeOfNotiSpaceRef, () => {
-    notificationHideOrShowAction(false)
-  })
+    notificationHideOrShowAction(false);
+  });
   const limitationForSearch =
-    pathName === '/myaccount' ||
-    pathName === '/bycategory' ||
-    pathName === `/bybrand/${id}`
-  const limiationForNavBar = pathName === '/myaccount'
+    pathName === "/myaccount" ||
+    pathName === "/bycategory" ||
+    pathName === `/bybrand/${id}`;
+  const limiationForNavBar = pathName === "/myaccount";
 
-  const [animatedClass, setAnimatedClass] = useState('')
+  const [animatedClass, setAnimatedClass] = useState("");
 
   useEffect(() => {
-    setAnimatedClass('')
+    setAnimatedClass("");
     setTimeout(() => {
-      setAnimatedClass('custom-bounce-animation')
-    }, 100)
-  }, [cartCount])
+      setAnimatedClass("custom-bounce-animation");
+    }, 100);
+  }, [cartCount]);
 
   return (
     <div className="hidden md:block bg-white h-20 py-3 fixed w-full top-0 shadow-md z-50">
@@ -104,9 +104,11 @@ const NavigationWeb = (props) => {
                   ref={searchInputBox}
                   id="SearchBox"
                   className="primary-lg-font bg-white rounded-sm w-full h-auto py-3 pl-10 pr-10 focus:outline-none focus:ring-2"
-                  placeholder={t('Navigation.Search')}
-                  onFocus={onFocus}
-                  onChange={(e) => onChangeText(e.target.value)}
+                  placeholder={t("Navigation.Search")}
+                  onChange={(e) => {
+                    e.target.value !== "" ? onFocus() : setIsFocus(false);
+                    onChangeText(e.target.value);
+                  }}
                   onKeyPress={handleKeyPress}
                   autoComplete="off"
                 />
@@ -118,7 +120,7 @@ const NavigationWeb = (props) => {
               </div>
               <div
                 ref={searchPopUp}
-                className={`${isFocus ? 'block' : 'hidden'}`}
+                className={`${isFocus ? "block" : "hidden"}`}
               >
                 <PopOverBox>
                   <ProductSuggestionList
@@ -187,9 +189,9 @@ const NavigationWeb = (props) => {
                 <div
                   onClick={() => {
                     if (GET_STORED_ACCESS_TOKEN) {
-                      notificationHideOrShowAction(!isShowNoti)
+                      notificationHideOrShowAction(!isShowNoti);
                     } else {
-                      history.push(LOGIN)
+                      history.push(LOGIN);
                     }
                   }}
                 >
@@ -237,8 +239,8 @@ const NavigationWeb = (props) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 const mapStateToProps = (state) => {
   return {
@@ -247,8 +249,8 @@ const mapStateToProps = (state) => {
     isNoMoreData: state.notifications.isNoMoreData,
     isShowNoti: state.notifications.isShowNoti,
     notiCount: state.notifications.notiCount,
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps, (dispatch) => ({
   /* notification */
@@ -258,4 +260,4 @@ export default connect(mapStateToProps, (dispatch) => ({
   notificationHideOrShowAction: (value) =>
     dispatch(notification_HideShowAction(value)),
   changeNotiCount: (count) => dispatch(change_noti_count(count)),
-}))(NavigationWeb)
+}))(NavigationWeb);

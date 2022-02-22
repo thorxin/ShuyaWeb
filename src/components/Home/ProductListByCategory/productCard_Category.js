@@ -1,39 +1,39 @@
 /** @format */
 
-import React from 'react'
-import { useTranslation } from 'react-i18next'
-import { useHistory } from 'react-router'
-import { goProductDetails } from '../../../util/goToSpecificPathName'
+import React from "react";
+import { useTranslation } from "react-i18next";
+import { useHistory } from "react-router";
+import { goProductDetails } from "../../../util/goToSpecificPathName";
 
 //components
-import moneyFormatter from '../../../util/moneyFormatter'
-import PlaceHolderImage from '../../CommonComponent/placeholder_image'
+import moneyFormatter from "../../../util/moneyFormatter";
+import PlaceHolderImage from "../../CommonComponent/placeholder_image";
 
 const ProductCard = ({ productData = {} }) => {
-  const { t } = useTranslation()
-  const history = useHistory()
+  const { t } = useTranslation();
+  const history = useHistory();
 
   let productPriceSection = (
     <p className="primary-font text-color-primary custom-font-bold">
-      {moneyFormatter(productData.originalPrice)} {t('Common.kyats')}
+      {moneyFormatter(productData.originalPrice)} {t("Common.kyats")}
     </p>
-  )
+  );
   if (productData.promotePrice > 0)
     productPriceSection = (
       <>
         <p className="primary-font text-color-primary custom-font-bold">
-          {moneyFormatter(productData.promotePrice)} {t('Common.kyats')}
+          {moneyFormatter(productData.promotePrice)} {t("Common.kyats")}
         </p>
         <p className=" tertiary-font  text-color-secondary line-through">
-          {moneyFormatter(productData.originalPrice)} {t('Common.kyats')}
+          {moneyFormatter(productData.originalPrice)} {t("Common.kyats")}
         </p>
       </>
-    )
+    );
 
   return (
     <>
       <div
-        className="w-32 md:w-full h-auto cursor-pointer mb-2 hover:shadow-md"
+        className="w-32 md:w-full h-auto cursor-pointer mb-2 group"
         onClick={() => goProductDetails(history, productData.productId, true)}
       >
         <div className="w-full h-auto relative">
@@ -44,11 +44,13 @@ const ProductCard = ({ productData = {} }) => {
               </p>
             </div>
           )}
-          <img
-            src={productData.url}
-            className="w-full h-full md:rounded-none rounded-md"
-            alt="ProductByCategory"
-          />
+          <div className="overflow-hidden">
+            <img
+              src={productData.url}
+              className="w-full h-full md:rounded-none rounded-md transform group-hover:scale-110 duration-150"
+              alt="ProductByCategory"
+            />
+          </div>
           {/* <PlaceHolderImage /> */}
         </div>
         <div className="p-2">
@@ -59,7 +61,7 @@ const ProductCard = ({ productData = {} }) => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default ProductCard
+export default ProductCard;
