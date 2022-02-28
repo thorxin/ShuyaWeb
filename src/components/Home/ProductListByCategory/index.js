@@ -28,7 +28,7 @@ const ProductListByCategory = ({ categories = [] }) => {
     <div className="mb-2 mt-10">
       {/* slelected product by category */}
       <Tab.Group>
-        <div className="space-x-3 overflow-x-auto flex hide-scroll-bar md:px-0 px-2">
+        <div className="space-x-3 overflow-x-auto flex hide-scroll-bar md:px-0 px-2 mb-4">
           <Tab.List className="inline-flex space-x-6">
             {categories.length > 0 &&
               categories.slice(0, 3).map((category) => (
@@ -36,12 +36,12 @@ const ProductListByCategory = ({ categories = [] }) => {
                   {({ selected }) => (
                     <button
                       key={category.id}
-                      className={`flex md:w-92 items-center space-x-2 ${
+                      className={`flex md:w-92 items-center space-x-2 font-bold ${
                         selected ? "border-b-2 border-custom-primary" : ""
                       }`}
                     >
                       <p
-                        className={`mx-auto text-center text-xl md:text-2xl section-title-font ${
+                        className={`mx-auto text-center text-xl md:text-2xl section-title-font font-bold ${
                           selected ? "" : "text-color-secondary"
                         }`}
                       >
@@ -57,7 +57,7 @@ const ProductListByCategory = ({ categories = [] }) => {
                   className="px-5 py-2 flex w-44 items-center space-x-2"
                   onClick={() => history.push("/productsearch")}
                 >
-                  <span className="section-title-font text-xl md:text-2xl text-color-secondary">
+                  <span className="section-title-font text-xl md:text-2xl text-color-secondary font-bold">
                     {/* {t('Common.view-more')} */}
                     More
                   </span>

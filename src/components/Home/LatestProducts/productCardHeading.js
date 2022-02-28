@@ -13,10 +13,10 @@ const ProductCardHeading = ({
 }) => {
   return (
     <div className="bg-custom-main-light py-4 md:py-3 px-2 md:px-0">
-      <div className="flex justify-between items-center">
+      <div className="flex justify-end py-4 relative">
         {/* <div className='hidden md:block'></div> */}
         {productLength.length > 0 && (
-          <p className="section-title-font text-xl md:text-2xl  h-auto ">
+          <p className="section-title-font text-xl md:text-2xl absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2  h-auto text-color-default font-bold">
             {Heading}
           </p>
         )}

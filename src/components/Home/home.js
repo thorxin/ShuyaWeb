@@ -102,13 +102,13 @@ export default function HomePage(props) {
         </div>
 
         <div className="bg-white">
-          <div className="container">
+          <div className="container py-6">
             <HomeCategory categoryArray={mainCategoryDetail}></HomeCategory>
           </div>
         </div>
 
-        <div className="bg-gradient-to-r from-custom-main to-custom-primary rounded-t-2xl md:rounded-none">
-          <div className="container">
+        <div className="bg-gradient-to-r from-pink-100 to-custom-main rounded-t-2xl md:rounded-none py-6">
+          <div className="container py-5">
             <BuyOneGetOne
               // toggleFav={clickingOnProductWishIcon}
               productsArray={buyOneGetOneList}
@@ -117,7 +117,7 @@ export default function HomePage(props) {
           </div>
         </div>
 
-        <div className="mx-auto space-y-2 md:mb-0 bg-gray-100">
+        <div className="mx-auto space-y-2 md:mb-0 bg-gray-100 py-6">
           <div className="container">
             <PromotionProducts
               // toggleFav={clickingOnProductWishIcon}
@@ -127,7 +127,7 @@ export default function HomePage(props) {
           </div>
         </div>
 
-        <div className="mx-auto space-y-2 bg-custom-main-light">
+        <div className="mx-auto space-y-2 bg-custom-main-light py-6">
           <div className="container">
             <div className="">
               <LatestProducts
@@ -143,8 +143,8 @@ export default function HomePage(props) {
 
         {ADList.length >= 1 ? (
           <>
-            <div className="mx-auto space-y-2 md:mb-0">
-              <div className="">
+            <div className="mx-auto space-y-2 md:mb-0 py-6">
+              <div className="container">
                 <ADSlider ADListArray={ADList} />
               </div>
             </div>
@@ -167,16 +167,19 @@ export default function HomePage(props) {
             <div className='h-1  bg-gray-100'></div>
           </>
         )} */}
-
-        <div className="mx-auto space-y-2 hidden">
-          <div className="w-full container h-auto mx-auto">
-            <div className="md:mt-2">
-              <Brand categoryArray={brandProducts} />
+        {brandProducts.length > 0 && (
+          <>
+            <div className="mx-auto space-y-2 py-6">
+              <div className="w-full container h-auto mx-auto">
+                <div className="md:mt-2">
+                  <Brand categoryArray={brandProducts} />
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
 
-        <div className="h-1  bg-gray-100"></div>
+            <div className="h-1  bg-gray-100"></div>
+          </>
+        )}
 
         <div className="mx-auto space-y-2 mb-20 md:mb-0 block md:hidden">
           <div className="w-full">
@@ -199,7 +202,7 @@ export default function HomePage(props) {
         </div>
 
         <div className="mx-auto space-y-2 mb-20 md:mb-0 hidden md:block">
-          <div className="w-full md:w-9/12 2xl:w-9/12 h-auto mx-auto">
+          <div className="w-full container py-6">
             {Array.isArray(productListByCategory) &&
               productListByCategory.length > 0 && (
                 <ProductListByCategory categories={productListByCategory} />
