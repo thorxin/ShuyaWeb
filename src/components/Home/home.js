@@ -85,7 +85,7 @@ export default function HomePage(props) {
           {bannnerClick ? (
             <>
               <div className="mx-auto space-y-2 md:mb-0 relative w-full">
-                <div className="mt-20">
+                <div className="mt-20 md:w-10/12 mx-auto w-full">
                   <BannerSlider BannerListArray={bannerList} />
                 </div>
               </div>
@@ -102,7 +102,7 @@ export default function HomePage(props) {
         </div>
 
         <div className="bg-white">
-          <div className="container py-6">
+          <div className="container font-bold">
             <HomeCategory categoryArray={mainCategoryDetail}></HomeCategory>
           </div>
         </div>
@@ -144,7 +144,7 @@ export default function HomePage(props) {
         {ADList.length >= 1 ? (
           <>
             <div className="mx-auto space-y-2 md:mb-0 py-6">
-              <div className="container">
+              <div className="md:w-10/12 mx-auto w-full">
                 <ADSlider ADListArray={ADList} />
               </div>
             </div>
