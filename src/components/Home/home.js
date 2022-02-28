@@ -168,13 +168,13 @@ export default function HomePage(props) {
           </>
         )} */}
 
-        {/* <div className='mx-auto space-y-2'>
-          <div className='w-full md:w-9/12 2xl:w-9/12 h-auto mx-auto'>
-            <div className='md:mt-2'>
+        <div className="mx-auto space-y-2">
+          <div className="w-full container h-auto mx-auto">
+            <div className="md:mt-2">
               <Brand categoryArray={brandProducts} />
             </div>
           </div>
-        </div> */}
+        </div>
 
         <div className="h-1  bg-gray-100"></div>
 

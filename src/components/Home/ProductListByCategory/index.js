@@ -41,8 +41,8 @@ const ProductListByCategory = ({ categories = [] }) => {
                       }`}
                     >
                       <p
-                        className={`mx-auto text-center section-title-font sub-heading-font-h3 ${
-                          selected ? "" : "sub-heading-font-gray"
+                        className={`mx-auto text-center text-xl md:text-2xl section-title-font ${
+                          selected ? "" : "text-color-secondary"
                         }`}
                       >
                         {category.name}
@@ -57,7 +57,7 @@ const ProductListByCategory = ({ categories = [] }) => {
                   className="px-5 py-2 flex w-44 items-center space-x-2"
                   onClick={() => history.push("/productsearch")}
                 >
-                  <span className="section-title-font sub-heading-font-gray sub-heading-font-h3">
+                  <span className="section-title-font text-xl md:text-2xl text-color-secondary">
                     {/* {t('Common.view-more')} */}
                     More
                   </span>
