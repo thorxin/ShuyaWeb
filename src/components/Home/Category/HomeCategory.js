@@ -1,18 +1,18 @@
 /** @format */
 
-import React from 'react'
+import React from "react";
 
 /**
  * components
  */
-import CategoryCard2 from './CategoryCard2'
+import CategoryCard2 from "./CategoryCard2";
 
 const HomeCategory = ({ categoryArray = [] }) => {
   if (categoryArray.length > 0)
     return (
       <>
-        <div className="bg-white py-2 md:py-3  my-4 mx-2 md:mx-0 block">
-          <div className="text-center">
+        <div className="bg-white py-1 md:py-3  my-4 mx-2 md:mx-0 block">
+          <div className="md:text-center">
             <p className="section-title-font text-xl md:text-2xl text-color-brown h-auto">
               Category
             </p>
@@ -33,8 +33,8 @@ const HomeCategory = ({ categoryArray = [] }) => {
           </div>
         </div>
       </>
-    )
+    );
 
-  return null
-}
-export default HomeCategory
+  return null;
+};
+export default HomeCategory;

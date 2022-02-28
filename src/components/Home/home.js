@@ -80,7 +80,7 @@ export default function HomePage(props) {
         <div className="">
           <NavigationWeb />
           <NavigationMobile />
-          <div className="h-14 w-full block md:hidden"></div>
+          {/* <div className="h-14 w-full block md:hidden"></div> */}
 
           {bannnerClick ? (
             <>

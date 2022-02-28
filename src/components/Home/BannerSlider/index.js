@@ -93,11 +93,7 @@ const ADSlider = ({
                 onClick={() => goToProductSearch(ad.bannerLinkId)}
               >
                 <div className="block md:hidden">
-                  <img
-                    src={ad.url}
-                    alt="ADSlider"
-                    className="object-contain w-full h-full"
-                  />
+                  <img src={ad.url} alt="ADSlider" className="w-full h-full" />
                 </div>
               </div>
             ))}
