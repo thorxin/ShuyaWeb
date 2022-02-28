@@ -1,22 +1,22 @@
 /** @format */
 
-import React from 'react'
-import { useHistory } from 'react-router'
-import 'react-responsive-carousel/lib/styles/carousel.min.css'
-import { Carousel } from 'react-responsive-carousel'
+import React from "react";
+import { useHistory } from "react-router";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from "react-responsive-carousel";
 
 // component
-import { goToProductSearchResult } from '../../../util/goToSpecificPathName'
+import { goToProductSearchResult } from "../../../util/goToSpecificPathName";
 import {
   SEARCH_BEST_SELLING,
   SEARCH_LATEST,
   SEARCH_PROMOTION,
-} from '../../../constant/search'
+} from "../../../constant/search";
 import {
   BEST_SELLING_BANNER_LINK,
   DISCOUNT_PRODUCT_BANNER_LINK_ID,
   LATEST_PRODUCT_BANNER_LINK_ID,
-} from '../../../constant/bannerConfig'
+} from "../../../constant/bannerConfig";
 
 const ADSlider = ({
   BannerListArray = [],
@@ -24,35 +24,35 @@ const ADSlider = ({
    * action
    */
 }) => {
-  const history = useHistory()
+  const history = useHistory();
 
   // let WebBanner = BannerListArray;
   // let MobileBanner = BannerListArray;
-  let WebBanner = BannerListArray.filter((banner) => banner.isWeb === 1)
-  let MobileBanner = BannerListArray.filter((banner) => banner.isWeb !== 1)
+  let WebBanner = BannerListArray.filter((banner) => banner.isWeb === 1);
+  let MobileBanner = BannerListArray.filter((banner) => banner.isWeb !== 1);
   const goToProductSearch = (banner_link_id = 0) => {
-    let propsData
+    let propsData;
     switch (banner_link_id) {
       case DISCOUNT_PRODUCT_BANNER_LINK_ID:
         propsData = {
           searchType: SEARCH_PROMOTION,
-        }
-        break
+        };
+        break;
       case LATEST_PRODUCT_BANNER_LINK_ID:
         propsData = {
           searchType: SEARCH_LATEST,
-        }
-        break
+        };
+        break;
       case BEST_SELLING_BANNER_LINK:
         propsData = {
           searchType: SEARCH_BEST_SELLING,
-        }
-        break
+        };
+        break;
       default:
-        break
+        break;
     }
-    goToProductSearchResult(history, propsData)
-  }
+    goToProductSearchResult(history, propsData);
+  };
 
   return (
     <>
@@ -74,8 +74,7 @@ const ADSlider = ({
                 <div>
                   <img
                     src={ad.url}
-                    className="max-h-96
-                    object-cover
+                    className="object-cover
                     object-center"
                     alt="ADSlider"
                   />
@@ -105,7 +104,7 @@ const ADSlider = ({
         </Carousel>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default ADSlider
+export default ADSlider;

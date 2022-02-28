@@ -168,7 +168,7 @@ export default function HomePage(props) {
           </>
         )} */}
 
-        <div className="mx-auto space-y-2">
+        <div className="mx-auto space-y-2 hidden">
           <div className="w-full container h-auto mx-auto">
             <div className="md:mt-2">
               <Brand categoryArray={brandProducts} />
