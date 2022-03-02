@@ -51,6 +51,8 @@ export function Hook(productDetail) {
   const [variantConfigType, setVariantConfigType] = useState("");
   const [itemCount, setItemCount] = useState(1);
   const [isShowShareBox, setIsShowShareBox] = useState(false);
+  const [isImageOpenSizeBox, setIsImageOpenSizeBox] = useState('');
+
 
   //#region - For No Variant Product - Default Variant
   useEffect(() => {
@@ -336,11 +338,17 @@ export function Hook(productDetail) {
     goToSpecificPathName(history, SHOPPING_CART);
   };
 
+  const openImageSizeChatBox = (item) => {
+    setIsImageOpenSizeBox(item);
+  };
+
   return [
     isOpenVariantBox,
     setIsOpenVariantBox,
     isImageOpenVariantBox,
     setIsImageOpenVariantBox,
+    isImageOpenSizeBox,
+    setIsImageOpenSizeBox,
     variantConfigType,
     updatedVariantList,
     selectedVariantList,
@@ -354,6 +362,7 @@ export function Hook(productDetail) {
      */
     openVariantBox,
     openImageVariantBox,
+    openImageSizeChatBox,
     clickingVariantItem,
     increaseItemCount,
     decreaseItemCount,

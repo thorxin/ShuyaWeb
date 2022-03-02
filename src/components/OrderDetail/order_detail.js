@@ -77,15 +77,18 @@ export default function OrderDetails(props) {
   if (isLoading || !OrderDetail) return <Loading />
 
   const isShowOrderCancelBtn = () => {
-    if (
-      OrderDetail?.orderStatus.id === DELETED ||
-      (LastPayment.paymentStatus.id === PAYMENT_SUCCESS &&
-        LastPayment.paymentService.name !== 'အိမ်အရောက်')
-    ) {
-      return false
+    if(OrderDetail?.orderStatus.id === DELETED){
+      return false;
+    }else{
+      if (LastPayment.paymentStatus.id === PAYMENT_SUCCESS) {
+            if(OrderDetail?.orderStatus.id !== 1){
+              return false
+            }
+        }
+      return true;
     }
-    return true
-  }
+  };
+
   const chkPayAgain =
     OrderDetail.paymentInfo[OrderDetail.paymentInfo.length - 1].paymentStatus
       .id === PAYMENT_FAIL
@@ -147,14 +150,16 @@ export default function OrderDetails(props) {
                       </p>
                       {/* End Voucher ID & Date for Mobile */}
 
-                      <div className="w-5 h-auto hidden md:block">
-                        <img
-                          src={VoucherIcon}
-                          className="w-full h-full cursor-pointer"
-                          alt="Voucher Icon"
-                          onClick={goToVoucherPrintPage}
-                        />
-                      </div>
+                      {OrderDetail?.orderStatus.id !== DELETED && 
+                        <div className="w-5 h-auto hidden md:block">
+                            <img
+                              src={VoucherIcon}
+                              className='w-full h-full cursor-pointer'
+                              alt='Voucher Icon'
+                              onClick={goToVoucherPrintPage}
+                            />
+                        </div>
+                        }
                     </div>
                     {/* Date For Web */}
                     <div className="hidden md:block">
@@ -188,6 +193,7 @@ export default function OrderDetails(props) {
                   SendingNote={OrderDetail.sendingNote}
                   SentNote={OrderDetail.sentNote}
                   status_id={OrderDetail?.orderStatus.id}
+                  cancelNote={OrderDetail?.cancelNote}
                 />
                 {/* End Order Status */}
                 <div className="grid grid-cols-1 md:grid-cols-8">
@@ -233,51 +239,56 @@ export default function OrderDetails(props) {
 
                     <div className="w-11/12 mx-auto h-0.5 bg-gray-200" />
                     {/* Start Pay Again  */}
-                    <div
-                      className={`${
-                        openPayAgain || !chkPayAgain ? 'hidden' : 'block'
-                      } bg-white py-4 md:py-0`}
-                    >
-                      <div className="w-full mx-auto">
-                        <button
-                          className="tertiary-font w-full h-auto text-color-white bg-custom-primary py-3 rounded-md"
-                          onClick={() => setOpenPayAgain(true)}
-                        >
-                          {t('OrderDetail.pay-again')}
-                        </button>
-                      </div>
-                    </div>
-                    <div className="bg-white">
-                      <div
-                        className={` ${
-                          openPayAgain ? 'block pt-3 pb-5' : 'hidden'
-                        } w-full mx-auto`}
-                      >
-                        <div className="md:-mt-2.5">
-                          <p className="primary-font text-color-default">
-                            {t('ShoppingCart.select-payment-option')}
-                          </p>
-                        </div>
-                        <div className="grid grid-cols-12 gap-x-2 gap-y-3 mt-4">
-                          {OrderDetail.newPaymentService.length > 0 &&
-                            OrderDetail.newPaymentService.map((service) => (
-                              <PaymentServices
-                                key={service.id}
-                                Services={service}
-                                isPayAgain={true}
-                                /**
-                                 * action
-                                 */
-                                onClickPayment={clickingOnPaymentService}
-                              />
-                            ))}
-                        </div>
-                      </div>
-                    </div>
-                    {/* End Pay Again  */}
-                    {chkPayAgain && (
-                      <div className="w-11/12 mx-auto h-0.5 bg-gray-200" />
-                    )}
+                      {
+                      OrderDetail.cancelNote == '' &&
+                        <>
+                          <div
+                            className={`${
+                              openPayAgain || !chkPayAgain ? 'hidden' : 'block'
+                            } bg-white py-4 md:py-0`}
+                          >
+                            <div className='w-full mx-auto'>
+                              <button
+                                className='tertiary-font w-full h-auto text-color-white bg-custom-orange py-3 rounded-md'
+                                onClick={() => setOpenPayAgain(true)}
+                              >
+                                {t('OrderDetail.pay-again')}
+                              </button>
+                            </div>
+                          </div>
+                          <div className='bg-white'>
+                            <div
+                              className={` ${
+                                openPayAgain ? 'block pt-3 pb-5' : 'hidden'
+                              } w-full mx-auto`}
+                            >
+                              <div className='md:-mt-2.5'>
+                                <p className='primary-font text-color-default'>
+                                  {t('ShoppingCart.select-payment-option')}
+                                </p>
+                              </div>
+                              <div className='grid grid-cols-12 gap-x-2 gap-y-3 mt-4'>
+                                {OrderDetail.newPaymentService.length > 0 &&
+                                  OrderDetail.newPaymentService.map((service) => (
+                                    <PaymentServices
+                                      key={service.id}
+                                      Services={service}
+                                      isPayAgain={true}
+                                      /**
+                                       * action
+                                       */
+                                      onClickPayment={clickingOnPaymentService}
+                                    />
+                                  ))}
+                              </div>
+                            </div>
+                          </div>
+                          {/* End Pay Again  */}
+                          {chkPayAgain && (
+                            <div className='w-11/12 mx-auto h-0.5 bg-gray-200' />
+                          )}
+                        </>
+                      }
                     {/* Amount Info */}
                     <div className="bg-white py-4 md:py-0">
                       <div className="mx-4 md:mx-auto  grid grid-cols-2 gap-y-3">
@@ -291,11 +302,11 @@ export default function OrderDetails(props) {
                               .toEstDeliveryDay || '5'
                           } ${t('Common.day')}`}
                         />
-                        {/* <AmountLabel
+                        <AmountLabel
                           Label={t("ShoppingCart.sub-total")}
                           Amount={OrderDetail.totalAmt}
                           currency={t("Common.kyats")}
-                        /> */}
+                        />
                         <AmountLabel
                           Label={t('ShoppingCart.delivery-fee')}
                           Amount={
@@ -330,21 +341,23 @@ export default function OrderDetails(props) {
                     {/* Button Group - GetVoucher and Cancel Order */}
                     <div className="bg-white pb-4 md:py-0 cursor-pointer">
                       <div className="mx-4 md:mx-auto  space-y-4">
-                        <div className="">
-                          <div
-                            className="primary-btn bg-custom-primary tertiary-font rounded-md py-3 flex justify-center"
-                            onClick={goToVoucherPrintPage}
-                          >
-                            <img
-                              src={VoucherIconMobile}
-                              className="w-5 h-full cursor-pointer mr-2 "
-                              alt="Voucher Icon"
-                            />
-                            <p className=" my-auto">
-                              {t('OrderDetail.get-voucher')}
-                            </p>
+                        {OrderDetail?.orderStatus.id !== DELETED && 
+                          <div className=''>
+                            <div
+                                className='primary-btn tertiary-font rounded-md py-3 flex justify-center'
+                                onClick={goToVoucherPrintPage}
+                              >
+                                <img
+                                  src={VoucherIconMobile}
+                                  className='w-5 h-full cursor-pointer mr-2 '
+                                  alt='Voucher Icon'
+                                />
+                                <p className=' my-auto'>
+                                  {t('OrderDetail.get-voucher')}
+                                </p>
+                              </div>
                           </div>
-                        </div>
+                        }
                         {isShowOrderCancelBtn() && (
                           <div>
                             <div

@@ -17,11 +17,19 @@ const OPEN_POST_CONFIG = (body = {}) => ({
   },
   body,
 });
+
 const OPEN_POST_CONFIG_MULTIPART_FORM = (body = {}) => ({
   method: "POST",
   headers: {},
   body,
 });
+
+const POST_CONFIG_ORDER_ACTIVTY = {
+  method: "POST",
+  headers: {
+    Authorization: BEARER,
+  },
+};
 
 /**
  * Close Api(require Authorization - require JWT Token)
@@ -110,5 +118,6 @@ export {
   POST_CONFIG_MULTIPART_FORM,
   POST_CONFIG_WITH_TOKEN,
   POST_CONFIG_,
+  POST_CONFIG_ORDER_ACTIVTY,
   DELETE_CONFIG
 };

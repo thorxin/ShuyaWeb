@@ -42,6 +42,7 @@ export const CITY_LIST = "CITY_LIST"
 export const TOWNSHIP_LIST = "TOWNSHIP_LIST"
 export const CLEAR_CITY_LIST = "CLEAR_CITY_LIST"
 export const CLEAR_TOWNSHIP_LIST = "CLEAR_TOWN_LIST"
+export const RESEND_MESSAGE = "RESEND_MESSAGE"
 
 /**
  * MyAccount

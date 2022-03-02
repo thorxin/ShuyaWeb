@@ -29,7 +29,7 @@
     "require-terms-policy": "သဘောတူရန် လိုအပ်ပါသည်",
     "confirm": "အတည်ပြုမည်",
     "forget-password?": "စကားဝှက် မေ့သွားပြီလား?",
-    "login": "လော့အဂ်ဝင်မည်",
+    "login": "လော့အင်၀င်မည်",
     "or": "(သို့မဟုတ်)",
     "sign-in-facebook": "Facebook ဖြင့်ဝင်ရန်",
     "create-new-account": "အကောင့်မလုပ်ရသေးဘူးလား?",
@@ -150,7 +150,9 @@
     "back": "နောက်သို့",
     "clear-all": "အကုန် ပယ်ဖျက်မည်",
     "and": "နှင့်",
-    "okay" : "Okay"
+    "okay" : "Okay",
+    "cancel":"မလုပ်တော့ပါ",
+    "save": "သိမ်းဆည်းမည်"
   },
   "Home": {
     "categories": "အမျိုးအစားများ",

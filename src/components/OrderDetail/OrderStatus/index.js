@@ -36,6 +36,7 @@ export const OrderStatusImage = ({
   width,
   is_active = false,
   text = '',
+  cancelNote='',
   /**
    * action
    */
@@ -49,19 +50,29 @@ export const OrderStatusImage = ({
           className="w-12 md:w-12 h-auto mx-auto"
           alt="Order Status Icon"
         />
-        <p className="caption-font text-center text-color-primary">{text}</p>
+        <p className="caption-font text-center text-color-link">{text}</p>
       </div>
     </>
   ) : (
     <>
-      <div className="w-full h-auto space-y-2">
-        <img
-          src={image}
-          className={`${width ? width : 'w-12 md:w-12'}  h-auto mx-auto`}
-          alt="Order Status Icon"
-        />
-        <p className="caption-font text-center text-color-secondary">{text}</p>
+      {cancelNote != '' ? 
+      (
+      <div className="w-full h-auto space-y-2 bg-blue-500">
+      
+        <p className="text-color-white p-6 font-bold">{text}</p>
       </div>
+    )
+      :
+      (<div className="w-full h-auto space-y-2">
+      <img
+        src={image}
+        className={`${width ? width : 'w-12 md:w-12'}  h-auto mx-auto`}
+        alt="Order Status Icon"
+      />
+      <p className="caption-font text-center text-color-secondary">{text}</p>
+    </div>) 
+      }
+      
     </>
   )
 }
@@ -73,6 +84,7 @@ const OrderStatus = ({
   SendingNote = '',
   SentNote = '',
   status_id = 1,
+  cancelNote=''
 }) => {
   const { t } = useTranslation()
   let prevent_status = Status.id < 5
@@ -135,13 +147,14 @@ const OrderStatus = ({
 
   return (
     <>
-      {Status.id === 5 ? (
+      {Status.id === 5 && cancelNote != '' ? (
         <div className="w-11/12 h-auto mx-auto">
           <div className="">
             <OrderStatusImage
               image={TrashIcon}
-              text={t('OrderDetail.order-deleted')}
+              text={cancelNote}
               width="w-7"
+              cancelNote={cancelNote}
             />
           </div>
         </div>
@@ -210,7 +223,7 @@ const OrderStatus = ({
                   <div>
                     {orderNoteBox.id === PACKED && (
                       <div
-                        className={`h-4 w-4 bg-custom-primary rotate-45 transform origin-bottom-left -mb-4 ml-2.5 md:ml-16`}
+                        className={`h-4 w-4 bg-blue-600 rotate-45 transform origin-bottom-left -mb-4 ml-2.5 md:ml-16`}
                       />
                     )}
                   </div>
@@ -218,7 +231,7 @@ const OrderStatus = ({
                   <div>
                     {orderNoteBox.id === DELIVERING && (
                       <div
-                        className={`h-4 w-4 bg-custom-primary rotate-45 transform origin-bottom-left -mb-4 ml-8 md:ml-12 lg:ml-24`}
+                        className={`h-4 w-4 bg-blue-600 rotate-45 transform origin-bottom-left -mb-4 ml-8 md:ml-12 lg:ml-24`}
                       />
                     )}
                   </div>
@@ -226,14 +239,14 @@ const OrderStatus = ({
                   <div>
                     {orderNoteBox.id === DELIVERED && (
                       <div
-                        className={`h-4 w-4 bg-custom-primary rotate-45 transform origin-bottom-left -mb-4 ml-10 md:ml-32`}
+                        className={`h-4 w-4 bg-blue-600 rotate-45 transform origin-bottom-left -mb-4 ml-10 md:ml-32`}
                       />
                     )}
                   </div>
                 </div>
               </div>
               <div className="w-10/12 md:w-10/12 lg:w-10/12 mx-auto h-auto">
-                <div className=" w-auto h-16 bg-custom-primary py-2 px-4">
+                <div className=" w-auto h-16 bg-blue-600 py-2 px-4">
                   <p className="tertiary-font text-color-white">
                     {orderNoteBox.msg}
                   </p>

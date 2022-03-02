@@ -15,6 +15,7 @@ import {
 export function Hook({
   errorMessage,
   isResendLoading,
+  resendMessage,
   /**
    * action
    */
@@ -88,6 +89,7 @@ export function Hook({
     isLoading,
     errorMessage,
     isResendLoading,
+    resendMessage,
     OTP,
     isError,
     isOpenSuccessBox,

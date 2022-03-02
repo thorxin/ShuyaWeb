@@ -28,7 +28,7 @@ import {
   postOrderActivity,
 } from '../services/service.order';
 
-import { GET_CONFIG, POST_CONFIG } from '../constant/header';
+import { GET_CONFIG, POST_CONFIG, POST_CONFIG_ORDER_ACTIVTY } from '../constant/header';
 
 import {
   increaseCount,
@@ -258,7 +258,10 @@ export const post_Order = (postData = {}) => {
       // const orderID = JSON.stringify(body?.orderId)
       if (response.ok) {
         dispatch(set_order_id(body?.orderId));
-        await postOrderActivity(POST_CONFIG(JSON.stringify(body?.orderId)));
+        let postData = {
+          orderId: body?.orderId,
+      };
+      await postOrderActivity(parseInt(postData.orderId), POST_CONFIG_ORDER_ACTIVTY);
       } else {
         alert(body.message);
       }

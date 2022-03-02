@@ -7,6 +7,7 @@ export const initialState = {
   errorMessage: "",
   cityList: [],
   townshipList: [],
+  resendMessage:""
 };
 
 /**
@@ -45,6 +46,11 @@ const Reducer = (state = initialState, action) => {
       return {
         ...getCommonState(state),
         errorMessage: action.payload,
+      };
+    case type.RESEND_MESSAGE:
+      return {
+        ...getCommonState(state),
+        resendMessage: action.payload,
       };
     case type.CITY_LIST:
       return {
@@ -100,6 +106,11 @@ export const set_stop_resend_loading = () => ({
 
 export const set_error_message = (data = "") => ({
   type: type.ERROR_MESSAGE,
+  payload: data,
+});
+
+export const set_resend_message = (data = "") => ({
+  type: type.RESEND_MESSAGE,
   payload: data,
 });
 

@@ -20,6 +20,8 @@ const MainCategories = ({ categoryArray = [] }) => {
   const { t } = useTranslation();
   const history = useHistory();
 
+  console.log(categoryArray)
+
   const goToByCategory = () => {
     let propsData = {
       id: categoryArray[0].id,
@@ -41,14 +43,14 @@ const MainCategories = ({ categoryArray = [] }) => {
       />
       {/* Seven product for web view */}
       <div className='hidden md:block'>
-      {categoryArray.length < 7 ? (
+      {categoryArray.length < 14 ? (
         <div className='rounded-xl pt-4'>
           <div className=' mx-auto'>
             <div className='grid grid-rows-1 grid-flow-col grid-cols-7 space-x-2'>
               <div className='grid grid-cols-7 col-span-7 space-x-2'>
                 {Array.isArray(categoryArray) &&
                   categoryArray
-                    .slice(0, 7)
+                    .slice(0, 14)
                     .map((products) => (
                       <CategoryCard
                         key={products.productId}
@@ -66,23 +68,27 @@ const MainCategories = ({ categoryArray = [] }) => {
               <div className='grid grid-cols-7 col-span-7 space-x-2'>
                 {Array.isArray(categoryArray) &&
                   categoryArray
-                    .slice(0, 7)
+                    .slice(0, 14)
                     .map((products) => (
                       <CategoryCard
                         key={products.productId}
                         productData={products}
                       />
                     ))}
-              </div>
-              {/* {categoryArray.length >= 7 && (
-                <div
-                  className='w-full mx-auto h-auto cursor-pointer col-span-1'
+                {categoryArray.length >= 14 && (
+                  <div
+                  className="cursor-pointer w-24 md:w-auto group"
                 >
-                  <div className='flex justify-center text-color-primary tertiary-font'>
-                    View All
+                  <div className="w-full mx-auto h-auto ">
+                    <div className=" py-4 pl-2 bg-name-price -mt-2">
+                      <p className="flex justify-center items-center text-md font-bold w-full h-12 text-color-primary custom-font-bold group-hover:text-color-secondary">
+                        ViewAll
+                      </p>
+                    </div>
                   </div>
                 </div>
-              )} */}
+                )}
+              </div>
             </div>
           </div>
         </div>

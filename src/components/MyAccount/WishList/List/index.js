@@ -32,7 +32,8 @@ const Index = ({
 
   const [isShowDeleteBox, setIsShowDeleteBox] = useState(false)
 
-  const clickingClear = () => {
+  const clickingClear = (e) => {
+    e.stopPropagation();
     setIsShowDeleteBox(true)
   }
 

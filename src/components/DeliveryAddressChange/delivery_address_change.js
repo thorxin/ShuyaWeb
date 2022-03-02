@@ -160,7 +160,7 @@ export default function DeliveryAddresChange(props) {
                             className="secondary-btn border-2 border-custom-primary tertiary-font py-2"
                             onClick={() => setSelectedVal(originVal)}
                           >
-                            {t("Common.not-do")}
+                            {t("Common.cancel")}
                           </button>
                         </div>
                         <div>
@@ -175,8 +175,8 @@ export default function DeliveryAddresChange(props) {
                             {isSecondaryLoading ? (
                               <AuthenticationLoading />
                             ) : (
-                              <p>Save</p>
-                            )}
+                              <p>{t("Common.save")}</p>
+                              )}
                           </button>
                         </div>
                       </div>

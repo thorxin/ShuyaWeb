@@ -19,7 +19,7 @@
     "at-least-one-char-and-num":"Password must contain at least one character and one digit",
     "password-changed-successful": "You have successfully changed to new password.",
     "phone-changed-successful": "You have successfully changed to new phone number.",
-    "password-not-match": "The password does not match!",
+    "password-not-match": "The password you entered is incorrect. Please try again",
     "error-message-en": "You must specify",
     "error-message": "",
     "require-name": "Name",
@@ -151,7 +151,9 @@
     "back": "Back",
     "clear-all": "Clear All",
     "and": "and",
-    "okay" : "Okay"
+    "okay" : "Okay",
+    "cancel":"Cancel",
+    "save": "Save"
   },
   "Home": {
     "categories": "CATEGORIES",
@@ -159,7 +161,7 @@
     "new-arrival": "New Arrival",
     "best-selling": "Popular Products",
     "buy-one-get-one":"Buy 1 Get 1",
-    "brand": "VIEW BY BRANDS"
+    "brand": "Brand"
   },
   "ShoppingCart": {
     "my-cart": "My Cart",
@@ -272,7 +274,7 @@
     "payment-checking": "Checking for your order.",
     "payment-success": "Payment Status is successful for this order.",
     "payment-fail": "Payment Status is failed for this order.",
-    "order-deleted": "The Order has now been canceled!",
+    "order-deleted": "The Order has been canceled!",
     "payment-status-check": "Checking",
     "payment-status-success": "Success",
     "payment-status-fail": "Fail",

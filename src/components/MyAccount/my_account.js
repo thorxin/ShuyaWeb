@@ -19,7 +19,7 @@ export default function MyAccount(props) {
 
   return (
     <>
-      <div className="md:bg-gray-200 w-full h-auto md:min-h-screen md:space-y-5 overflow-y-auto mb-20 md:mb-0 md:pt-20">
+      <div className="bg-white w-full h-auto md:min-h-screen md:space-y-5 overflow-y-auto mb-20 md:mb-0 md:pt-20">
         <NavigationWeb />
         <div className="space-y-5">
           {/* Change Profile And Name */}

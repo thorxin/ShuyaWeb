@@ -143,7 +143,7 @@ export default function AddNewAddress(props) {
                   className="secondary-btn border-custom-primary tertiary-font py-2"
                   onClick={clickedCancel}
                 >
-                  {t('Common.not-do')}
+                {t("Common.cancel")}
                 </button>
               </div>
               <div>
@@ -154,7 +154,7 @@ export default function AddNewAddress(props) {
                   }`}
                   onClick={clickingConfirmBtn}
                 >
-                  {isSecondaryLoading ? <AuthenticationLoading /> : <p>Save</p>}
+                  {isSecondaryLoading ? <AuthenticationLoading /> : <p>{t("Common.save")}</p>}
                 </button>
               </div>
             </div>

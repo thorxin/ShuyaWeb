@@ -31,6 +31,8 @@ import ProductImageDialogBox from './ProductImageDialogBox'
 import { BUY_NOW, ADD_TO_SHOP_CART, NO_VARIANT_CONFIG } from '../util'
 import DialogBox from '../../CommonComponent/DialogBox/dialog_box'
 import { APP_NAME } from '../../../constant/appName'
+import ProductSizeDialogBox from '../Common/ProductSizeDialogBox'
+
 
 //images
 import ActiveRatingStar from '../../../assets/productDetail/active_rating_star.svg'
@@ -255,6 +257,8 @@ const ProductInfo = ({
     setIsOpenVariantBox,
     isImageOpenVariantBox,
     setIsImageOpenVariantBox,
+    isImageOpenSizeBox,
+    setIsImageOpenSizeBox,
     variantConfigType,
     updatedVariantList,
     selectedVariantList,
@@ -268,6 +272,7 @@ const ProductInfo = ({
      */
     openVariantBox,
     openImageVariantBox,
+    openImageSizeChatBox,
     clickingVariantItem,
     increaseItemCount,
     decreaseItemCount,
@@ -275,7 +280,7 @@ const ProductInfo = ({
     buyNow,
     changeOnCountTextBox,
     clickOnShopCart,
-  ] = Hook(Detail)
+  ] = Hook(Detail);
 
   const { t } = useTranslation()
   const history = useHistory()
@@ -794,6 +799,18 @@ const ProductInfo = ({
            * action
            */
           closeVariantBox={() => setIsImageOpenVariantBox(false)}
+        />
+      </DialogBox>
+      <DialogBox
+        isOpen={isImageOpenSizeBox!=''}
+        closeModal={()=>setIsImageOpenSizeBox('')}
+      >
+        <ProductSizeDialogBox
+          sizeChatimg={isImageOpenSizeBox}
+          /**
+           * action
+           */
+          closeVariantBox={() => setIsImageOpenSizeBox('')}
         />
       </DialogBox>
     </>

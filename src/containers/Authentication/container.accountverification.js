@@ -8,7 +8,8 @@ export default  connect(
     (state) => ({
         isLoading: state.auth.isLoading,
         isResendLoading: state.auth.isResendLoading,
-        errorMessage: state.auth.errorMessage
+        errorMessage: state.auth.errorMessage,
+        resendMessage:state.auth.resendMessage
     }),
     (dispatch) => ({
         authResendCode: (Data) => dispatch(auth_resend_code(Data))

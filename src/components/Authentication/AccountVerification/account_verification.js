@@ -25,6 +25,8 @@ import ResendIcon from '../../../assets/Authentication/Verification/resend_icon.
 import ResendLoading from '../../../assets/Authentication/Loading/resend_loading.gif';
 import SuccessBox from '../../CommonComponent/DialogBox/success_box';
 import SuccessTipIcon from '../../../assets/common/success_tip_icon.svg';
+
+import ToastBox from "../../CommonComponent/DialogBox/toast_box";
 import { REGISTRATION_CHANGE_ADDRESS } from '../../../constant/locationPathName';
 
 export default function AccountVerification(props) {
@@ -32,6 +34,7 @@ export default function AccountVerification(props) {
     isLoading,
     errorMessage,
     isResendLoading,
+    resendMessage,
     OTP,
     isError,
     isOpenSuccessBox,
@@ -168,6 +171,15 @@ export default function AccountVerification(props) {
         continueProcess={goToRegisterAddress}
         cancelBox={() => setIsOpenSuccessBox(false)}
       />
+      <ToastBox isShowing={resendMessage!=''}>
+        <div id="hide" className="fixed bottom-5 w-full z-20">
+            <div className="default-margin-layout bg-blue-400 p-2 rounded-lg">
+              <p className="secondary-font text-color-white text-center font-medium">
+                {resendMessage}
+              </p>
+            </div>
+          </div>
+      </ToastBox>
     </section>
   );
 }

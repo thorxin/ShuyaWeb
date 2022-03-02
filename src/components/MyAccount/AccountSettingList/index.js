@@ -80,12 +80,6 @@ const AccountSettingList = ({
   return (
     <>
       <SettingItems
-        Icon={WishIcon}
-        Label={t('MyAccount.wishlist')}
-        clickingItem={() => goTo(WISH_LIST)}
-        wishListCount={wishList}
-      />
-      <SettingItems
         Icon={PhoneIcon}
         Label={account_info.phoneNo}
         clickingItem={() => goTo(CHANGE_EMAIL_OR_PHONE_BY_MY_ACCOUNT)}

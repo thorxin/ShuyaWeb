@@ -70,9 +70,9 @@ const ListItem = ({
         </div>
 
         <div className="block w-full h-auto space-y-2 md:space-y-0">
-          <p className="primary-font text-main-theme-color h-auto break-all">
+          {/* <p className="primary-font text-main-theme-color h-auto break-all">
             {noti.title}
-          </p>
+          </p> */}
           <p className="tertiary-font text-main-theme-color h-auto break-all">
             {notiText}
           </p>

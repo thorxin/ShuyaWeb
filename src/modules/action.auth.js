@@ -23,6 +23,7 @@ import {
   set_stop_resend_loading,
   set_city_list,
   set_township_list,
+  set_resend_message,
 } from './reducer.auth';
 
 import {
@@ -99,7 +100,7 @@ export const auth_registration = (history, dataForm) => {
         // let pathName = "/accountverification";
         goToSpecificPathNameWithData(history, ACCOUNT_VERIFICATION, propsData);
       } else {
-        console.log(body?.message);
+        alert(body?.message);
       }
       dispatch(set_stop_loading());
     } catch (error) {
@@ -140,6 +141,10 @@ export const auth_resend_code = (Data = {}) => {
       if (!response.ok) {
         alert(body?.message);
       }
+      setTimeout(() => {
+        dispatch(set_resend_message(''))
+      }, 5000);
+      dispatch(set_resend_message('Send OTP code to your phone number'))
       dispatch(set_stop_resend_loading());
     } catch (error) {
       alert(error);

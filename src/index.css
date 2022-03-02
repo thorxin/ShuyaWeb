@@ -181,3 +181,17 @@ scrollbar-width: none;  /* Firefox */
   background: #bc877e; 
   border-radius: 3px;
 }
+/* Add to cart Animation  */
+.custom-bounce-animation{
+  animation: bouncer .3s linear;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 2;
+}
+@keyframes bouncer {
+  0% {
+    transform: translateY(-10px);
+  }
+  100%{
+    transform: translateY(0px);
+  }
+}

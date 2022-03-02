@@ -141,13 +141,16 @@ export default function OrderHistoryItems({ Order }) {
               {dateFormatter(Order.orderDate)}
             </p>
           </div>
-          <div className="col-span-2" onClick={() => GetVoucher(Order.orderId)}>
-            <img
-              src={VoucherIcon}
-              className="w-5 h-auto float-right"
-              alt="VoucherIcons"
-            />
-          </div>
+          {
+            Order.orderStatusId != DELETED &&
+            <div className='col-span-2' onClick={() => GetVoucher(Order.orderId)}>
+              <img
+                src={VoucherIcon}
+                className='w-5 h-auto float-right'
+                alt='VoucherIcons'
+              />
+            </div>
+            }
         </div>
         <div
           className="grid grid-cols-1 gap-y-2 md:grid-cols-7"

@@ -26,8 +26,8 @@ export async function postOrder(data) {
   return await fetch(endpoints.PostOrder, data);
 }
 
-export async function postOrderActivity(order_id) {
-  return await fetch(`${endpoints.PostOrderActivity}?orderId=${order_id}`);
+export async function postOrderActivity(order_id, data) {
+  return await fetch(`${endpoints.PostOrderActivity}?orderId=${order_id}`, data);
 }
 
 export async function getBank(data) {

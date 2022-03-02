@@ -46,7 +46,7 @@ export default function EditProfileSection({
               />
             )}
           </div>
-          <div className="md:w-3/12 h-auto">
+          <div className="my-auto  md:w-8/12">
             <AccountName
               account_name={account_info.name}
               user_name={userName}
