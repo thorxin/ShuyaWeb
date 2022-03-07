@@ -8,10 +8,10 @@ const ProfilePhoto = ({
   UserProfilePhoto,
   ImageUploader,
   UploadedImage,
-  /** 
+  /**
    * action
    */
-  HandleImageUpload
+  HandleImageUpload,
 }) => {
   return (
     <div className="cursor-pointer">
@@ -28,7 +28,9 @@ const ProfilePhoto = ({
         onClick={() => ImageUploader.current.click()}
       >
         <img
-          src={`${UserProfilePhoto ? UserProfilePhoto : UserProfile}?random_number=${new Date().getTime()}`}
+          src={`${
+            UserProfilePhoto ? UserProfilePhoto : UserProfile
+          }?random_number=${new Date().getTime()}`}
           ref={UploadedImage}
           className="w-20 h-20 object-cover border rounded-full"
           alt="UploadedImage"

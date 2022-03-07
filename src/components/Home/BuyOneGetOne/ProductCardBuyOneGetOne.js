@@ -64,7 +64,7 @@ const ProductCardBuyOneGetOne = ({ productData = {}, onClickWishList }) => {
       <div className="w-48 md:w-full mx-auto h-auto relative">
         <div className="relative">
           <div className="absolute bottom-0 bg-promote-price-percent z-40">
-            <p className="caption-font text-color-default px-2">Buy 1 Get 1</p>
+            <p className="caption-font text-color-white px-2">Buy 1 Get 1</p>
           </div>
           <div className="overflow-hidden rounded-t-md">
             {productData.url ? (

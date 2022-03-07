@@ -1,11 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28.11 24.38">
-    <defs>
-        <style>.cls-1{fill:#000000bf;}</style>
-    </defs>
-    <title>Asset 19</title>
-    <g id="Layer_2" data-name="Layer 2">
-        <g id="Layer_1-2" data-name="Layer 1">
-            <path class="cls-1" d="M26,12.47,14.05,24.38,3.73,14.06,2.14,12.47A7.3,7.3,0,1,1,12.47,2.14l1.59,1.59,1.58-1.59A7.3,7.3,0,0,1,26,12.47Z"/>
-        </g>
-    </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.81 30.81"><defs><style>.cls-1{isolation:isolate;}.cls-2{opacity:0.75;mix-blend-mode:multiply;}.cls-3{fill:#fff;}</style></defs><title>Asset 14</title><g class="cls-1"><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><circle class="cls-2" cx="15.4" cy="15.4" r="15.4"/><path class="cls-3" d="M23.2,16.29l-1,1L15.4,24.09l-7.79-7.8a4.77,4.77,0,1,1,6.75-6.75l1,1,1-1a4.77,4.77,0,0,1,6.75,6.75Z"/></g></g></g></svg>

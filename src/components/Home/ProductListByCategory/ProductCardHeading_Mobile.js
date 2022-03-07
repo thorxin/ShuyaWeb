@@ -1,14 +1,14 @@
 /** @format */
 
-import React from 'react'
+import React from "react";
 
 // images
 // import ViewMore from "../../../assets/home/more_view.svg"
 
 const ProductCardHeading_Mobile = ({
   Url,
-  Heading = '',
-  ViewAll = '',
+  Heading = "",
+  ViewAll = "",
   /**
    * action
    */
@@ -20,7 +20,7 @@ const ProductCardHeading_Mobile = ({
       <div className="md:flex md:justify-between md:items-center ">
         <div className="flex md:flex-row md:justify-center md:mx-0 mx-2">
           {/* <img src={Url} className="w-10 h-10 rounded-full  border-2" /> */}
-          <p className="custom-font-regular text-xl md:text-2xl  h-auto text-color-primary">
+          <p className="font-bold h-auto left-1/2 md:text-2xl section-title-font text-color-default text-xl top-1/2 transform">
             {Heading}
           </p>
         </div>
@@ -37,6 +37,6 @@ const ProductCardHeading_Mobile = ({
         )}
       </div>
     </div>
-  )
-}
-export default ProductCardHeading_Mobile
+  );
+};
+export default ProductCardHeading_Mobile;

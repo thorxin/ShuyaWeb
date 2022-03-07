@@ -1,19 +1,19 @@
 /** @format */
 
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { LOGIN } from '../../../../constant/locationPathName';
+import React from "react";
+import { Link } from "react-router-dom";
+import { LOGIN } from "../../../../constant/locationPathName";
 import {
   GET_STORED_ACCESS_TOKEN,
   saveLastRoute,
-} from '../../../../util/storage';
+} from "../../../../util/storage";
 
 const FooterItem = ({
-  ROUTE = '',
+  ROUTE = "",
   item_icon,
   item_icon_active,
   IS_ROUTE = false,
-  item_name = '',
+  item_name = "",
   count = 0,
 }) => {
   const clickOnRoute = (routeName) => {
@@ -27,12 +27,13 @@ const FooterItem = ({
         to={GET_STORED_ACCESS_TOKEN ? ROUTE : LOGIN}
         onClick={() => clickOnRoute(ROUTE)}
       >
-        <div className='space-y-2 relative h-10'>
-          <img
-            src={IS_ROUTE ? item_icon_active : item_icon}
-            className={`${IS_ROUTE ? 'w-6 h-6' : 'w-5 h-5'} mx-auto`}
-            alt='FooterLogo'
-          />
+        <div className="space-y-2 relative h-10">
+          <div className="w-10 h-10 flex items-center">
+            <img
+              src={IS_ROUTE ? item_icon_active : item_icon}
+              alt="FooterLogo"
+            />
+          </div>
           {/* <p
             className={`caption-font text-center ${
               IS_ROUTE ? 'text-color-primary' : 'text-color-secondary'
@@ -42,8 +43,8 @@ const FooterItem = ({
           </p> */}
           {count > 0 && (
             <div>
-              <div className='rounded-full w-4 h-4 flex items-center justify-center absolute -top-2 left-7 bg-notification-count-color'>
-                <p className='text-tiny text-color-white'>{count}</p>
+              <div className="rounded-full w-4 h-4 flex items-center justify-center absolute -top-2 left-7 bg-notification-count-color">
+                <p className="text-tiny text-color-white">{count}</p>
               </div>
             </div>
           )}

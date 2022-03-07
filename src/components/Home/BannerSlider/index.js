@@ -83,7 +83,7 @@ const ADSlider = ({
             ))}
         </Carousel>
       </div>
-      <div className="mx-auto block md:hidden">
+      <div className="mx-auto block md:hidden mt-28">
         <Carousel showThumbs={false} infiniteLoop={true} autoPlay={true}>
           {MobileBanner.length > 0 &&
             MobileBanner.map((ad, index) => (

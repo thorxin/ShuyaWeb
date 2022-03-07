@@ -1,17 +1,17 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
-import { getLocalStorage, LANGUAGE_TYPE } from './../../../util/storage'
+import { getLocalStorage, LANGUAGE_TYPE } from "./../../../util/storage";
 
 //images
-import Packed from '../../../assets/notification/packed.png'
-import Commanded from '../../../assets/notification/commanded.svg'
-import Transported from '../../../assets/notification/transported.svg'
-import Payment from '../../../assets/notification/confirmed_payment.svg'
-import Removed from '../../../assets/notification/removed.png'
-import Default from '../../../assets/notification/default.png'
+import Packed from "../../../assets/notification/packed.png";
+import Commanded from "../../../assets/notification/commanded.svg";
+import Transported from "../../../assets/notification/transported.svg";
+import Payment from "../../../assets/notification/confirmed_payment.svg";
+import Removed from "../../../assets/notification/removed.png";
+import Default from "../../../assets/notification/default.png";
 
 // components
-import dateFormatter from '../../../util/dateFormatter'
+import dateFormatter from "../../../util/dateFormatter";
 
 const ListItem = ({
   noti = {},
@@ -20,30 +20,30 @@ const ListItem = ({
    */
   clickingOnNotification,
 }) => {
-  const removed = noti.body.match('ပယ်ဖျက်')
-  const transported = noti.body.match('ပို့ဆောင်ပြီး')
-  const packed = noti.body.match('ထုပ်ပိုးပြီး')
-  const commanded = noti.body.match('ပို့ဆောင်ရန်')
-  const payment = noti.body.match('ငွေ')
+  const removed = noti.body.match("ပယ်ဖျက်");
+  const transported = noti.body.match("ပို့ဆောင်ပြီး");
+  const packed = noti.body.match("ထုပ်ပိုးပြီး");
+  const commanded = noti.body.match("ပို့ဆောင်ရန်");
+  const payment = noti.body.match("ငွေ");
 
-  const iconSize = 'w-9 md:w-7 h-auto'
+  const iconSize = "w-9 md:w-7 h-auto";
 
-  const currentLang = getLocalStorage(LANGUAGE_TYPE)
+  const currentLang = getLocalStorage(LANGUAGE_TYPE);
 
-  const [more, setMore] = useState(false)
+  const [more, setMore] = useState(false);
 
   let notiText =
-    currentLang === 'en-US'
+    currentLang === "en-US"
       ? noti.bodyEng
-      : currentLang === 'unicode'
+      : currentLang === "unicode"
       ? noti.body
-      : currentLang === 'zawgyi'
+      : currentLang === "zawgyi"
       ? noti.bodyChn
-      : noti.body
+      : noti.body;
 
   // console.log(noti.body.split(' '))
   // console.log(noti.body.match('ငွေပေး‌ချေမှု'))
-  console.log(noti.body.includes(payment))
+  console.log(noti.body.includes(payment));
 
   return (
     <>
@@ -70,9 +70,12 @@ const ListItem = ({
         </div>
 
         <div className="block w-full h-auto space-y-2 md:space-y-0">
-          <p className="primary-font text-main-theme-color h-auto break-all">
-            {noti.title}
-          </p>
+          {noti.referenceAttribute == 0 && (
+            <p className="primary-font text-main-theme-color h-auto break-all">
+              {noti.title}
+            </p>
+          )}
+
           <p className="tertiary-font text-main-theme-color h-auto break-all">
             {notiText}
           </p>
@@ -82,7 +85,7 @@ const ListItem = ({
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default ListItem
+export default ListItem;

@@ -144,6 +144,22 @@
     align-items: flex-end; */
     display:none;
   }
+
+  /* override carousel */
+  .carousel-slider{
+    overflow : visible!important
+  }
+  .control-dots{
+    bottom : -35px!important
+  }
+  .dot{
+    background-color : #bc877e!important
+  }
+  .dot.selected{
+    width: 37px!important;
+    border-radius: 3px!important;
+    shadow : none!important;
+  }
   
   .carousel.carousel-slider .control-arrow {
     margin-right: 35px;

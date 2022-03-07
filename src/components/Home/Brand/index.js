@@ -89,9 +89,9 @@ const MainCategories = ({ categoryArray = [] }) => {
       {/* For Mobile */}
       <div className="block md:hidden">
         <div className="pb-2 md:pb-0">
-          <div className=" pb-4 md:py-4 md:mt-1">
+          <div className="pb-4">
             <div className="w-full h-auto mx-auto">
-              <div className="grid grid-cols-4 md:grid-cols-8 gap-x-2 md:mx-auto mx-2">
+              <div className="grid grid-cols-3">
                 {Array.isArray(categoryArray) &&
                   categoryArray
                     .slice(0, 8)
