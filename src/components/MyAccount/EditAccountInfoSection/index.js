@@ -9,6 +9,7 @@ import SuccessBoxItems from "./box_items";
 
 export default function EditProfileSection({
   account_info = {},
+  wishListCount=0,
   /**
    * action
    */
@@ -50,6 +51,7 @@ export default function EditProfileSection({
             <AccountName
               account_name={account_info.name}
               user_name={userName}
+              wishListCount={wishListCount}
               is_required_name={requiredUserName}
               changingName={changingAccountName}
               clickingUpdate={clickUpdateAccountName}

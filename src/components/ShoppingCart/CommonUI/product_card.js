@@ -149,21 +149,21 @@ export const ProductCart = ({
               <div className="md:flex hidden gap-2 items-center py-3 md:py-2">
                 <div className="w-24 ml-1 md:w-24 md:ml-2.5 "></div>
                 <img
-                  src={Item?.promotionGetOne.url}
+                  src={Item?.promotionGetOne?.url}
                   className="w-7 h-full object-contain"
                   alt="ItemImage"
                 />
-                {Item?.productId === Item?.promotionGetOne.getOneProductId ? (
+                {Item?.productId === Item?.promotionGetOne?.getOneProductId ? (
                   <p className="tertiary-font text-base text-color-secondary">
                     Buy 1 get 1{' '}
-                    {Item?.productId === Item?.promotionGetOne.getOneProductId
+                    {Item?.productId === Item?.promotionGetOne?.getOneProductId
                       ? 'same'
                       : 'different'}{' '}
                     item
                   </p>
                 ) : (
                   <p className="tertiary-font text-base text-color-secondary">
-                    Free "{Item?.promotionGetOne.getOneProductName}"
+                    Free "{Item?.promotionGetOne?.getOneProductName}"
                   </p>
                 )}
               </div>

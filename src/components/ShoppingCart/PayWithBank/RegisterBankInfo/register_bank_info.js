@@ -118,10 +118,10 @@ export const RegisterBankInfo = ({
             </p>
             
             {(isNaN(TotalAmount) ) ? 
-            <p className='sub-heading-font text-color-default'>
+            <p className='text-md text-color-default'>
               {moneyFormatter(NetAmount)} {t('Common.kyats')}
             </p>:
-            <p className='sub-heading-font text-color-default'>
+            <p className='text-md text-color-default'>
               {moneyFormatter(TotalAmount)} {t('Common.kyats')}
             </p>
             }

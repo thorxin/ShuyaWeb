@@ -113,11 +113,11 @@ const PaymentRegistration = ({
               {t('ShoppingCart.total')}
             </p>
             {isNaN(TotalAmount) ? (
-              <p className="tertiary-font text-color-default">
+              <p className="text-md text-color-default">
                 {moneyFormatter(NetAmount)} {t('Common.kyats')}
               </p>
             ) : (
-              <p className="tertiary-font text-color-default">
+              <p className="text-md text-color-default">
                 {moneyFormatter(TotalAmount)} {t('Common.kyats')}
               </p>
             )}

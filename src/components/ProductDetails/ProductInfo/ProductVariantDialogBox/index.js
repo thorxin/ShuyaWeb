@@ -15,6 +15,7 @@ import BuyNowIconWhite from '../../../../assets/productDetail/buy_now_icon_white
 import ShopCartIcon from '../../../../assets/productDetail/shopping_cart_icon.svg'
 import AuthLoadingBlack from '../../../../assets/Authentication/Loading/auth_loading_black.gif'
 import BackArrowIcon from '../../../../assets/common/back_arrow.svg'
+import { toast } from 'react-toastify'
 
 export const PriceLabel = ({
   original_price = 0,
@@ -217,8 +218,11 @@ const ProductVariantDialogBox = ({
                       </div>
                     ) : (
                       <div className="w-auto h-auto bg-gray-100 py-2 px-3">
-                        <p className="text-color-secondary tertiary-font">
-                          Please Select {VariantList[variant_index - 1].name}
+                        <p className="text-color-secondary tertiary-font" onClick={()=>
+                          toast.error('Please Select First Variation', {
+                            theme: "colored",
+                          })
+                        }>Please Select {VariantList[variant_index - 1].name}
                         </p>
                       </div>
                     )}

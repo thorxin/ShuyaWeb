@@ -176,8 +176,7 @@ export default function LogInPage(props) {
                         goToSpecificPathName(history, REGISTRATION)
                       }
                     >
-                      {/* {t('Authentication.sign-up-here')} */}
-                      Sing up here
+                      {t('Authentication.sign-up-here')}
                     </span>
                   </p>
                   <p

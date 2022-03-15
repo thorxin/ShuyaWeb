@@ -169,9 +169,12 @@ const By_category = (props) => {
                         <div key={index}>
                           {item.subCategory1.map((_subOne, index) => (
                             <div
-                              className="cursor-pointer"
+                              className='cursor-pointer mb-2'
                               key={index}
-                              onClick={() => goToSearch(_subOne)}
+                              onClick={() => {
+                                if (_subOne.subCategory2.length > 0) return;
+                                goToSearch(_subOne);
+                              }}
                             >
                               <div className="mx-6 mt-4 text-md custom-font-bold text-color-secondary">
                                 {_subOne.name}

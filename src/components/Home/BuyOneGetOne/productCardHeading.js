@@ -20,7 +20,7 @@ const ProductCardHeading = ({
             {Heading}
           </p>
         )}
-        <div className="flex cursor-pointer" onClick={onClickViewMore}>
+        <div className="flex cursor-pointer hover-animation" onClick={onClickViewMore}>
           <p className="primary-font text-color-secondary  md:px-2  md:py-1  md:cursor-pointer">
             {productLength.length > 4 && ViewAll}
           </p>

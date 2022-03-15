@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 //components
 import ToastBox from "./DialogBox/toast_box";
 
 export const ErrorBox = ({ message = "" }) => {
+  const { t } = useTranslation();
+
   useEffect(() => {
     const timer = setTimeout(() => {
       if (message) {
@@ -19,7 +22,7 @@ export const ErrorBox = ({ message = "" }) => {
         id="hide"
         className="inline-block fixed top-0 text-color-white caption-font bg-red-700 rounded-sm p-3 mt-3 w-full h-auto"
       >
-        <p> {message.message} </p>
+      <p> {t('Authentication.login-wrong-phone')} </p>
       </div>
     );
   }

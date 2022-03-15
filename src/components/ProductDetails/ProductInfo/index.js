@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useState } from 'react'
+import React, { useState,useEffect,useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useHistory } from 'react-router'
 import { ToastContainer } from 'react-toastify'
@@ -65,21 +65,34 @@ import {
   WEBSITE_NAME,
 } from '../../../constant/contactUs'
 
-export const ProductSharingBox = ({ shared_url = '', isShow = false }) => {
+export const ProductSharingBox = ({ shared_url = "", isShow = false,onClickOutside }) => {
+  const ref = useRef(null);
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (ref.current && !ref.current.contains(event.target)) {
+        onClickOutside && onClickOutside();
+      }
+    };
+    document.addEventListener('click', handleClickOutside, true);
+    return () => {
+      document.removeEventListener('click', handleClickOutside, true);
+    };
+  }, [ onClickOutside ]);
   return (
     <>
       <div
+        ref={ref}
         className={`${
-          isShow ? 'block' : 'hidden'
+          isShow ? "block" : "hidden"
         } w-full h-auto bg-white shadow-lg border py-3 px-3`}
       >
-        <div className="default-margin-layout space-y-4">
-          <div className="flex flex-1">
-            <div className="tertiary-font mx-auto">
+        <div className='default-margin-layout space-y-4'>
+          <div className='flex flex-1'>
+            <div className='tertiary-font mx-auto'>
               <FacebookShareButton
                 url={shared_url}
-                quote={'The best e-Commerce website in Myanmar'}
-                hashtag={`#${APP_NAME.replaceAll(' ', '')}`}
+                quote={"The best e-Commerce website in Myanmar"}
+                hashtag={`#${APP_NAME.replaceAll(" ", "")}`}
               >
                 <FacebookIcon size={30} round={true} />
               </FacebookShareButton>
@@ -89,12 +102,12 @@ export const ProductSharingBox = ({ shared_url = '', isShow = false }) => {
                 <FacebookMessengerIcon size={30} round={true} />
               </FacebookMessengerShareButton>
             </div> */}
-            <div className="tertiary-font mx-auto">
+            <div className='tertiary-font mx-auto'>
               <ViberShareButton url={shared_url}>
                 <ViberIcon size={30} round={true} />
               </ViberShareButton>
             </div>
-            <div className="tertiary-font mx-auto">
+            <div className='tertiary-font mx-auto'>
               <TelegramShareButton url={shared_url}>
                 <TelegramIcon size={30} round={true} />
               </TelegramShareButton>
@@ -103,8 +116,8 @@ export const ProductSharingBox = ({ shared_url = '', isShow = false }) => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
 export const ContactUsMobile = ({ setOpenContactUsMobile }) => {
   return (
@@ -307,10 +320,10 @@ const ProductInfo = ({
         </div>
       </div>
       <div
-        className="w-full h-auto absolute left-0 top-8
+        className="w-9/12 h-auto absolute left-8 top-10
        hidden md:block"
       >
-        <ProductSharingBox shared_url={sharedUrl} isShow={isShowShareBox} />
+        <ProductSharingBox shared_url={sharedUrl} isShow={isShowShareBox} onClickOutside={()=>setIsShowShareBox(false)}/>
       </div>
     </>
   )
@@ -446,7 +459,7 @@ const ProductInfo = ({
                     />
                     <div className="flex flex-col pl-3">
                       <span className="text-sm font-normal">
-                        Get this item free for buying
+                        Get this item free for buying {Detail?.name}
                       </span>
                       <span className="text-base font-medium">
                         {Detail?.promotionGetOne.getOneProductName}
@@ -571,7 +584,7 @@ const ProductInfo = ({
                   />
                   <div className="flex flex-col pl-3">
                     <span className="text-sm font-normal">
-                      Get this item free for buying
+                      Get this item free for buying {Detail?.name}
                     </span>
                     <span className="text-base font-medium">
                       {Detail?.promotionGetOne.getOneProductName}
@@ -786,7 +799,7 @@ const ProductInfo = ({
         hideProgressBar={true}
       />
       <div className="fixed bottom-0 w-full h-auto md:hidden">
-        <ProductSharingBox shared_url={sharedUrl} isShow={isShowShareBox} />
+      <ProductSharingBox shared_url={sharedUrl} isShow={isShowShareBox} onClickOutside={()=>setIsShowShareBox(false)}/>
       </div>
       <DialogBox
         isOpen={isImageOpenVariantBox}

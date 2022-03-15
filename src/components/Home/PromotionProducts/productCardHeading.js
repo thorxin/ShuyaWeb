@@ -21,7 +21,7 @@ const ProductCardHeading = ({
           </p>
         )}
         <div
-          className="flex cursor-pointer hidden md:block"
+          className="cursor-pointer hidden md:block hover-animation"
           onClick={onClickViewMore}
         >
           <p className="primary-font text-color-secondary  md:px-2  md:py-1  md:cursor-pointer">

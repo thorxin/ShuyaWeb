@@ -18,6 +18,7 @@ import { goToSpecificPathNameWithData } from "../../../util/goToSpecificPathName
 const AccountName = ({
   account_name = "",
   user_name = "",
+  wishListCount=0,
   is_required_name,
   /**
    * action
@@ -72,15 +73,22 @@ const AccountName = ({
     <>
       <div className="space-y-1">
         <div className="flex justify-between">
-            <p className="text-xl font-bold cursor-pointer hidden md:block" onClick={() => clickingEditorCancel(true)}>{account_name}</p>
+            <p className="sub-heading-font cursor-pointer hidden md:block" onClick={() => clickingEditorCancel(true)}>{account_name}</p>
             <p className="primary-font custom-font-bold cursor-pointer block md:hidden" onClick={() => clickingEditorCancel(true)}>{account_name}</p>
-            <p className="md:-mr-20 hidden md:block"><img
-            src={WishIcon}
-            className="w-5 h-auto cursor-pointer inline"
-            alt="EditPen"
-            onClick={() => clickingEditorCancel(true)}
-            />
-              <span className="pl-3 primary-font text-color-secondary cursor-pointer"  onClick={() => goTo(WISH_LIST)} >My Wishlist</span></p>
+            <div className="md:-mr-20 hidden md:flex md:justify-between md:items-center">
+              <img
+              src={WishIcon}
+              className="w-5 h-auto cursor-pointer inline"
+              alt="EditPen"
+              onClick={() => clickingEditorCancel(true)}
+              />
+              <span className="pl-3 primary-font text-color-secondary cursor-pointer"  onClick={() => goTo(WISH_LIST)} >My Wishlist</span>
+              {wishListCount>0 && 
+                <div className="ml-4 w-5 h-5 rounded-full bg-custom-primary flex items-center justify-center">
+                <p className='text-color-white text-sm font-semibold'>{wishListCount}</p>
+                </div>
+              }
+            </div>
             <p className="block md:hidden"><img
             src={EditPen}
             className="w-3.5 h-auto cursor-pointer inline mb-2"
@@ -95,7 +103,7 @@ const AccountName = ({
           <p className="caption-font text-color-verify block md:hidden">{t("MyAccount.verified-information")}</p>
           <p className="tertiary-font text-color-primary hidden md:block pl-2">{t("MyAccount.verified-information")}</p>
         </div>
-        <div className="flex space-x-1 ml-2 mt-4 hidden md:block">
+        <div className="flex space-x-1 ml-2 mt-4 md:block">
         <p className="md:-mr-20 hidden md:block"><img
             src={EditPen}
             className="w-3.5 h-auto cursor-pointer inline"

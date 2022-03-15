@@ -39,12 +39,18 @@ export function Hook({
    * actions
    */
 
-  const onSelectCategory = (category) => {
-    if (selectedCategory.id === category.id) return
-    setSelectedCategory(category)
-    fetchSubCategory(category.id)
-    console.log('selectedCategory', selectedCategory)
-  }
+   const onSelectCategory = (category) => {
+    let propsData = {
+      id: category.id,
+      name: category.name,
+    };
+    history.replace({
+      state: propsData,
+    });
+    if (selectedCategory.id === category.id) return;
+    setSelectedCategory(category);
+    fetchSubCategory(category.id);
+  };
 
   const goToSearch = (category, history_path) => {
     let propsState = {

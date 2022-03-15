@@ -60,25 +60,25 @@ export default function PayWithBank(props) {
           <SubHeadingWithBackArrow goTo={() => goBack(history)}>
             <p className='sub-heading-font text-color-default'>Pay With Bank</p>
           </SubHeadingWithBackArrow>
-          <div className='default-margin-layout hidden md:block'>
-            <div
-              className='flex items-center space-x-3 cursor-pointer'
-              onClick={() => goBack(history)}
-            >
-              <div className='w-4 h-auto'>
-                <img
-                  src={LeftArrowImage}
-                  className='w-full h-full'
-                  alt='Left Arrow'
-                />
-              </div>
-              <p className='primary-font text-color-default'> Back </p>
-            </div>
+          <div className='default-margin-layout hidden md:block' style={{marginTop:'5rem'}}>
           </div>
-          <div className='default-margin-layout'>
+          <div className='default-margin-layout py-4'>
+            <div
+                className='flex items-center space-x-3 cursor-pointer pb-4'
+                onClick={() => goBack(history)}
+              >
+                <div className='w-4 h-auto'>
+                  <img
+                    src={LeftArrowImage}
+                    className='w-full h-full'
+                    alt='Left Arrow'
+                  />
+                </div>
+                <p className='primary-font text-color-default'> Back </p>
+              </div>
             <div className='hidden md:block bg-white py-4'>
               <div className='mx-4 md:mx-8'>
-                <p className='sub-heading-font text-color-default '>
+                <p className='text-xl font-bold text-color-default '>
                   Pay With Bank
                 </p>
                 {/* <p className='sub-heading-font text-color-default '>

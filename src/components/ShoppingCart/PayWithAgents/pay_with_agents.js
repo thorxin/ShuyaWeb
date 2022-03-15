@@ -79,22 +79,23 @@ export default function PayWithAgents(props) {
             </p>
           </SubHeadingWithBackArrow>
           <div className="default-margin-layout hidden md:block">
+            
+          </div>
+          <div className="default-margin-layout mt-2 md:mt-0 py-20">
             <div
               className="flex items-center space-x-3 cursor-pointer"
               onClick={() => goBack(history)}
             >
-              <div className="w-4 h-auto">
-                <img
-                  src={LeftArrowImage}
-                  className="w-full h-full"
-                  alt="Left Arrow"
-                />
-              </div>
-              <p className="primary-font text-color-default"> Back </p>
+                <div className="w-4 h-auto">
+                  <img
+                    src={LeftArrowImage}
+                    className="w-full h-full"
+                    alt="Left Arrow"
+                  />
+                </div>
+                <p className="primary-font text-color-default"> Back </p>
             </div>
-          </div>
-          <div className="default-margin-layout mt-2 md:mt-0">
-            <div className="bg-white w-full h-auto min-h-screen py-6">
+            <div className="bg-white w-full h-auto min-h-screen py-6 mt-4">
               <div className="mx-4 md:mx-8 space-y-6">
                 <PaymentAccount
                   Loading={isSecondaryLoading}

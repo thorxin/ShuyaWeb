@@ -15,7 +15,7 @@ import ReceivedPoints from './MemberPointSection/received_point'
 export const layout = 'bg-white default-margin-layout-auth'
 
 export default function MyAccount(props) {
-  const [userAccountInfo, deliveryAddress] = Hook(props)
+  const [userAccountInfo, deliveryAddress,wishListCount] = Hook(props)
 
   return (
     <>
@@ -24,10 +24,10 @@ export default function MyAccount(props) {
         <div className="space-y-5">
           {/* Change Profile And Name */}
           <>
-            <div className={`${layout} py-4 2xl:py-5`}>
+          <div className={`${layout} py-4 2xl:py-5`}>
               <div className="md:mx-8 mx-4">
                 {userAccountInfo && (
-                  <EditAccountInfoSection account_info={userAccountInfo} />
+                  <EditAccountInfoSection account_info={userAccountInfo} wishListCount={wishListCount} />
                 )}
               </div>
             </div>

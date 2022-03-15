@@ -27,7 +27,7 @@ export const RemovedCartBox = ({
                 </button>
               </div>
               <div>
-                <button className="primary-btn tertiary-font py-2" onClick={confirmBox}>
+                <button className="primary-btn bg-custom-primary tertiary-font py-2" onClick={confirmBox}>
                   {t("Common.do")}
                 </button>
               </div>

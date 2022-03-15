@@ -90,8 +90,8 @@ export default function OrderDetails(props) {
   };
 
   const chkPayAgain =
-    OrderDetail.paymentInfo[OrderDetail.paymentInfo.length - 1].paymentStatus
-      .id === PAYMENT_FAIL
+  OrderDetail.paymentInfo[OrderDetail.paymentInfo.length - 1].paymentStatus
+      .id === PAYMENT_FAIL && !(OrderDetail?.orderStatus.id === DELETED)  
 
   return (
     <>
@@ -249,7 +249,7 @@ export default function OrderDetails(props) {
                           >
                             <div className='w-full mx-auto'>
                               <button
-                                className='tertiary-font w-full h-auto text-color-white bg-custom-orange py-3 rounded-md'
+                                className='tertiary-font w-full h-auto text-color-white bg-custom-primary py-3 rounded-md'
                                 onClick={() => setOpenPayAgain(true)}
                               >
                                 {t('OrderDetail.pay-again')}
@@ -344,7 +344,7 @@ export default function OrderDetails(props) {
                         {OrderDetail?.orderStatus.id !== DELETED && 
                           <div className=''>
                             <div
-                                className='primary-btn tertiary-font rounded-md py-3 flex justify-center'
+                                className='primary-btn bg-custom-primary rounded-md py-3 flex justify-center'
                                 onClick={goToVoucherPrintPage}
                               >
                                 <img

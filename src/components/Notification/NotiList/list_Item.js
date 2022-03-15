@@ -1,17 +1,18 @@
 import React, { useState } from 'react'
 
-import { getLocalStorage, LANGUAGE_TYPE } from './../../../util/storage'
-
 //images
 import Packed from '../../../assets/notification/packed.png'
 import Commanded from '../../../assets/notification/commanded.svg'
 import Transported from '../../../assets/notification/transported.svg'
-import Payment from '../../../assets/notification/confirmed_payment.svg'
 import Removed from '../../../assets/notification/removed.png'
+import Payment from '../../../assets/notification/confirmed_payment.svg'
 import Default from '../../../assets/notification/default.png'
 
 // components
 import dateFormatter from '../../../util/dateFormatter'
+
+import { getLocalStorage } from '../../../util/storage'
+import { LANGUAGE_TYPE } from '../../../util/storage'
 
 const ListItem = ({
   noti = {},
@@ -38,20 +39,16 @@ const ListItem = ({
       : currentLang === 'unicode'
       ? noti.body
       : currentLang === 'zawgyi'
-      ? noti.bodyChn
+      ? noti.body
       : noti.body
-
-  // console.log(noti.body.split(' '))
-  // console.log(noti.body.match('ငွေပေး‌ချေမှု'))
-  console.log(noti.body.includes(payment))
 
   return (
     <>
       <div
-        className="flex space-x-4 items-start"
+        className="flex space-x-4 items-center"
         onClick={clickingOnNotification}
       >
-        <div className="flex flex-shrink-0 pt-1">
+        <div className="flex flex-shrink-0">
           {(noti.body.includes(packed) && (
             <img src={Packed} alt="notiItem" className={iconSize} />
           )) ||
@@ -70,11 +67,44 @@ const ListItem = ({
         </div>
 
         <div className="block w-full h-auto space-y-2 md:space-y-0">
-          {/* <p className="primary-font text-main-theme-color h-auto break-all">
-            {noti.title}
-          </p> */}
+          {
+            !noti.body.includes(removed) && !noti.body.includes(transported) && !noti.body.includes(packed) && !noti.body.includes(commanded) && !noti.body.includes(payment) &&
+            <p className="font-semibold">{noti.title}</p> 
+          }
           <p className="tertiary-font text-main-theme-color h-auto break-all">
-            {notiText}
+            {notiText.split('').length > 150 && !more ? (
+              <p>
+                {notiText.slice(0, 150)} &nbsp;
+                <span className="text-color-secondary">
+                  ...
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      setMore(!more)
+                    }}
+                  >
+                    More
+                  </button>
+                </span>
+              </p>
+            ) : (
+              <p>
+                {notiText} &nbsp;
+                {more && (
+                  <span className="text-color-secondary">
+                    ...
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        setMore(!more)
+                      }}
+                    >
+                      Less
+                    </button>
+                  </span>
+                )}
+              </p>
+            )}
           </p>
           <p className="text-base text-color-secondary h-auto">
             {dateFormatter(noti.notificationDate)}
