@@ -32,6 +32,11 @@ import { BUY_NOW, ADD_TO_SHOP_CART, NO_VARIANT_CONFIG } from '../util'
 import DialogBox from '../../CommonComponent/DialogBox/dialog_box'
 import { APP_NAME } from '../../../constant/appName'
 
+/**
+ * Headless ui
+ */
+import { Popover } from '@headlessui/react'
+
 //images
 import ActiveRatingStar from '../../../assets/productDetail/active_rating_star.svg'
 import RatingStar from '../../../assets/productDetail/rating_star.svg'
@@ -69,9 +74,9 @@ export const ProductSharingBox = ({ shared_url = '', isShow = false }) => {
       <div
         className={`${
           isShow ? 'block' : 'hidden'
-        } w-full h-auto bg-white shadow-lg border py-3 px-3`}
+        } w-72 h-auto bg-white shadow-lg border py-3 px-3`}
       >
-        <div className="default-margin-layout space-y-4">
+        <div className="space-y-4">
           <div className="flex flex-1">
             <div className="tertiary-font mx-auto">
               <FacebookShareButton
@@ -284,20 +289,34 @@ const ProductInfo = ({
   const sharedUrl = String(window.location.href)
   let shareButton = (
     <>
-      <div
-        className="hidden md:flex justify-end cursor-pointer"
-        onClick={() => setIsShowShareBox(!isShowShareBox)}
-      >
-        <img src={ShareIconOne} className="w-4 h-auto" alt="Share Icon One" />
-        <p className="text-lg text-color-secondary py-1 px-2">
-          {t('ProductDetails.share')}
-        </p>
-      </div>
-      <div
+      <Popover className="relative">
+        <Popover.Button>
+          <div
+            className="hidden md:flex justify-end cursor-pointer"
+            // onClick={() => setIsShowShareBox(!isShowShareBox)}
+          >
+            <img
+              src={ShareIconOne}
+              className="w-4 h-auto"
+              alt="Share Icon One"
+            />
+            <p className="text-lg text-color-secondary py-1 px-2">
+              {t('ProductDetails.share')}
+            </p>
+          </div>
+        </Popover.Button>
+
+        <Popover.Panel className="absolute z-10">
+          <ProductSharingBox shared_url={sharedUrl} isShow={true} />
+        </Popover.Panel>
+      </Popover>
+
+      {/* ----- product sharing box ----- */}
+      {/* <div
         className="block md:hidden"
         onClick={() => setIsShowShareBox(!isShowShareBox)}
       >
-        <div className=" mr-5 mt-1">
+        <div className="mr-5 mt-1">
           <img src={ShareIconMobile} className="w-8 h-auto" alt="Share Icon" />
         </div>
       </div>
@@ -306,7 +325,7 @@ const ProductInfo = ({
        hidden md:block"
       >
         <ProductSharingBox shared_url={sharedUrl} isShow={isShowShareBox} />
-      </div>
+      </div> */}
     </>
   )
 
@@ -491,7 +510,8 @@ const ProductInfo = ({
                   </div>
                 </div>
               </div>
-              <ProductCategory CategoryArray={Detail?.categorySteps} />
+              {/* ----- category steps ----- */}
+              <ProductCategory CategoryArray={Detail?.productCategory} />
 
               {Detail.isGetOne && (
                 <div className="w-24 text-center mx-4 md:mx-8">

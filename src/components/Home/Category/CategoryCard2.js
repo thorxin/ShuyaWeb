@@ -15,7 +15,7 @@ const CategoryCard2 = ({ categoryData = {} }) => {
 
   const goToByCategory = () => {
     let propsData = {
-      id: categoryData.id,
+      id: categoryData.productCategoryId,
       name: categoryData.name,
     }
     goToSpecificPathNameWithData(history, BY_CATEGORY, propsData)
@@ -27,7 +27,6 @@ const CategoryCard2 = ({ categoryData = {} }) => {
       onClick={() => goToByCategory()}
     >
       {/* Toggle Fav Btn */}
-
       <div className="w-44 md:w-full mx-auto h-auto relative">
         <div className="relative">
           <div className="overflow-hidden rounded-t-md">

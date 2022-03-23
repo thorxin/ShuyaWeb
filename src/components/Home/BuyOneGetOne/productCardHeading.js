@@ -1,10 +1,10 @@
 /** @format */
 
-import React from "react";
+import React from 'react'
 
 const ProductCardHeading = ({
-  Heading = "",
-  ViewAll = "",
+  Heading = '',
+  ViewAll = '',
   /**
    * action
    */
@@ -21,12 +21,12 @@ const ProductCardHeading = ({
           </p>
         )}
         <div className="flex cursor-pointer" onClick={onClickViewMore}>
-          <p className="primary-font text-color-secondary  md:px-2  md:py-1  md:cursor-pointer">
+          <p className="viewmore--hover-animation primary-font text-color-secondary  md:px-2  md:py-1  md:cursor-pointer">
             {productLength.length > 4 && ViewAll}
           </p>
         </div>
       </div>
     </div>
-  );
-};
-export default ProductCardHeading;
+  )
+}
+export default ProductCardHeading

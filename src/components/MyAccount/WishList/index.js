@@ -66,7 +66,10 @@ const Index = (props) => {
             <div className="bg-white pb-5 min-h-screen">
               <div className="flex justify-between items-center mx-4 md:mx-8 py-3">
                 <p className="truncate h-auto sub-heading-font-h3 custom-font-regular text-color-default">
-                  WishList ({WishListProduct.length})
+                  WishList{' '}
+                  {WishListProduct.length > 0 && (
+                    <span>({WishListProduct.length})</span>
+                  )}
                 </p>
                 {WishListProduct.length > 0 && (
                   <p

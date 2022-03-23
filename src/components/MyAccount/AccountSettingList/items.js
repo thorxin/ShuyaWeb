@@ -24,9 +24,10 @@ const SettingItems = ({
         </div>
         <div>
           <p className="secondary-font">
-            {' '}
             {Label ? Label : LabelNoData}{' '}
-            {wishListCount && <span>( {wishListCount.wishList.length} )</span>}
+            {wishListCount > 0 && (
+              <span>( {wishListCount.wishList.length} )</span>
+            )}
           </p>
         </div>
       </div>

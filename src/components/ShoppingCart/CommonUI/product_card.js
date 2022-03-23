@@ -145,11 +145,12 @@ export const ProductCart = ({
               </div>
             </div>
             {/* For Web Buy 1 Get 1  */}
+            {console.log(Item.promotionGetOne.url)}
             {Item.isGetOne && (
               <div className="md:flex hidden gap-2 items-center py-3 md:py-2">
                 <div className="w-24 ml-1 md:w-24 md:ml-2.5 "></div>
                 <img
-                  src={Item?.promotionGetOne.url}
+                  src={Item.promotionGetOne.url}
                   className="w-7 h-full object-contain"
                   alt="ItemImage"
                 />

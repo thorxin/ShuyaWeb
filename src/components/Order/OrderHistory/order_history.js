@@ -1,27 +1,27 @@
-import React from "react";
-import { useTranslation } from "react-i18next";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import React from 'react'
+import { useTranslation } from 'react-i18next'
+import DatePicker from 'react-datepicker'
+import 'react-datepicker/dist/react-datepicker.css'
 
 //components
-import { Hook } from "./hook";
-import NavigationWeb from "../../CommonComponent/Navigation/NavigationWeb";
-import FooterWeb from "../../CommonComponent/Footer/web_footer";
-import FooterMobile from "../../CommonComponent/Footer/mobile_footer";
-import OrderHistoryItems from "./order_history_items";
-import OrderHistoryItemFrame from "./order_history_items_frame";
-import OrderStatusDropDownItems from "./order_status_drop_down_items";
-import VoucherNoSuggestionDropDownItems from "./voucher_no_drop_down_items";
-import { DELETED } from "../../../constant/order";
-import { VOUCHER_NO, ORDER_STATUS, PAYMENT_STATUS } from "./util";
+import { Hook } from './hook'
+import NavigationWeb from '../../CommonComponent/Navigation/NavigationWeb'
+import FooterWeb from '../../CommonComponent/Footer/web_footer'
+import FooterMobile from '../../CommonComponent/Footer/mobile_footer'
+import OrderHistoryItems from './order_history_items'
+import OrderHistoryItemFrame from './order_history_items_frame'
+import OrderStatusDropDownItems from './order_status_drop_down_items'
+import VoucherNoSuggestionDropDownItems from './voucher_no_drop_down_items'
+import { DELETED } from '../../../constant/order'
+import { VOUCHER_NO, ORDER_STATUS, PAYMENT_STATUS } from './util'
 
 //images
-import DownArrowIcon from "../../../assets/common/down_arrow.svg";
-import CrossSignIcon from "../../../assets/common/cancel_cross_icon.svg";
-import SearchIcon from "../../../assets/productSearch/search_gray_icon.svg";
-import NoResultFoundIcon from "../../../assets/common/result_not_found_icon.png";
-import TrashIcon from "../../../assets/common/trash_icon_white.svg";
-import LoadMoreButton from "../../CommonComponent/LoadMoreButton";
+import DownArrowIcon from '../../../assets/common/down_arrow.svg'
+import CrossSignIcon from '../../../assets/common/cancel_cross_icon.svg'
+import SearchIcon from '../../../assets/productSearch/search_gray_icon.svg'
+import NoResultFoundIcon from '../../../assets/common/result_not_found_icon.png'
+import TrashIcon from '../../../assets/common/trash_icon_white.svg'
+import LoadMoreButton from '../../CommonComponent/LoadMoreButton'
 
 export default function OrderHistory(props) {
   const [
@@ -59,9 +59,9 @@ export default function OrderHistory(props) {
     onKeyPressEnter,
     clickOnLoadMoreBtn,
     openBox,
-  ] = Hook(props);
+  ] = Hook(props)
 
-  const { t } = useTranslation();
+  const { t } = useTranslation()
 
   return (
     <>
@@ -71,8 +71,8 @@ export default function OrderHistory(props) {
           <div className="default-margin-layout">
             <div className="sticky top-0 z-10 md:relative">
               <div className="bg-white py-3">
-                <p className="mx-4 md:mx-8 primary-font font-semibold text-color-primary">
-                  {t("OrderHistory.order-history")}
+                <p className="mx-4 md:mx-8 custom-font-regular font-semibold text-color-primary text-xl">
+                  {t('OrderHistory.order-history')}
                 </p>
               </div>
               <div className="bg-white py-4 md:py-5 md:mt-1 -mt-4">
@@ -85,11 +85,11 @@ export default function OrderHistory(props) {
                           type="tel"
                           id="voucherInput"
                           className="secondary-text-box py-2 pl-3 pr-10 appearance-none"
-                          placeholder={t("OrderHistory.search-voucher-no")}
+                          placeholder={t('OrderHistory.search-voucher-no')}
                           value={voucherInputValue}
                           onChange={(e) => {
-                            openBox(VOUCHER_NO);
-                            onChangeOrderNo(e.target.value);
+                            openBox(VOUCHER_NO)
+                            onChangeOrderNo(e.target.value)
                           }}
                           // onClick={() => openBox(VOUCHER_NO)}
                           onKeyPress={onKeyPressEnter}
@@ -114,7 +114,7 @@ export default function OrderHistory(props) {
                       </div>
                       <div
                         ref={voucherSuggestionBox}
-                        className={`${isFocusTextBox ? "block" : "hidden"}`}
+                        className={`${isFocusTextBox ? 'block' : 'hidden'}`}
                       >
                         <VoucherNoSuggestionDropDownItems
                           Loading={isSecondaryLoading}
@@ -132,7 +132,7 @@ export default function OrderHistory(props) {
                       <div className="relative cursor-pointer">
                         <div
                           className={`${
-                            isShowPaymentStatusList ? "ring-2" : "ring-0"
+                            isShowPaymentStatusList ? 'ring-2' : 'ring-0'
                           } secondary-text-box py-2 px-3 flex justify-between items-center`}
                           onClick={() => openBox(PAYMENT_STATUS)}
                         >
@@ -152,7 +152,7 @@ export default function OrderHistory(props) {
                           ) : (
                             <>
                               <p className="text-left text-color-secondary">
-                                {t("OrderHistory.payment-status")}
+                                {t('OrderHistory.payment-status')}
                               </p>
                               <div>
                                 <img
@@ -167,7 +167,7 @@ export default function OrderHistory(props) {
                         <div
                           ref={paymentDropdown}
                           className={`${
-                            isShowPaymentStatusList ? "block" : "hidden"
+                            isShowPaymentStatusList ? 'block' : 'hidden'
                           }`}
                         >
                           <OrderStatusDropDownItems
@@ -185,7 +185,7 @@ export default function OrderHistory(props) {
                       <div className="relative cursor-pointer">
                         <div
                           className={`${
-                            isShowOrderStatusList ? "ring-2" : "ring-0"
+                            isShowOrderStatusList ? 'ring-2' : 'ring-0'
                           } secondary-text-box py-2 px-3 flex justify-between items-center`}
                           onClick={() => openBox(ORDER_STATUS)}
                         >
@@ -205,7 +205,7 @@ export default function OrderHistory(props) {
                           ) : (
                             <>
                               <p className="text-left text-color-secondary">
-                                {t("OrderHistory.order-status")}
+                                {t('OrderHistory.order-status')}
                               </p>
                               <div>
                                 <img
@@ -220,7 +220,7 @@ export default function OrderHistory(props) {
                         <div
                           ref={orderDropDown}
                           className={`${
-                            isShowOrderStatusList ? "block" : "hidden"
+                            isShowOrderStatusList ? 'block' : 'hidden'
                           }`}
                         >
                           <OrderStatusDropDownItems
@@ -240,7 +240,7 @@ export default function OrderHistory(props) {
                       <DatePicker
                         selected={selectedPaymentDate}
                         onChange={(date) => searchOnPaymentDate(date)}
-                        placeholderText={t("OrderHistory.payment-date")}
+                        placeholderText={t('OrderHistory.payment-date')}
                         className="secondary-text-box py-2 px-3 cursor-pointer"
                         withPortal
                         showMonthDropdown
@@ -251,7 +251,7 @@ export default function OrderHistory(props) {
                       <DatePicker
                         selected={selectedOrderDate}
                         onChange={(date) => searchOnOrderDate(date)}
-                        placeholderText={t("OrderHistory.order-date")}
+                        placeholderText={t('OrderHistory.order-date')}
                         className="secondary-text-box py-2 px-3 cursor-pointer"
                         withPortal
                         showMonthDropdown
@@ -279,7 +279,7 @@ export default function OrderHistory(props) {
                               />
                             </div>
                             <p className="tertiary-font text-color-white">
-                              {t("OrderDetail.order-deleted")}
+                              {t('OrderDetail.order-deleted')}
                             </p>
                           </div>
                         </div>
@@ -326,5 +326,5 @@ export default function OrderHistory(props) {
       <FooterWeb />
       <FooterMobile />
     </>
-  );
+  )
 }

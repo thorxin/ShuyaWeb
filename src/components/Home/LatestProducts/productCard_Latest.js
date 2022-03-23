@@ -47,7 +47,7 @@ const ProductCard = ({ productData = {}, onClickWishList }) => {
         }}
       >
         {/* Toggle Fav Btn */}
-        <button
+        {/* <button
           onClick={(e) => {
             e.stopPropagation()
             setIsFav(!isFav)
@@ -61,7 +61,7 @@ const ProductCard = ({ productData = {}, onClickWishList }) => {
             className="w-full h-full absolute top-2 right-2 cursor-pointer"
             alt="Wish Icon"
           />
-        </button>
+        </button> */}
         <div className="w-full h-auto relative">
           {productData.promotePercent > 0 && (
             <div className="absolute bottom-0 bg-promote-price-percent z-40">

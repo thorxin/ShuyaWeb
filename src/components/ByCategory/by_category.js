@@ -1,17 +1,17 @@
 /** @format */
 
-import React from "react";
-import { useTranslation } from "react-i18next";
-import { useHistory } from "react-router";
+import React from 'react'
+import { useTranslation } from 'react-i18next'
+import { useHistory } from 'react-router'
 //images
-import placeholder from "../../assets/common/placeholder_icon.svg";
-import LeftArrowImage from "../../assets/productSearch/left_arrow_image.png";
+import placeholder from '../../assets/common/placeholder_icon.svg'
+import LeftArrowImage from '../../assets/productSearch/left_arrow_image.png'
 //components
-import NavigationWeb from "../CommonComponent/Navigation/NavigationWeb";
-import Loading from "../CommonComponent/Loading/main_loading";
-import FooterWeb from "../CommonComponent/Footer/web_footer";
-import FooterMobile from "../CommonComponent/Footer/mobile_footer";
-import { Hook } from "./hook";
+import NavigationWeb from '../CommonComponent/Navigation/NavigationWeb'
+import Loading from '../CommonComponent/Loading/main_loading'
+import FooterWeb from '../CommonComponent/Footer/web_footer'
+import FooterMobile from '../CommonComponent/Footer/mobile_footer'
+import { Hook } from './hook'
 
 const By_category = (props) => {
   const [
@@ -26,12 +26,12 @@ const By_category = (props) => {
     goToSearch,
     CategoryDetailList,
     goBack,
-  ] = Hook(props);
+  ] = Hook(props)
 
-  const history = useHistory();
-  const { t } = useTranslation();
+  const history = useHistory()
+  const { t } = useTranslation()
 
-  if (isLoading) return <Loading />;
+  if (isLoading) return <Loading />
   return (
     <>
       <div className="bg-gray-200 w-full h-auto min-h-screen md:space-y-5 md:pt-20">
@@ -51,7 +51,7 @@ const By_category = (props) => {
                   />
                 </div>
                 <p className="primary-font text-color-default">
-                  {t("Common.back")}
+                  {t('Common.back')}
                 </p>
               </div>
             </div>
@@ -60,7 +60,7 @@ const By_category = (props) => {
               <div className="grid grid-cols-3 gap-0 min-h-screen">
                 <div className="overflow-auto">
                   <div className="md:my-4 sub-heading-font-h3 text-color-default text-center md:text-left md:pl-6 hidden md:block">
-                    {t("ByCategory.view-by-category")}
+                    {t('ByCategory.view-by-category')}
                   </div>
                   <div className="block md:hidden -mt-3.5"></div>
                   {mainCategoryDetail.map((item, index) => (
@@ -68,24 +68,29 @@ const By_category = (props) => {
                       key={index}
                       className={`flex my-4 md:space-x-2 flex-col md:flex-row items-center cursor-pointer md:pl-4
                        ${
-                         selectedCategory.id === item.id
-                           ? "bg-custom-orange"
-                           : ""
+                         selectedCategory.id === item.productCategoryId
+                           ? 'bg-custom-orange'
+                           : ''
                        }`}
                       onClick={() => {
-                        onSelectCategory(item);
+                        onSelectCategory({
+                          id: item.productCategoryId,
+                          name: item.productCategoryName,
+                        })
                       }}
                     >
                       <div
                         className={`${
-                          selectedCategory.id === item.id ? "py-2 " : "py-2"
+                          selectedCategory.id === item.productCategoryId
+                            ? 'py-2 '
+                            : 'py-2'
                         }`}
                       >
                         <img
                           onError={(e) => {
-                            e.target.onerror = null;
+                            e.target.onerror = null
                             e.target.src =
-                              "http://mypage.shopdoora.com/static/media/app_logo.5009884d.svg";
+                              'http://mypage.shopdoora.com/static/media/app_logo.5009884d.svg'
                           }}
                           src={item.url ? item.url : placeholder}
                           className="w-10 h-15 ml-1"
@@ -95,9 +100,9 @@ const By_category = (props) => {
 
                       <div
                         className={`text-center md:text-left text-sm md:text-md custom-font-regular ${
-                          selectedCategory.id === item.id
-                            ? "md:pr-6 pr-1 my-auto text-color-brown line-clamp-2"
-                            : "md:pr-6 pr-1 my-auto text-color-default line-clamp-2 "
+                          selectedCategory.id === item.productCategoryId
+                            ? 'md:pr-6 pr-1 my-auto text-color-brown line-clamp-2'
+                            : 'md:pr-6 pr-1 my-auto text-color-default line-clamp-2 '
                         }`}
                       >
                         {item.name}
@@ -110,7 +115,7 @@ const By_category = (props) => {
                   <div>
                     {mainCategoryDetail.map(
                       (item, index) =>
-                        item.id === selectedCategory.id && (
+                        item.productCategoryId === selectedCategory.id && (
                           <img
                             src={
                               item.backgroundUrl
@@ -121,17 +126,17 @@ const By_category = (props) => {
                             alt="Img"
                             onError={(e) => (e.target.src = placeholder)}
                           />
-                        )
+                        ),
                     )}
                   </div>
                   {/* ByBrands SESSION START */}
                   {mainCategoryDetail.map(
                     (item, index) =>
-                      item.id === selectedCategory.id && (
-                        <div key={item.id}>
+                      item.productCategoryId === selectedCategory.id && (
+                        <div key={item.productCategoryId}>
                           <div
                             className={`mx-6 ${
-                              item.brand.length === 0 && "hidden"
+                              item.brand.length === 0 && 'hidden'
                             } mt-4 text-md custom-font-bold text-color-secondary`}
                           >
                             By Brands
@@ -158,14 +163,14 @@ const By_category = (props) => {
                             ))}
                           </div>
                         </div>
-                      )
+                      ),
                   )}
                   {/* ByBrands SESSION END */}
                   <div className="border border-gray-200"></div>
                   {/* SUBCATEGORY SESSION START */}
                   {mainCategoryDetail.map(
                     (item, index) =>
-                      item.id === selectedCategory.id && (
+                      item.productCategoryId === selectedCategory.id && (
                         <div key={index}>
                           {item.subCategory1.map((_subOne, index) => (
                             <div
@@ -178,7 +183,7 @@ const By_category = (props) => {
                               </div>
                               <div
                                 className="grid grid-cols-2 md:grid-cols-7 gap-y-4 md:gap-x-3 mx-6 "
-                                key={item.id}
+                                key={item.productCategoryId}
                               >
                                 {_subOne.subCategory2.map((_subTwo, index) => (
                                   <div
@@ -205,7 +210,7 @@ const By_category = (props) => {
                             </div>
                           ))}
                         </div>
-                      )
+                      ),
                   )}
                   {/* SUBCATEGORY SESSION END */}
                 </div>
@@ -220,11 +225,11 @@ const By_category = (props) => {
       <FooterWeb />
       <FooterMobile />
     </>
-  );
-};
+  )
+}
 
-export default By_category;
+export default By_category
 
 export const goBack = (history) => {
-  history.goBack();
-};
+  history.goBack()
+}

@@ -182,7 +182,7 @@ export default function ChangeAddress(props) {
                     {isSecondaryLoading ? (
                       <AuthenticationLoading />
                     ) : (
-                      <p>Save</p>
+                      <p> {t('Common.do')}</p>
                     )}
                   </button>
                 </div>

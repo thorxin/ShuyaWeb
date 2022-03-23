@@ -165,6 +165,10 @@
     margin-right: 35px;
   }
 
+  .viewmore--hover-animation{
+    @apply hover:text-color-primary
+  }
+
   @layer base {
     h2 {
       @apply sub-heading-font text-color-default font-semibold mt-2;
