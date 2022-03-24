@@ -1,24 +1,24 @@
 /** @format */
 
-import React from 'react'
-import { useTranslation } from 'react-i18next'
+import React from "react";
+import { useTranslation } from "react-i18next";
 
 //components
-import NavigationWeb from '../../CommonComponent/Navigation/NavigationWeb'
-import { Hook } from './hook'
-import FooterWeb from '../../CommonComponent/Footer/web_footer'
-import { TagList } from '../TagList/tag_list'
-import { ProductList } from '../ProductList/product_list'
-import History from '../History/history'
-import Category from '../CategoryList/categories'
+import NavigationWeb from "../../CommonComponent/Navigation/NavigationWeb";
+import { Hook } from "./hook";
+import FooterWeb from "../../CommonComponent/Footer/web_footer";
+import { TagList } from "../TagList/tag_list";
+import { ProductList } from "../ProductList/product_list";
+import History from "../History/history";
+import Category from "../CategoryList/categories";
 
 //images
-import DownArrow from '../../../assets/common/down_arrow.svg'
-import UpArrow from '../../../assets/common/up_arrow.svg'
-import RightArrowImage from '../../../assets/productSearch/left_arrow_image.png'
-import CategoryListFrame from '../CategoryList/category_list_frame'
-import { goBack } from '../../../util/goToSpecificPathName'
-import { useHistory } from 'react-router'
+import DownArrow from "../../../assets/common/down_arrow.svg";
+import UpArrow from "../../../assets/common/up_arrow.svg";
+import RightArrowImage from "../../../assets/productSearch/left_arrow_image.png";
+import CategoryListFrame from "../CategoryList/category_list_frame";
+import { goBack } from "../../../util/goToSpecificPathName";
+import { useHistory } from "react-router";
 
 const MoreTag = ({ is_more, clickingMoreTag }) => {
   return (
@@ -34,14 +34,14 @@ const MoreTag = ({ is_more, clickingMoreTag }) => {
         />
       </div>
     </div>
-  )
-}
+  );
+};
 
 export const WebProductSearch = (props) => {
-  const [] = Hook()
+  const [] = Hook();
 
-  const { t } = useTranslation()
-  const history = useHistory()
+  const { t } = useTranslation();
+  const history = useHistory();
 
   // alert(props.selectedCategory);
 
@@ -75,7 +75,7 @@ export const WebProductSearch = (props) => {
                       <>
                         <p className="primary-font font-medium">Filters</p>
                         <p className="secondary-font font-medium text-color-secondary">
-                          {t('ProductSearch.by-categories')}
+                          {t("ProductSearch.by-categories")}
                         </p>
                         <div className="w-full h-80 space-y-4 overflow-y-auto">
                           <CategoryListFrame>
@@ -135,7 +135,7 @@ export const WebProductSearch = (props) => {
                 <div className="col-span-6 bg-gray-100 py-3">
                   <div className="mx-4 space-y-6">
                     <p className="price-font font-medium">
-                      {t('ProductSearch.result')}
+                      {t("ProductSearch.result")}
                     </p>
                     <div className="w-full overflow-y-auto">
                       {props.selectedTag.length > 0 ||
@@ -167,5 +167,5 @@ export const WebProductSearch = (props) => {
         <FooterWeb />
       </div>
     </>
-  )
-}
+  );
+};

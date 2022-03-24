@@ -100,10 +100,10 @@ export const MobileProductSearch = (props) => {
             {/* Searching By Category */}
             {props.selectedTag.length === 0 ? (
               <>
-                <div className="default-margin-layout min-h-screen overflow-y-auto">
+                <div className="default-margin-layout overflow-y-auto">
                   <History />
                 </div>
-                <div className="fixed bottom-0 w-full h-auto py-3 bg-white">
+                <div className=" w-full h-auto py-3 bg-white">
                   <div className="default-margin-layout">
                     <CategoryListFrame Loading={props.isLoading}>
                       <div className="grid grid-flow-col grid-rows-2 gap-x-4 gap-y-2 overflow-y-hidden overflow-x-auto">

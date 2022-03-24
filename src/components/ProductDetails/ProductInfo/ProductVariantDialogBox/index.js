@@ -1,45 +1,45 @@
-import React from 'react'
-import { useTranslation } from 'react-i18next'
+import React from "react";
+import { useTranslation } from "react-i18next";
 
 //components
-import PlaceHolderImage from '../../../CommonComponent/placeholder_image'
-import moneyFormatter from '../../../../util/moneyFormatter'
-import VariantItems from '../ProductVariation/variant_items'
-import { BUY_NOW, ADD_TO_SHOP_CART, NO_VARIANT_CONFIG } from '../../util'
+import PlaceHolderImage from "../../../CommonComponent/placeholder_image";
+import moneyFormatter from "../../../../util/moneyFormatter";
+import VariantItems from "../ProductVariation/variant_items";
+import { BUY_NOW, ADD_TO_SHOP_CART, NO_VARIANT_CONFIG } from "../../util";
 
 //images
-import MinusIcon from '../../../../assets/productDetail/minus_icon.svg'
-import PlusIcon from '../../../../assets/productDetail/plus_icon.svg'
-import BuyNowIcon from '../../../../assets/productDetail/buy_now_icon.svg'
-import BuyNowIconWhite from '../../../../assets/productDetail/buy_now_icon_white.svg'
-import ShopCartIcon from '../../../../assets/productDetail/shopping_cart_icon.svg'
-import AuthLoadingBlack from '../../../../assets/Authentication/Loading/auth_loading_black.gif'
-import BackArrowIcon from '../../../../assets/common/back_arrow.svg'
+import MinusIcon from "../../../../assets/productDetail/minus_icon.svg";
+import PlusIcon from "../../../../assets/productDetail/plus_icon.svg";
+import BuyNowIcon from "../../../../assets/productDetail/buy_now_icon.svg";
+import BuyNowIconWhite from "../../../../assets/productDetail/buy_now_icon_white.svg";
+import ShopCartIcon from "../../../../assets/productDetail/shopping_cart_icon.svg";
+import AuthLoadingBlack from "../../../../assets/Authentication/Loading/auth_loading_black.gif";
+import BackArrowIcon from "../../../../assets/common/back_arrow.svg";
 
 export const PriceLabel = ({
   original_price = 0,
   promote_price = 0,
   promote_percent = 0,
 }) => {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
   if (promote_percent > 0)
     return (
       <div className="space-y-1">
         <p className="primary-font text-color-primary custom-font-bold">
-          {moneyFormatter(promote_price)} {t('Common.kyats')}
+          {moneyFormatter(promote_price)} {t("Common.kyats")}
         </p>
         <p className="tertiary-font text-color-secondary line-through">
-          {moneyFormatter(original_price)} {t('Common.kyats')}
+          {moneyFormatter(original_price)} {t("Common.kyats")}
         </p>
       </div>
-    )
+    );
 
   return (
     <p className="primary-font text-color-primary">
-      {moneyFormatter(original_price)} {t('Common.kyats')}
+      {moneyFormatter(original_price)} {t("Common.kyats")}
     </p>
-  )
-}
+  );
+};
 
 export const VariantLoading = () => {
   return (
@@ -55,8 +55,8 @@ export const VariantLoading = () => {
         {/* <p className="tertiary-font text-color-default">Loading ....</p> */}
       </div>
     </>
-  )
-}
+  );
+};
 
 export const ProductImage = ({ ImageArray = [] }) => {
   return (
@@ -73,20 +73,20 @@ export const ProductImage = ({ ImageArray = [] }) => {
         )}
       </div>
     </>
-  )
-}
+  );
+};
 
 const ProductVariantDialogBox = ({
   isLoading,
   ProductImageArray = [],
-  ProductName = '',
+  ProductName = "",
   OriginalPrice = 0,
   PromotePercent = 0,
   PromotePrice = 0,
   VariantList = [],
   SelectedVariantList = [],
   SelectedSku = [],
-  VariantConfig = '',
+  VariantConfig = "",
   ItemCount = 0,
   CurrentIndex,
   /**
@@ -100,17 +100,17 @@ const ProductVariantDialogBox = ({
   BuyNow,
   closeVariantBox,
 }) => {
-  const { t } = useTranslation()
-  console.log(SelectedSku)
-  console.log(ItemCount)
+  const { t } = useTranslation();
+  console.log(SelectedSku);
+  console.log(ItemCount);
 
   const exceedQtyCheck = () => {
-    if (SelectedSku.length <= 0) return
+    if (SelectedSku.length <= 0) return;
     if (SelectedSku[0].qty < ItemCount) {
-      return true
+      return true;
     }
-    return false
-  }
+    return false;
+  };
 
   return (
     <>
@@ -207,11 +207,11 @@ const ProductVariantDialogBox = ({
                                       variant,
                                       variant_value,
                                       variant_index,
-                                      variant_value_index,
+                                      variant_value_index
                                     )
                                   }
                                 />
-                              ),
+                              )
                             )}
                         </div>
                       </div>
@@ -249,7 +249,7 @@ const ProductVariantDialogBox = ({
                   />
                   <div
                     className={`w-20 md:w-8 h-auto cursor-pointer ${
-                      exceedQtyCheck() && 'opacity-60'
+                      exceedQtyCheck() && "opacity-60"
                     }`}
                     onClick={IncreaseItemCount}
                   >
@@ -264,24 +264,24 @@ const ProductVariantDialogBox = ({
               <div className="w-8/12 md:w-8/12 h-auto">
                 {VariantConfig === BUY_NOW && (
                   <button
-                    className="primary-btn tertiary-font text-color-white py-2"
+                    className="primary-btn bg-custom-main tertiary-font text-color-white py-2"
                     onClick={BuyNow}
                   >
                     <div className="flex items-center justify-center space-x-2">
                       <div className="w-4 h-auto">
                         <img
-                          src={BuyNowIcon}
+                          src={BuyNowIconWhite}
                           className="w-full h-full"
                           alt="Buy Now Icon"
                         />
                       </div>
-                      <p className="truncate">{t('ProductDetails.buy-now')}</p>
+                      <p className="truncate">{t("ProductDetails.buy-now")}</p>
                     </div>
                   </button>
                 )}
                 {VariantConfig === ADD_TO_SHOP_CART && (
                   <button
-                    className="secondary-btn tertiary-font text-color-default py-2 border-yellow-400"
+                    className="secondary-btn tertiary-font text-color-default py-2 border-custom-main"
                     onClick={AddToCart}
                   >
                     <div className="flex items-center justify-center space-x-2">
@@ -292,8 +292,8 @@ const ProductVariantDialogBox = ({
                           alt="Add To Cart Icon"
                         />
                       </div>
-                      <p className="truncate">
-                        {t('ProductDetails.add-to-cart')}
+                      <p className="truncate text-color-primary">
+                        {t("ProductDetails.add-to-cart")}
                       </p>
                     </div>
                   </button>
@@ -313,7 +313,7 @@ const ProductVariantDialogBox = ({
                           />
                         </div>
                         <p className="truncate">
-                          {t('ProductDetails.buy-now')}
+                          {t("ProductDetails.buy-now")}
                         </p>
                       </div>
                     </button>
@@ -330,7 +330,7 @@ const ProductVariantDialogBox = ({
                           />
                         </div>
                         <p className="truncate">
-                          {t('ProductDetails.add-to-cart')}
+                          {t("ProductDetails.add-to-cart")}
                         </p>
                       </div>
                     </button>
@@ -342,7 +342,7 @@ const ProductVariantDialogBox = ({
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default ProductVariantDialogBox
+export default ProductVariantDialogBox;

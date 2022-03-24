@@ -1,9 +1,9 @@
-import React from 'react'
-import { useTranslation } from 'react-i18next'
-import ProductCart from '../../Common/ProductCart'
+import React from "react";
+import { useTranslation } from "react-i18next";
+import ProductCart from "../../Common/ProductCart";
 
 //components
-import VariantItems from './variant_items'
+import VariantItems from "./variant_items";
 
 const ProductVariation = ({
   VariationArray = [],
@@ -13,9 +13,9 @@ const ProductVariation = ({
    */
   OpenVariantBox,
 }) => {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
-  let arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  let arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   if (VariationArray.length > 0)
     return (
@@ -23,8 +23,8 @@ const ProductVariation = ({
         <div
           className={`bg-white mt-1 ${
             VariationArray.length === 1 &&
-            VariationArray[0].valueName === 'Default' &&
-            'hidden'
+            VariationArray[0].valueName === "Default" &&
+            "hidden"
           }`}
         >
           <div className="mx-2 md:ml-8 space-y-3 mb-4">
@@ -51,9 +51,9 @@ const ProductVariation = ({
           </div>
         </div>
       </>
-    )
+    );
 
-  return null
-}
+  return null;
+};
 
-export default ProductVariation
+export default ProductVariation;

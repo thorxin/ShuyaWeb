@@ -1,10 +1,10 @@
 /** @format */
 
-import React, { useState } from 'react'
-import { useTranslation } from 'react-i18next'
-import { useHistory } from 'react-router'
-import { ToastContainer } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
+import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
+import { useHistory } from "react-router";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import {
   FacebookShareButton,
   FacebookIcon,
@@ -14,50 +14,50 @@ import {
   ViberIcon,
   TelegramShareButton,
   TelegramIcon,
-} from 'react-share'
+} from "react-share";
 
 //components
-import { Hook } from './hook'
-import ProductImageSlide from './image_slide'
-import { CostLabel } from './CommonUI/cost_label'
-import ProductVariation from './ProductVariation/product_variation'
-import ProductCategory from './ProductCategory/product_category'
-import ProductOffers from './ProductOffers'
-import SizeChart from './SizeChart'
-import ProductDescription from './ProductDescription'
-import ProductClip from './ProductClip'
-import ProductVariantDialogBox from './ProductVariantDialogBox'
-import ProductImageDialogBox from './ProductImageDialogBox'
-import { BUY_NOW, ADD_TO_SHOP_CART, NO_VARIANT_CONFIG } from '../util'
-import DialogBox from '../../CommonComponent/DialogBox/dialog_box'
-import { APP_NAME } from '../../../constant/appName'
+import { Hook } from "./hook";
+import ProductImageSlide from "./image_slide";
+import { CostLabel } from "./CommonUI/cost_label";
+import ProductVariation from "./ProductVariation/product_variation";
+import ProductCategory from "./ProductCategory/product_category";
+import ProductOffers from "./ProductOffers";
+import SizeChart from "./SizeChart";
+import ProductDescription from "./ProductDescription";
+import ProductClip from "./ProductClip";
+import ProductVariantDialogBox from "./ProductVariantDialogBox";
+import ProductImageDialogBox from "./ProductImageDialogBox";
+import { BUY_NOW, ADD_TO_SHOP_CART, NO_VARIANT_CONFIG } from "../util";
+import DialogBox from "../../CommonComponent/DialogBox/dialog_box";
+import { APP_NAME } from "../../../constant/appName";
 
 /**
  * Headless ui
  */
-import { Popover } from '@headlessui/react'
+import { Popover } from "@headlessui/react";
 
 //images
-import ActiveRatingStar from '../../../assets/productDetail/active_rating_star.svg'
-import RatingStar from '../../../assets/productDetail/rating_star.svg'
-import MinusIcon from '../../../assets/productDetail/minus_icon.svg'
-import PlusIcon from '../../../assets/productDetail/plus_icon.svg'
-import MessageIcon from '../../../assets/productDetail/message.svg'
-import BuyNowIcon from '../../../assets/productDetail/buy_now_icon.svg'
-import BuyNowIconMobile from '../../../assets/productDetail/dollar_mobile.svg'
-import ShopCartIcon from '../../../assets/productDetail/shopping_cart_icon.svg'
-import ShopCartIconMobile from '../../../assets/productDetail/shopping_cart_mobile.svg'
-import WishIcon from '../../../assets/productDetail/wish_icon.svg'
-import ActiveWishIcon from '../../../assets/productDetail/wish_icon_active.svg'
-import WishIconOne from '../../../assets/productDetail/wish_icon_1.svg'
-import ActiveWishIconOne from '../../../assets/home/wishlist_active.svg'
-import ShareIconMobile from '../../../assets/home/wishlist_no_active.svg'
-import ShareIconOne from '../../../assets/productDetail/share_icon_one.svg'
-import BackIconMobile from '../../../assets/productDetail/back_icon_mobile.svg'
-import BackArrowImage from '../../../assets/common/left_arrow_image.png'
-import placeholder from '../../../assets/common/placeholder_icon.svg'
-import Brand from './Brand/Brand'
-import moneyFormatter from '../../../util/moneyFormatter'
+import ActiveRatingStar from "../../../assets/productDetail/active_rating_star.svg";
+import RatingStar from "../../../assets/productDetail/rating_star.svg";
+import MinusIcon from "../../../assets/productDetail/minus_icon.svg";
+import PlusIcon from "../../../assets/productDetail/plus_icon.svg";
+import MessageIcon from "../../../assets/productDetail/message.svg";
+import BuyNowIcon from "../../../assets/productDetail/buy_now_icon.svg";
+import BuyNowIconMobile from "../../../assets/productDetail/dollar_mobile.svg";
+import ShopCartIcon from "../../../assets/productDetail/shopping_cart_icon.svg";
+import ShopCartIconMobile from "../../../assets/productDetail/shopping_cart_mobile.svg";
+import WishIcon from "../../../assets/productDetail/wish_icon.svg";
+import ActiveWishIcon from "../../../assets/productDetail/wish_icon_active.svg";
+import WishIconOne from "../../../assets/productDetail/wish_icon_1.svg";
+import ActiveWishIconOne from "../../../assets/home/wishlist_active.svg";
+import ShareIconMobile from "../../../assets/home/wishlist_no_active.svg";
+import ShareIconOne from "../../../assets/productDetail/share_icon_one.svg";
+import BackIconMobile from "../../../assets/productDetail/back_icon_mobile.svg";
+import BackArrowImage from "../../../assets/common/left_arrow_image.png";
+import placeholder from "../../../assets/common/placeholder_icon.svg";
+import Brand from "./Brand/Brand";
+import moneyFormatter from "../../../util/moneyFormatter";
 import {
   FACEBOOK,
   FACEBOOK_NAME,
@@ -66,14 +66,14 @@ import {
   PHONE,
   WEBSITE,
   WEBSITE_NAME,
-} from '../../../constant/contactUs'
+} from "../../../constant/contactUs";
 
-export const ProductSharingBox = ({ shared_url = '', isShow = false }) => {
+export const ProductSharingBox = ({ shared_url = "", isShow = false }) => {
   return (
     <>
       <div
         className={`${
-          isShow ? 'block' : 'hidden'
+          isShow ? "block" : "hidden"
         } w-72 h-auto bg-white shadow-lg border py-3 px-3`}
       >
         <div className="space-y-4">
@@ -81,8 +81,8 @@ export const ProductSharingBox = ({ shared_url = '', isShow = false }) => {
             <div className="tertiary-font mx-auto">
               <FacebookShareButton
                 url={shared_url}
-                quote={'The best e-Commerce website in Myanmar'}
-                hashtag={`#${APP_NAME.replaceAll(' ', '')}`}
+                quote={"The best e-Commerce website in Myanmar"}
+                hashtag={`#${APP_NAME.replaceAll(" ", "")}`}
               >
                 <FacebookIcon size={30} round={true} />
               </FacebookShareButton>
@@ -106,8 +106,8 @@ export const ProductSharingBox = ({ shared_url = '', isShow = false }) => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
 export const ContactUsMobile = ({ setOpenContactUsMobile }) => {
   return (
@@ -169,8 +169,8 @@ export const ContactUsMobile = ({ setOpenContactUsMobile }) => {
         </button>
       </div>
     </>
-  )
-}
+  );
+};
 
 export const ContactUsWeb = ({ setOpenContactUsWebsite }) => {
   return (
@@ -241,8 +241,8 @@ export const ContactUsWeb = ({ setOpenContactUsWebsite }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 const ProductInfo = ({
   isSecondaryLoading,
@@ -280,13 +280,13 @@ const ProductInfo = ({
     buyNow,
     changeOnCountTextBox,
     clickOnShopCart,
-  ] = Hook(Detail)
+  ] = Hook(Detail);
 
-  const { t } = useTranslation()
-  const history = useHistory()
-  const [openContactUsMobile, setOpenContactUsMobile] = useState(false)
-  const [openContactUsWebsite, setOpenContactUsWebsite] = useState(false)
-  const sharedUrl = String(window.location.href)
+  const { t } = useTranslation();
+  const history = useHistory();
+  const [openContactUsMobile, setOpenContactUsMobile] = useState(false);
+  const [openContactUsWebsite, setOpenContactUsWebsite] = useState(false);
+  const sharedUrl = String(window.location.href);
   let shareButton = (
     <>
       <Popover className="relative">
@@ -301,7 +301,7 @@ const ProductInfo = ({
               alt="Share Icon One"
             />
             <p className="text-lg text-color-secondary py-1 px-2">
-              {t('ProductDetails.share')}
+              {t("ProductDetails.share")}
             </p>
           </div>
         </Popover.Button>
@@ -327,7 +327,7 @@ const ProductInfo = ({
         <ProductSharingBox shared_url={sharedUrl} isShow={isShowShareBox} />
       </div> */}
     </>
-  )
+  );
 
   let AppRating = (
     <div className="flex space-x-1 items-center">
@@ -370,7 +370,7 @@ const ProductInfo = ({
         />
       </div>
     </div>
-  )
+  );
 
   return (
     <>
@@ -469,9 +469,9 @@ const ProductInfo = ({
                         <span className="text-sm font-normal">Only</span>
                         <span className="text-md font-semibold text-color-primary">
                           {moneyFormatter(
-                            Detail?.promotionGetOne.getOneOriginalPrice,
-                          )}{' '}
-                          {t('Common.kyats')}
+                            Detail?.promotionGetOne.getOneOriginalPrice
+                          )}{" "}
+                          {t("Common.kyats")}
                         </span>
                       </div>
                     </div>
@@ -595,9 +595,9 @@ const ProductInfo = ({
                       <span className="text-sm font-normal">Only</span>
                       <span className="text-md font-semibold text-color-primary">
                         {moneyFormatter(
-                          Detail?.promotionGetOne.getOneOriginalPrice,
-                        )}{' '}
-                        {t('Common.kyats')}
+                          Detail?.promotionGetOne.getOneOriginalPrice
+                        )}{" "}
+                        {t("Common.kyats")}
                       </span>
                     </div>
                   </div>
@@ -632,7 +632,7 @@ const ProductInfo = ({
                     />
                   </div>
                   <p className="truncate text-color-white">
-                    {t('ProductDetails.buy-now')}
+                    {t("ProductDetails.buy-now")}
                   </p>
                 </div>
               </button>
@@ -648,7 +648,7 @@ const ProductInfo = ({
                       alt="Add To Cart Icon"
                     />
                   </div>
-                  <p className="truncate">{t('ProductDetails.add-to-cart')}</p>
+                  <p className="truncate">{t("ProductDetails.add-to-cart")}</p>
                 </div>
               </button>
             </div>
@@ -701,7 +701,7 @@ const ProductInfo = ({
                           />
                         </div>
                         <p className="truncate text-color-primary font-semibold">
-                          {t('ProductDetails.buy-now')}
+                          {t("ProductDetails.buy-now")}
                         </p>
                       </div>
                     </button>
@@ -718,7 +718,7 @@ const ProductInfo = ({
                           />
                         </div>
                         <p className="truncate text-color-primary font-semibold">
-                          {t('ProductDetails.add-to-cart')}
+                          {t("ProductDetails.add-to-cart")}
                         </p>
                       </div>
                     </button>
@@ -817,7 +817,7 @@ const ProductInfo = ({
         />
       </DialogBox>
     </>
-  )
-}
+  );
+};
 
-export default ProductInfo
+export default ProductInfo;

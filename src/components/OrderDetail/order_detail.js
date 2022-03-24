@@ -1,36 +1,36 @@
 /** @format */
 
-import React, { useState } from 'react'
-import { useTranslation } from 'react-i18next'
+import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 //images
-import BackArrowIcon from '../../assets/common/left_arrow_image.png'
-import VoucherIcon from '../../assets/orderHistory/voucher_icon.svg'
-import VoucherIconMobile from '../../assets/Images/voucherIcon.png'
-import DeleteIcon from '../../assets/Images/delete.svg'
-import moment from 'moment'
+import BackArrowIcon from "../../assets/common/left_arrow_image.png";
+import VoucherIcon from "../../assets/orderHistory/voucher_icon.svg";
+import VoucherIconMobile from "../../assets/Images/voucherIcon.png";
+import DeleteIcon from "../../assets/Images/delete.svg";
+import moment from "moment";
 
 //components
 import {
   dateFormatterYYMMDD,
   dateFormatterOnlyTime,
-} from '../../util/dateFormatter'
-import Loading from '../CommonComponent/Loading/main_loading'
-import { Hook } from './hook'
-import NavigationWeb from '../CommonComponent/Navigation/NavigationWeb'
-import OrderStatus from './OrderStatus'
-import { SubHeadingWithBackArrow } from '../CommonComponent/SubHeading/sub_heading_with_back_arrow'
-import OrderItem from './OrderItem'
-import DeliverSection from './DeliverySection'
-import { AmountLabel } from '../ShoppingCart/Payment/payment_info'
-import FooterWeb from '../CommonComponent/Footer/web_footer'
-import PaymentRecord from './PaymentRecord'
-import ConfirmationBox from '../CommonComponent/DialogBox/confirmation_box'
-import SuccessBox from '../CommonComponent/DialogBox/success_box'
-import OrderStatusBanner from './OrderStatusBanner'
-import PaymentServices from '../ShoppingCart/Payment/payment_service'
-import { PaymentServiceBox } from '../ShoppingCart/CommonUI/payment_service_box'
-import { DELETED, PAYMENT_FAIL, PAYMENT_SUCCESS } from '../../constant/order'
+} from "../../util/dateFormatter";
+import Loading from "../CommonComponent/Loading/main_loading";
+import { Hook } from "./hook";
+import NavigationWeb from "../CommonComponent/Navigation/NavigationWeb";
+import OrderStatus from "./OrderStatus";
+import { SubHeadingWithBackArrow } from "../CommonComponent/SubHeading/sub_heading_with_back_arrow";
+import OrderItem from "./OrderItem";
+import DeliverSection from "./DeliverySection";
+import { AmountLabel } from "../ShoppingCart/Payment/payment_info";
+import FooterWeb from "../CommonComponent/Footer/web_footer";
+import PaymentRecord from "./PaymentRecord";
+import ConfirmationBox from "../CommonComponent/DialogBox/confirmation_box";
+import SuccessBox from "../CommonComponent/DialogBox/success_box";
+import OrderStatusBanner from "./OrderStatusBanner";
+import PaymentServices from "../ShoppingCart/Payment/payment_service";
+import { PaymentServiceBox } from "../ShoppingCart/CommonUI/payment_service_box";
+import { DELETED, PAYMENT_FAIL, PAYMENT_SUCCESS } from "../../constant/order";
 // import NoteMessaging from "./NoteMessaging";
 
 export default function OrderDetails(props) {
@@ -70,25 +70,25 @@ export default function OrderDetails(props) {
     // sendOrderNoteMessage,
     onClickServiceGateWay,
     clickingOnPaymentService,
-  ] = Hook(props)
+  ] = Hook(props);
 
-  const { t } = useTranslation()
-  const [openPayAgain, setOpenPayAgain] = useState(false)
-  if (isLoading || !OrderDetail) return <Loading />
+  const { t } = useTranslation();
+  const [openPayAgain, setOpenPayAgain] = useState(false);
+  if (isLoading || !OrderDetail) return <Loading />;
 
   const isShowOrderCancelBtn = () => {
     if (
       OrderDetail?.orderStatus.id === DELETED ||
       (LastPayment.paymentStatus.id === PAYMENT_SUCCESS &&
-        LastPayment.paymentService.name !== 'အိမ်အရောက်')
+        LastPayment.paymentService.name !== "အိမ်အရောက်")
     ) {
-      return false
+      return false;
     }
-    return true
-  }
+    return true;
+  };
   const chkPayAgain =
     OrderDetail.paymentInfo[OrderDetail.paymentInfo.length - 1].paymentStatus
-      .id === PAYMENT_FAIL
+      .id === PAYMENT_FAIL;
 
   return (
     <>
@@ -109,12 +109,12 @@ export default function OrderDetails(props) {
                 />
               </div>
               <p className="tertiary-font text-color-secondary">
-                {t('Common.back')}
+                {t("Common.back")}
               </p>
             </div>
             <SubHeadingWithBackArrow goTo={goToBack}>
               <p className="text-color-default sub-heading-font">
-                {t('OrderDetail.order-detail')}
+                {t("OrderDetail.order-detail")}
               </p>
             </SubHeadingWithBackArrow>
             {/* End Heading Section - Back Arrow */}
@@ -139,7 +139,7 @@ export default function OrderDetails(props) {
                       {/* Vouchern ID & Date for Mobile */}
                       <p className="primary-font block md:hidden">
                         <span className="text-color-default custom-font-bold mr-4">
-                          {t('OrderDetail.voucher-no')} :
+                          {t("OrderDetail.voucher-no")} :
                         </span>
                         <span className="text-color-default">
                           {OrderDetail.voucherNo}
@@ -168,7 +168,7 @@ export default function OrderDetails(props) {
                     <div className="block md:hidden">
                       <p className="primary-font md:pb-0 pb-4 ">
                         <span className="text-color-default custom-font-bold mr-10">
-                          {t('AddFixed.order-date')} :
+                          {t("AddFixed.order-date")} :
                         </span>
                         <span className="text-color-default">
                           {dateFormatterYYMMDD(OrderDetail.orderDate)}
@@ -235,7 +235,7 @@ export default function OrderDetails(props) {
                     {/* Start Pay Again  */}
                     <div
                       className={`${
-                        openPayAgain || !chkPayAgain ? 'hidden' : 'block'
+                        openPayAgain || !chkPayAgain ? "hidden" : "block"
                       } bg-white py-4 md:py-0`}
                     >
                       <div className="w-full mx-auto">
@@ -243,19 +243,19 @@ export default function OrderDetails(props) {
                           className="tertiary-font w-full h-auto text-color-white bg-custom-primary py-3 rounded-md"
                           onClick={() => setOpenPayAgain(true)}
                         >
-                          {t('OrderDetail.pay-again')}
+                          {t("OrderDetail.pay-again")}
                         </button>
                       </div>
                     </div>
                     <div className="bg-white">
                       <div
                         className={` ${
-                          openPayAgain ? 'block pt-3 pb-5' : 'hidden'
+                          openPayAgain ? "block pt-3 pb-5" : "hidden"
                         } w-full mx-auto`}
                       >
                         <div className="md:-mt-2.5">
                           <p className="primary-font text-color-default">
-                            {t('ShoppingCart.select-payment-option')}
+                            {t("ShoppingCart.select-payment-option")}
                           </p>
                         </div>
                         <div className="grid grid-cols-12 gap-x-2 gap-y-3 mt-4">
@@ -282,14 +282,14 @@ export default function OrderDetails(props) {
                     <div className="bg-white py-4 md:py-0">
                       <div className="mx-4 md:mx-auto  grid grid-cols-2 gap-y-3">
                         <AmountLabel
-                          Label={t('ShoppingCart.delivery-time')}
+                          Label={t("ShoppingCart.delivery-time")}
                           Amount={`${
                             OrderDetail?.deliveryInfo?.deliveryService
-                              .fromEstDeliveryDay || '2'
-                          } ${t('Common.day')} - ${
+                              .fromEstDeliveryDay || "2"
+                          } ${t("Common.day")} - ${
                             OrderDetail?.deliveryInfo?.deliveryService
-                              .toEstDeliveryDay || '5'
-                          } ${t('Common.day')}`}
+                              .toEstDeliveryDay || "5"
+                          } ${t("Common.day")}`}
                         />
                         {/* <AmountLabel
                           Label={t("ShoppingCart.sub-total")}
@@ -297,13 +297,13 @@ export default function OrderDetails(props) {
                           currency={t("Common.kyats")}
                         /> */}
                         <AmountLabel
-                          Label={t('ShoppingCart.delivery-fee')}
+                          Label={t("ShoppingCart.delivery-fee")}
                           Amount={
                             OrderDetail.deliveryFee > 0
                               ? OrderDetail.deliveryFee
                               : 2000
                           }
-                          currency={t('Common.kyats')}
+                          currency={t("Common.kyats")}
                         />
                         {/* <AmountLabel
                           Label={t("ShoppingCart.discount")}
@@ -316,12 +316,12 @@ export default function OrderDetails(props) {
                           currency={t("Common.kyats")}
                         /> */}
                         <AmountLabel
-                          Label={t('ShoppingCart.total')}
+                          Label={t("ShoppingCart.total")}
                           Amount={
                             OrderDetail.totalAmt + OrderDetail.deliveryFee
                           }
-                          currency={t('Common.kyats')}
-                          color={'text-color-primary'}
+                          currency={t("Common.kyats")}
+                          color={"text-color-primary"}
                         />
                       </div>
                     </div>
@@ -341,7 +341,7 @@ export default function OrderDetails(props) {
                               alt="Voucher Icon"
                             />
                             <p className=" my-auto">
-                              {t('OrderDetail.get-voucher')}
+                              {t("OrderDetail.get-voucher")}
                             </p>
                           </div>
                         </div>
@@ -357,7 +357,7 @@ export default function OrderDetails(props) {
                                 alt="Voucher Icon"
                               />
                               <p className="my-auto">
-                                {t('OrderDetail.cancel-order')}
+                                {t("OrderDetail.cancel-order")}
                               </p>
                             </div>
                           </div>
@@ -376,7 +376,7 @@ export default function OrderDetails(props) {
       </div>
       <ConfirmationBox
         isOpenBox={isShowCancelOrderBox}
-        ConfirmationMessage={t('OrderDetail.are-you-sure-to-cancel-order')}
+        ConfirmationMessage={t("OrderDetail.are-you-sure-to-cancel-order")}
         /**
          * action
          */
@@ -385,7 +385,7 @@ export default function OrderDetails(props) {
       />
       <SuccessBox
         isOpenBox={isShowSuccessOrderBox}
-        SuccessMessage={t('OrderDetail.success-cancel-order')}
+        SuccessMessage={t("OrderDetail.success-cancel-order")}
         /**
          * action
          */
@@ -395,7 +395,7 @@ export default function OrderDetails(props) {
       {/* Cash on delivery  */}
       <SuccessBox
         isOpenBox={isShowSuccessCODBox}
-        SuccessMessage={t('OrderDetail.payment-success')}
+        SuccessMessage={t("OrderDetail.payment-success")}
         /**
          * action
          */
@@ -412,5 +412,5 @@ export default function OrderDetails(props) {
         clickServiceGateWay={onClickServiceGateWay}
       />
     </>
-  )
+  );
 }

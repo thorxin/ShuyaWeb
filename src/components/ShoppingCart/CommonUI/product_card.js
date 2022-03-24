@@ -1,14 +1,14 @@
-import React from 'react'
-import { useTranslation } from 'react-i18next'
-import { useHistory } from 'react-router-dom'
+import React from "react";
+import { useTranslation } from "react-i18next";
+import { useHistory } from "react-router-dom";
 //components
-import CostLabel from './cost_label'
-import { STOCK_LEFT_PRODUCT, OUT_OF_STOCK_PRODUCT } from '../util'
+import CostLabel from "./cost_label";
+import { STOCK_LEFT_PRODUCT, OUT_OF_STOCK_PRODUCT } from "../util";
 
 //images
-import MinusIcon from '../../../assets/productDetail/minus_icon.svg'
-import PlusIcon from '../../../assets/productDetail/plus_icon.svg'
-import TrashIcon from '../../../assets/shoppingcart/Trash_icon.svg'
+import MinusIcon from "../../../assets/productDetail/minus_icon.svg";
+import PlusIcon from "../../../assets/productDetail/plus_icon.svg";
+import TrashIcon from "../../../assets/shoppingcart/Trash_icon.svg";
 
 export const ProductCart = ({
   Item = {},
@@ -22,23 +22,23 @@ export const ProductCart = ({
   increaseProductCount,
   onClickTrashIcon,
 }) => {
-  const { t } = useTranslation()
-  let history = useHistory()
+  const { t } = useTranslation();
+  let history = useHistory();
   const isStockLeft = () => {
-    if (PRODUCT_TYPE === STOCK_LEFT_PRODUCT) return true
+    if (PRODUCT_TYPE === STOCK_LEFT_PRODUCT) return true;
 
-    return false
-  }
+    return false;
+  };
 
   const isOutOfStock = () => {
-    if (PRODUCT_TYPE === OUT_OF_STOCK_PRODUCT) return true
+    if (PRODUCT_TYPE === OUT_OF_STOCK_PRODUCT) return true;
 
-    return false
-  }
+    return false;
+  };
 
   const goPage = (productId) => {
-    history.push(`/productdetails?productId=${productId}`)
-  }
+    history.push(`/productdetails?productId=${productId}`);
+  };
 
   return (
     <div>
@@ -47,7 +47,7 @@ export const ProductCart = ({
           <div
             // onClick={() => goPage(Item.productId)}
             className={`col-span-7 ${
-              isOutOfStock() ? 'opacity-40' : 'opacity-100'
+              isOutOfStock() ? "opacity-40" : "opacity-100"
             } `}
           >
             <div className="flex space-x-4 items-start">
@@ -77,7 +77,7 @@ export const ProductCart = ({
                     PromotePrice={Item.promotePrice}
                   />
                   <p className="tertiary-font text-color-secondary">
-                    {Item.variation === 'Default' ? '' : Item.variation}
+                    {Item.variation === "Default" ? "" : Item.variation}
                   </p>
                 </div>
                 {/* For Mobile Buy 1 Get 1  */}
@@ -98,7 +98,7 @@ export const ProductCart = ({
                 {isOutOfStock() ? (
                   <div className="my-auto">
                     <p className="caption-font text-color-default">
-                      {t('ShoppingCart.out-of-stock')}
+                      {t("ShoppingCart.out-of-stock")}
                     </p>
                   </div>
                 ) : (
@@ -124,7 +124,7 @@ export const ProductCart = ({
                     </div>
                     <div
                       className={`w-7 h-auto ${
-                        isStockLeft() ? 'opacity-40' : 'opacity-100'
+                        isStockLeft() ? "opacity-40" : "opacity-100"
                       }`}
                       onClick={() =>
                         increaseProductCount({
@@ -145,7 +145,6 @@ export const ProductCart = ({
               </div>
             </div>
             {/* For Web Buy 1 Get 1  */}
-            {console.log(Item.promotionGetOne.url)}
             {Item.isGetOne && (
               <div className="md:flex hidden gap-2 items-center py-3 md:py-2">
                 <div className="w-24 ml-1 md:w-24 md:ml-2.5 "></div>
@@ -156,10 +155,10 @@ export const ProductCart = ({
                 />
                 {Item?.productId === Item?.promotionGetOne.getOneProductId ? (
                   <p className="tertiary-font text-base text-color-secondary">
-                    Buy 1 get 1{' '}
+                    Buy 1 get 1{" "}
                     {Item?.productId === Item?.promotionGetOne.getOneProductId
-                      ? 'same'
-                      : 'different'}{' '}
+                      ? "same"
+                      : "different"}{" "}
                     item
                   </p>
                 ) : (
@@ -178,10 +177,10 @@ export const ProductCart = ({
                 className=" w-4 h-auto float-right"
                 onClick={() =>
                   onClickTrashIcon(
-                    t('ShoppingCart.remove-each-product'),
+                    t("ShoppingCart.remove-each-product"),
                     Item.productId,
                     Item.skuId,
-                    PRODUCT_TYPE,
+                    PRODUCT_TYPE
                   )
                 }
               >
@@ -196,5 +195,5 @@ export const ProductCart = ({
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
