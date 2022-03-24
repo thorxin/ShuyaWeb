@@ -1,18 +1,18 @@
-import React from 'react'
-import { useTranslation } from 'react-i18next'
-import DialogBox from './dialog_box'
+import React from "react";
+import { useTranslation } from "react-i18next";
+import DialogBox from "./dialog_box";
 
 const ConfirmationBox = ({
   isOpenBox,
-  Icon = '',
-  ConfirmationMessage = '',
+  Icon = "",
+  ConfirmationMessage = "",
   /**
    * action
    */
   cancelBox,
   confirmBox,
 }) => {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
   return (
     <>
       <DialogBox isOpen={isOpenBox} closeModal={cancelBox}>
@@ -37,7 +37,7 @@ const ConfirmationBox = ({
                     className="secondary-btn tertiary-font py-2 border-custom-primary"
                     onClick={cancelBox}
                   >
-                    {t('AddFixed.not-do')}
+                    {t("AddFixed.not-do")}
                   </button>
                 </div>
                 <div>
@@ -45,7 +45,7 @@ const ConfirmationBox = ({
                     className="primary-btn bg-custom-primary tertiary-font py-2"
                     onClick={confirmBox}
                   >
-                    {t('AddFixed.do')}
+                    {t("AddFixed.do")}
                   </button>
                 </div>
               </div>
@@ -54,7 +54,7 @@ const ConfirmationBox = ({
         </div>
       </DialogBox>
     </>
-  )
-}
+  );
+};
 
-export default ConfirmationBox
+export default ConfirmationBox;

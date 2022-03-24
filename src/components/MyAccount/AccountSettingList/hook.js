@@ -14,8 +14,8 @@ export function Hook() {
   };
 
   const clickOnLogout = () => {
-      clearLocalStorageForLogOut();
-      window.location.replace(HOME_DEFAULT);
+    clearLocalStorageForLogOut();
+    window.location.replace(HOME_DEFAULT);
   };
 
   const [isShowLogoutBox, setIsShowLogoutBox] = useState(false);
@@ -35,6 +35,6 @@ export function Hook() {
     isShowLogoutBox,
     setIsShowLogoutBox,
     clickingLogout,
-    confirmLogout
+    confirmLogout,
   ];
 }

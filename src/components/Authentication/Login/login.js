@@ -1,32 +1,33 @@
 /** @format */
 
-import React from 'react'
-import { useForm } from 'react-hook-form'
-import { useTranslation } from 'react-i18next'
-import { useHistory } from 'react-router'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import React from "react";
+import { useForm } from "react-hook-form";
+import { ErrorMessage } from "@hookform/error-message";
+import { useTranslation } from "react-i18next";
+import { useHistory } from "react-router";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { Hook } from './hook'
-import { ErrorMessageBoxValidation } from '../../CommonComponent/error_box'
-import { ErrorBox } from '../../CommonComponent/error_box'
-import AuthLoading from '../../../components/CommonComponent/Loading/auth_loading'
+import { Hook } from "./hook";
+import { ErrorMessageBoxValidation } from "../../CommonComponent/error_box";
+import { ErrorBox } from "../../CommonComponent/error_box";
+import AuthLoading from "../../../components/CommonComponent/Loading/auth_loading";
 import {
   goBack,
   goToSpecificPathName,
-} from '../../../util/goToSpecificPathName'
+} from "../../../util/goToSpecificPathName";
 import {
   FORGOT_PASSWORD,
   REGISTRATION,
-} from '../../../constant/locationPathName'
+} from "../../../constant/locationPathName";
 
 //images
-import AppLogo from '../../../assets/home/app_logo.png'
-import FacebookLogo from '../../../assets/Authentication/Login/facebook_logo.svg'
-import { faEye } from '@fortawesome/free-solid-svg-icons'
-import BackArrowIcon from '../../../assets/common/back_arrow.svg'
+import AppLogo from "../../../assets/home/app_logo.png";
+import FacebookLogo from "../../../assets/Authentication/Login/facebook_logo.svg";
+import { faEye } from "@fortawesome/free-solid-svg-icons";
+import BackArrowIcon from "../../../assets/common/back_arrow.svg";
 // lib
-import FaceBookLogin from 'react-facebook-login/dist/facebook-login-render-props'
-import { DEV_APP_ID, PROD_APP_ID } from '../../../constant/facebookConfig'
+import FaceBookLogin from "react-facebook-login/dist/facebook-login-render-props";
+import { DEV_APP_ID, PROD_APP_ID } from "../../../constant/facebookConfig";
 export default function LogInPage(props) {
   const [
     isLoading,
@@ -39,18 +40,18 @@ export default function LogInPage(props) {
     onSubmit,
     togglePasswordVisibility,
     responseFacebook,
-  ] = Hook(props)
+  ] = Hook(props);
 
-  const { t } = useTranslation()
-  const eye = <FontAwesomeIcon icon={faEye} className="ml-12" />
+  const { t } = useTranslation();
+  const eye = <FontAwesomeIcon icon={faEye} className="ml-12" />;
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm()
+  } = useForm();
 
-  const history = useHistory()
+  const history = useHistory();
 
   return (
     // <div className='bg-no-repeat bg-cover bg-center w-full bg-registration-mobile-image md:bg-registration-web-image md:min-h-screen md:h-auto md:w-full flex items-center'>
@@ -81,11 +82,11 @@ export default function LogInPage(props) {
                   <input
                     type="tel"
                     className="auth-text-box bg-custom-graycolor"
-                    placeholder={t('Authentication.fill-phone')}
-                    {...register('PhoneNumber', {
-                      required: `${t('Authentication.error-message-en')} ${t(
-                        'Authentication.require-phone',
-                      )} ${t('Authentication.error-message')}`,
+                    placeholder={t("Authentication.fill-phone")}
+                    {...register("PhoneNumber", {
+                      required: `${t("Authentication.error-message-en")} ${t(
+                        "Authentication.require-phone"
+                      )} ${t("Authentication.error-message")}`,
                     })}
                   />
                   {errors.PhoneNumber && (
@@ -96,15 +97,16 @@ export default function LogInPage(props) {
                 </div>
                 <div className="relative">
                   <input
-                    type={showPassword ? 'text' : 'password'}
+                    type={showPassword ? "text" : "password"}
                     className="auth-text-box bg-custom-graycolor pr-10"
-                    placeholder={t('Authentication.fill-password')}
-                    {...register('Password', {
-                      required: `${t('Authentication.error-message-en')} ${t(
-                        'Authentication.require-password',
-                      )} ${t('Authentication.error-message')}`,
+                    placeholder={t("Authentication.fill-password")}
+                    {...register("Password", {
+                      required: `${t("Authentication.error-message-en")} ${t(
+                        "Authentication.require-password"
+                      )} ${t("Authentication.error-message")}`,
                     })}
                   />
+
                   <div
                     className="absolute top-0 right-0 my-3 mx-2.5"
                     onClick={togglePasswordVisibility}
@@ -112,8 +114,8 @@ export default function LogInPage(props) {
                     <i
                       className={`w-5 h-auto ${
                         showPassword
-                          ? 'text-color-default'
-                          : 'text-color-secondary'
+                          ? "text-color-default"
+                          : "text-color-secondary"
                       }`}
                     >
                       {eye}
@@ -131,7 +133,7 @@ export default function LogInPage(props) {
                     {isLoading ? (
                       <AuthLoading />
                     ) : (
-                      <p>{t('Authentication.login')}</p>
+                      <p>{t("Authentication.login")}</p>
                     )}
                   </button>
                 </div>
@@ -159,7 +161,7 @@ export default function LogInPage(props) {
                                 className="w-6 h-auto mr-3"
                                 alt="FacebookLogo"
                               />
-                              {t('Authentication.sign-in-facebook')}
+                              {t("Authentication.sign-in-facebook")}
                             </>
                           )}
                         </div>
@@ -169,15 +171,14 @@ export default function LogInPage(props) {
                 </div>
                 <div>
                   <p>
-                    Don't have an account yet ?{' '}
+                    Don't have an account yet ?{" "}
                     <span
                       className="text-tertiary text-color-brown font-medium cursor-pointer"
                       onClick={() =>
                         goToSpecificPathName(history, REGISTRATION)
                       }
                     >
-                      {/* {t('Authentication.sign-up-here')} */}
-                      Sing up here
+                      {t("Authentication.sign-up-here")}
                     </span>
                   </p>
                   <p
@@ -186,7 +187,7 @@ export default function LogInPage(props) {
                       goToSpecificPathName(history, FORGOT_PASSWORD)
                     }
                   >
-                    {t('Authentication.forget-password?')} <br />
+                    {t("Authentication.forget-password?")} <br />
                   </p>
                 </div>
               </form>
@@ -195,5 +196,5 @@ export default function LogInPage(props) {
         </div>
       </div>
     </div>
-  )
+  );
 }

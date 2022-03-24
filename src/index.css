@@ -153,12 +153,23 @@
     bottom : -35px!important
   }
   .dot{
-    background-color : #bc877e!important
+    background-color : #bc877e!important;
   }
   .dot.selected{
-    width: 37px!important;
+    /* width: 37px!important; */
     border-radius: 3px!important;
     shadow : none!important;
+    animation: stretch_bar 1s linear forwards;
+    animation-play-state: running; 
+  }
+
+  @keyframes stretch_bar {
+    0%{
+      width : 6px;
+    }
+    100%{
+      width : 37px;
+    }
   }
   
   .carousel.carousel-slider .control-arrow {

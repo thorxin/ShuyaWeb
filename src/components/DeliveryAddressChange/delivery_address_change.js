@@ -50,6 +50,7 @@ export default function DeliveryAddresChange(props) {
         <NavigationWeb />
         <div className=" mx-auto space-y-5 mb-20 md:mb-0 md:pt-20">
           <div className="w-full md:w-6/12 2xl:w-6/12 h-auto mx-auto">
+            {/* ----- Back ----- */}
             <div className="md:mb-4 mb-2">
               <div
                 className="flex items-center space-x-3 cursor-pointer mt-4 ml-4 md:ml-auto"
@@ -158,7 +159,10 @@ export default function DeliveryAddresChange(props) {
                         <div>
                           <button
                             className="secondary-btn border-2 border-custom-primary tertiary-font py-2"
-                            onClick={() => setSelectedVal(originVal)}
+                            onClick={() => {
+                              setSelectedVal(originVal);
+                              goBack();
+                            }}
                           >
                             {t("Common.not-do")}
                           </button>
@@ -175,7 +179,7 @@ export default function DeliveryAddresChange(props) {
                             {isSecondaryLoading ? (
                               <AuthenticationLoading />
                             ) : (
-                              <p>Save</p>
+                              <p>{t("Common.do")}</p>
                             )}
                           </button>
                         </div>

@@ -1,21 +1,21 @@
 /** @format */
 
-import React from 'react'
+import React from "react";
 
 //components
-import { Hook } from './hook'
-import NavigationWeb from '../CommonComponent/Navigation/NavigationWeb'
-import FooterWeb from '../CommonComponent/Footer/web_footer'
-import FooterMobile from '../CommonComponent/Footer/mobile_footer'
-import EditAccountInfoSection from './EditAccountInfoSection'
-import AccountSettingList from './AccountSettingList'
-import MemberLevel from './MemberPointSection/member_level'
-import ReceivedPoints from './MemberPointSection/received_point'
+import { Hook } from "./hook";
+import NavigationWeb from "../CommonComponent/Navigation/NavigationWeb";
+import FooterWeb from "../CommonComponent/Footer/web_footer";
+import FooterMobile from "../CommonComponent/Footer/mobile_footer";
+import EditAccountInfoSection from "./EditAccountInfoSection";
+import AccountSettingList from "./AccountSettingList";
+import MemberLevel from "./MemberPointSection/member_level";
+import ReceivedPoints from "./MemberPointSection/received_point";
 
-export const layout = 'bg-white default-margin-layout-auth'
+export const layout = "bg-white default-margin-layout-auth";
 
 export default function MyAccount(props) {
-  const [userAccountInfo, deliveryAddress] = Hook(props)
+  const [userAccountInfo, deliveryAddress] = Hook(props);
 
   return (
     <>
@@ -71,5 +71,5 @@ export default function MyAccount(props) {
         <FooterMobile />
       </div>
     </>
-  )
+  );
 }

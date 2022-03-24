@@ -11,7 +11,7 @@ export const PRODUCT_ID = "ProductId";
 export const SEARCH_HISTORY = "SearchHistory";
 export const PRODUCT_OFFER_ID = "ProductOfferId";
 export const LANGUAGE_TYPE = "i18nextLng";
-export const SAVE_FACEBOOK_LOGIN = 'SaveFacebookLogin'
+export const SAVE_FACEBOOK_LOGIN = "SaveFacebookLogin";
 /**
  * history type
  */
@@ -82,7 +82,7 @@ export function clearLocalStorageForLogOut() {
   localStorage.removeItem(REFRESH_TOKEN);
   localStorage.removeItem(USER_INFO);
   localStorage.removeItem(USER_ID);
-  localStorage.removeItem(SEARCH_HISTORY);
+  // localStorage.removeItem(SEARCH_HISTORY);
 }
 
 export function clearLocalStorage() {
@@ -128,11 +128,10 @@ export function getLanguageTypeForAuth() {
 //#endregion
 
 export function saveFacebookLogin(save) {
-  if(save) {
-      localStorage.setItem(SAVE_FACEBOOK_LOGIN, save)
+  if (save) {
+    localStorage.setItem(SAVE_FACEBOOK_LOGIN, save);
   }
 }
-
 
 /**
  * local Storage
