@@ -1,30 +1,30 @@
 /** @format */
 
-import React, { useState } from 'react'
+import React, { useState } from "react";
 // lib
-import { useTranslation } from 'react-i18next'
-import FooterWeb from '../../../CommonComponent/Footer/web_footer'
-import FooterMobile from '../../../CommonComponent/Footer/mobile_footer'
-import NavigationWeb from '../../../CommonComponent/Navigation/NavigationWeb'
+import { useTranslation } from "react-i18next";
+import FooterWeb from "../../../CommonComponent/Footer/web_footer";
+import FooterMobile from "../../../CommonComponent/Footer/mobile_footer";
+import NavigationWeb from "../../../CommonComponent/Navigation/NavigationWeb";
 
 //images
-import LeftArrowImage from '../../../../assets/productSearch/left_arrow_image.png'
-import DeleteIcon from '../../../../assets/Images/delete.svg'
+import LeftArrowImage from "../../../../assets/productSearch/left_arrow_image.png";
+import DeleteIcon from "../../../../assets/Images/delete.svg";
 
 // hook
-import { Hook } from './hook'
-import { DEFAULT_TOWNSHIP } from '../../../../constant/defaultTownship'
-import AuthenticationLoading from '../../../CommonComponent/Loading/auth_loading'
-import Loading from '../../../CommonComponent/Loading/main_loading'
-import AddNewAddress from '../../../../containers/MyAccount/container.addnewaddress'
+import { Hook } from "./hook";
+import { DEFAULT_TOWNSHIP } from "../../../../constant/defaultTownship";
+import AuthenticationLoading from "../../../CommonComponent/Loading/auth_loading";
+import Loading from "../../../CommonComponent/Loading/main_loading";
+import AddNewAddress from "../../../../containers/MyAccount/container.addnewaddress";
 import {
   HOME_LABEL,
   OTHER_LABEL,
   WORK_LABEL,
-} from '../../../../constant/deliveryLabelConfig'
-import { LabelIcon } from './label_icon'
-import DefaultChangeAddressContainer from '../../../WrapperComponents/default_change_address_container'
-import ConfirmationBox from '../../../CommonComponent/DialogBox/confirmation_box'
+} from "../../../../constant/deliveryLabelConfig";
+import { LabelIcon } from "./label_icon";
+import DefaultChangeAddressContainer from "../../../WrapperComponents/default_change_address_container";
+import ConfirmationBox from "../../../CommonComponent/DialogBox/confirmation_box";
 
 export default function ChangeAddress(props) {
   const [
@@ -37,16 +37,16 @@ export default function ChangeAddress(props) {
     goBack,
     changedSelectedDeliveryAddress,
     fetchDeleteDeliveryAddress,
-  ] = Hook(props)
-  const { t } = useTranslation()
+  ] = Hook(props);
+  const { t } = useTranslation();
   const {
     deliveryAddress = [],
     isTeritaryLoading = false,
     isSecondaryLoading = false,
-  } = props
-  const [openAddAddress, setOpenAddAddress] = useState(false)
-  const checkEditSaveDisabled = parseInt(originVal) === parseInt(selectedVal)
-  const [labelFilter, setLabelFilter] = useState(HOME_LABEL)
+  } = props;
+  const [openAddAddress, setOpenAddAddress] = useState(false);
+  const checkEditSaveDisabled = parseInt(originVal) === parseInt(selectedVal);
+  const [labelFilter, setLabelFilter] = useState(HOME_LABEL);
 
   //   const [isShowDeleteBox, setIsShowDeleteBox] = useState(false);
 
@@ -55,14 +55,14 @@ export default function ChangeAddress(props) {
   //   };
 
   const deleteDeliveryAddress = (question_id = 0, labelName) => {
-    if (question_id <= 0 || labelName === 'Home') return
+    if (question_id <= 0 || labelName === "Home") return;
     let postData = {
       DeliveryAddressId: question_id,
-    }
-    fetchDeleteDeliveryAddress(postData.DeliveryAddressId)
-  }
+    };
+    fetchDeleteDeliveryAddress(postData.DeliveryAddressId);
+  };
 
-  if (isTeritaryLoading) return <Loading />
+  if (isTeritaryLoading) return <Loading />;
 
   return (
     <DefaultChangeAddressContainer
@@ -71,7 +71,7 @@ export default function ChangeAddress(props) {
     >
       <div>
         <p className="sub-heading-font-h3 text-center">
-          {openAddAddress ? 'Add New Address' : 'Select Address'}
+          {openAddAddress ? "Add New Address" : "Select Address"}
         </p>
       </div>
       <div className="grid grid-cols-1 gap-y-4 bg-white py-4 px-4">
@@ -95,7 +95,7 @@ export default function ChangeAddress(props) {
                         {data.address},
                         {data.townshipName !== DEFAULT_TOWNSHIP && (
                           <span>{data.townshipName},</span>
-                        )}{' '}
+                        )}{" "}
                         {data.cityName}
                       </p>
                       {data.landmark && (
@@ -165,17 +165,17 @@ export default function ChangeAddress(props) {
               <div className="grid grid-cols-2 gap-x-2">
                 <div>
                   <button
-                    className="secondary-btn tertiary-font py-2"
+                    className="secondary-btn border border-custom-main tertiary-font py-2"
                     onClick={goBack}
                   >
-                    {t('Common.not-do')}
+                    {t("Common.not-do")}
                   </button>
                 </div>
                 <div>
                   <button
                     disabled={checkEditSaveDisabled}
-                    className={`primary-btn tertiary-font py-2 ${
-                      checkEditSaveDisabled && 'cursor-not-allowed opacity-50'
+                    className={`primary-btn bg-custom-main tertiary-font py-2 ${
+                      checkEditSaveDisabled && "cursor-not-allowed opacity-50"
                     }`}
                     onClick={changedSelectedDeliveryAddress}
                   >
@@ -196,8 +196,8 @@ export default function ChangeAddress(props) {
                 onClick={() => setLabelFilter(HOME_LABEL)}
                 className={`py-1.5 px-3 rounded-full uppercase text-sm font-semibold ${
                   labelFilter === HOME_LABEL
-                    ? 'bg-custom-orange text-color-white '
-                    : 'bg-gray-200'
+                    ? "bg-custom-orange text-color-white "
+                    : "bg-gray-200"
                 }`}
               >
                 Home
@@ -206,8 +206,8 @@ export default function ChangeAddress(props) {
                 onClick={() => setLabelFilter(WORK_LABEL)}
                 className={`py-1.5 px-3 rounded-full uppercase text-sm font-semibold ${
                   labelFilter === WORK_LABEL
-                    ? 'bg-custom-orange text-color-white '
-                    : 'bg-gray-200'
+                    ? "bg-custom-orange text-color-white "
+                    : "bg-gray-200"
                 }`}
               >
                 Work
@@ -216,8 +216,8 @@ export default function ChangeAddress(props) {
                 onClick={() => setLabelFilter(OTHER_LABEL)}
                 className={`py-1.5 px-3 rounded-full uppercase text-sm font-semibold ${
                   labelFilter === OTHER_LABEL
-                    ? 'bg-custom-orange text-color-white '
-                    : 'bg-gray-200'
+                    ? "bg-custom-orange text-color-white "
+                    : "bg-gray-200"
                 }`}
               >
                 Other
@@ -232,5 +232,5 @@ export default function ChangeAddress(props) {
         )}
       </div>
     </DefaultChangeAddressContainer>
-  )
+  );
 }

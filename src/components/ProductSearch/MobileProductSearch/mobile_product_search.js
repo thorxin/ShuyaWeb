@@ -1,21 +1,21 @@
-import React from 'react'
-import { useTranslation } from 'react-i18next'
+import React from "react";
+import { useTranslation } from "react-i18next";
 
 //components
-import { TagList } from '../TagList/tag_list'
-import { ProductList } from '../ProductList/product_list'
-import History from '../History/history'
-import { Hook } from './hook'
-import ProductSuggestionList from '../ProductSuggestionList/product_suggestion_list'
-import Category from '../CategoryList/categories'
-import CategoryListFrame from '../CategoryList/category_list_frame'
+import { TagList } from "../TagList/tag_list";
+import { ProductList } from "../ProductList/product_list";
+import History from "../History/history";
+import { Hook } from "./hook";
+import ProductSuggestionList from "../ProductSuggestionList/product_suggestion_list";
+import Category from "../CategoryList/categories";
+import CategoryListFrame from "../CategoryList/category_list_frame";
 
 //images
-import SearchGrayIcon from '../../../assets/productSearch/search_gray_icon.svg'
-import BackArrowIcon from '../../../assets/common/back_arrow.svg'
+import SearchGrayIcon from "../../../assets/productSearch/search_gray_icon.svg";
+import BackArrowIcon from "../../../assets/common/back_arrow.svg";
 
 export const MobileProductSearch = (props) => {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   const [
     isFocusInput,
@@ -30,7 +30,7 @@ export const MobileProductSearch = (props) => {
     clickOnBack,
     dispatchClearDataList,
     setIsFocusInput,
-  ] = Hook(props.delaySearchByText, props.clearData)
+  ] = Hook(props.delaySearchByText, props.clearData);
 
   return (
     <>
@@ -51,7 +51,7 @@ export const MobileProductSearch = (props) => {
               <input
                 type="text"
                 className="primary-text-box rounded-sm pr-10"
-                placeholder={t('Navigation.Search')}
+                placeholder={t("Navigation.Search")}
                 onFocus={onFocus}
                 onBlur={onBlur}
                 onChange={(e) => onChangeText(e.target.value)}
@@ -144,5 +144,5 @@ export const MobileProductSearch = (props) => {
         )}
       </div>
     </>
-  )
-}
+  );
+};

@@ -165,13 +165,13 @@ const NavigationMobile = (props) => {
                 to={GET_STORED_ACCESS_TOKEN ? SHOPPING_CART : LOGIN}
                 onClick={() => onClickRoute(SHOPPING_CART)}
               >
-                <div className="relative px-2 border-2 border-custom-primary-light rounded-lg py-2.5">
+                <div className="relative px-2">
                   {cartCount > 0 && (
                     <div className="absolute -top-1.5 left-0 bg-custom-orange w-4 h-4 rounded-full flex justify-center items-center">
                       <p className="text-color-white text-tiny">{cartCount}</p>
                     </div>
                   )}
-                  <img src={Cart} className="w-8 h-auto" alt="CartIcon" />
+                  <img src={Cart} className="w-16 h-auto" alt="CartIcon" />
                 </div>
               </Link>
             </div>
