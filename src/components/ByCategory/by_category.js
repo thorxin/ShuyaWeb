@@ -38,7 +38,7 @@ const By_category = (props) => {
         <NavigationWeb />
         <div className="mx-auto space-y-5 mb-20 md:mb-0">
           <div className="default-margin-layout">
-            <div className="md:-mt-2 py-2 md:pt-0 pl-2 md:pl-0 sticky top-0">
+            <div className="md:-mt-2 py-2 md:pt-0 pl-2 md:pl-0 sticky top-0 bg-white">
               <div
                 className="flex items-center space-x-3 cursor-pointer"
                 onClick={() => goBack(history)}

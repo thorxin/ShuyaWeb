@@ -66,7 +66,7 @@ module.exports = {
         'custom-main-light': '#eedcce',
         'custom-red-light': '#c93827',
         'custom-primary': '#bc877e',
-        'custom-primary-light': '#ef06d4',
+        'custom-primary-light': '#f0d3cf',
         'custom-prmary-dark': '#3d064a',
         'custom-footer': '#6d542f',
         'custom-footer-link': '#4f391b',

@@ -19,9 +19,9 @@ const ProductDescription = ({ Description }) => {
   if (Description)
     return (
       <>
-        <div className="bg-white py-4  border-gray-200 ">
+        <div className="py-4">
           <div className="mx-4 space-y-4">
-            <p className="primary-font custom-font-bold text-color-secondary">
+            <p className="text-color-default section-title-font">
               {t('ProductDetails.product-description')}
             </p>
             {Description.length > LimitTextNumber ? (

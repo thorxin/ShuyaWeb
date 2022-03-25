@@ -117,7 +117,7 @@ const PaymentRegistration = ({
                 {moneyFormatter(NetAmount)} {t('Common.kyats')}
               </p>
             ) : (
-              <p className="tertiary-font text-color-default">
+              <p className="text-lg text-color-default">
                 {moneyFormatter(TotalAmount)} {t('Common.kyats')}
               </p>
             )}

@@ -71,7 +71,7 @@ export default function OrderHistory(props) {
           <div className="default-margin-layout">
             <div className="sticky top-0 z-10 md:relative">
               <div className="bg-white py-3">
-                <p className="mx-4 md:mx-8 custom-font-regular font-semibold text-color-primary text-xl">
+                <p className="mx-4 md:mx-8 custom-font-regular font-semibold text-color-primary text-xl capitalize">
                   {t('OrderHistory.order-history')}
                 </p>
               </div>
