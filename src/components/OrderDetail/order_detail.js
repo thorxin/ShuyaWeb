@@ -231,14 +231,14 @@ export default function OrderDetails(props) {
                     <PaymentRecord PaymentInfo={OrderDetail.paymentInfo} />
                     {/* End Payment Record */}
 
-                    <div className="w-11/12 mx-auto h-0.5 bg-gray-200" />
+                    <div className="mx-auto h-0.5 bg-gray-200" />
                     {/* Start Pay Again  */}
                     <div
                       className={`${
                         openPayAgain || !chkPayAgain ? "hidden" : "block"
                       } bg-white py-4 md:py-0`}
                     >
-                      <div className="w-full mx-auto">
+                      <div className="w-full px-4">
                         <button
                           className="tertiary-font w-full h-auto text-color-white bg-custom-primary py-3 rounded-md"
                           onClick={() => setOpenPayAgain(true)}

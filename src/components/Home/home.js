@@ -1,37 +1,37 @@
 /** @format */
 
-import React, { useEffect, useState } from 'react'
-import { Hook } from './hook'
-import { useHistory } from 'react-router-dom'
+import React, { useEffect, useState } from "react";
+import { Hook } from "./hook";
+import { useHistory } from "react-router-dom";
 
 /**
  * images
  */
-import CloseIcon from '../../assets/common/close_icon.svg'
+import CloseIcon from "../../assets/common/close_icon.svg";
 
 /**
  * components
  */
-import Loading from '../CommonComponent/Loading/main_loading'
-import NavigationWeb from '../CommonComponent/Navigation/NavigationWeb'
-import NavigationMobile from '../CommonComponent/Navigation/NavigationMobile'
-import MainCategories from './Category'
-import HomeCategory from './Category/HomeCategory'
-import PromotionProducts from './PromotionProducts'
-import LatestProducts from './LatestProducts'
-import Brand from './Brand'
-import BestSellingProducts from './BestSellingProducts'
-import ProductListByCategory from './ProductListByCategory'
-import ProductListByCategoryMobile from './ProductListByCategory/ProductListByCategoryMobile'
-import BannerSlider from './BannerSlider'
-import ADSlider from './ADSlider'
-import FooterWeb from '../CommonComponent/Footer/web_footer'
-import FooterMobile from '../CommonComponent/Footer/mobile_footer'
-import BuyOneGetOne from './BuyOneGetOne'
-import DialogBox from '../CommonComponent/DialogBox/dialog_box'
-import placeholder from '../../assets/common/placeholder_icon.svg'
-import { goToProductSearchResult } from '../../util/goToSpecificPathName'
-import { SEARCH_PROMOTION } from '../../constant/search'
+import Loading from "../CommonComponent/Loading/main_loading";
+import NavigationWeb from "../CommonComponent/Navigation/NavigationWeb";
+import NavigationMobile from "../CommonComponent/Navigation/NavigationMobile";
+import MainCategories from "./Category";
+import HomeCategory from "./Category/HomeCategory";
+import PromotionProducts from "./PromotionProducts";
+import LatestProducts from "./LatestProducts";
+import Brand from "./Brand";
+import BestSellingProducts from "./BestSellingProducts";
+import ProductListByCategory from "./ProductListByCategory";
+import ProductListByCategoryMobile from "./ProductListByCategory/ProductListByCategoryMobile";
+import BannerSlider from "./BannerSlider";
+import ADSlider from "./ADSlider";
+import FooterWeb from "../CommonComponent/Footer/web_footer";
+import FooterMobile from "../CommonComponent/Footer/mobile_footer";
+import BuyOneGetOne from "./BuyOneGetOne";
+import DialogBox from "../CommonComponent/DialogBox/dialog_box";
+import placeholder from "../../assets/common/placeholder_icon.svg";
+import { goToProductSearchResult } from "../../util/goToSpecificPathName";
+import { SEARCH_PROMOTION } from "../../constant/search";
 export default function HomePage(props) {
   const [
     isLoading,
@@ -48,31 +48,31 @@ export default function HomePage(props) {
      * action
      */
     clickingOnProductWishIcon, // need product id && whitelist state [local state]
-  ] = Hook(props)
+  ] = Hook(props);
 
-  const { popUpBanner = {} } = props
+  const { popUpBanner = {} } = props;
 
-  let history = useHistory()
+  let history = useHistory();
 
-  const [isOpenPopupBox, setIsOpenPopupBox] = useState(false)
-  const [bannnerClick, setIsBannerClick] = useState(true)
+  const [isOpenPopupBox, setIsOpenPopupBox] = useState(false);
+  const [bannnerClick, setIsBannerClick] = useState(true);
 
   useEffect(() => {
     if (popUpBanner?.url) {
-      setIsOpenPopupBox(true)
+      setIsOpenPopupBox(true);
     } else {
-      setIsOpenPopupBox(false)
+      setIsOpenPopupBox(false);
     }
-  }, [popUpBanner?.url])
+  }, [popUpBanner?.url]);
 
-  if (isLoading) return <Loading />
+  if (isLoading) return <Loading />;
 
   const goPromotionPage = () => {
     let propsData = {
       searchType: SEARCH_PROMOTION,
-    }
-    goToProductSearchResult(history, propsData)
-  }
+    };
+    goToProductSearchResult(history, propsData);
+  };
 
   return (
     <>
@@ -143,7 +143,7 @@ export default function HomePage(props) {
 
         {ADList.length >= 1 ? (
           <>
-            <div className="mx-auto space-y-2 md:mb-0 py-6">
+            <div className="mx-auto space-y-2 md:mb-0 md:py-6">
               <div className="md:w-10/12 mx-auto w-full">
                 <ADSlider ADListArray={ADList} />
               </div>
@@ -169,7 +169,7 @@ export default function HomePage(props) {
         )} */}
         {brandProducts.length > 0 && (
           <>
-            <div className="mx-auto space-y-2 py-6">
+            <div className="mx-auto space-y-2 pb-6">
               <div className="w-full container h-auto mx-auto">
                 <div className="md:mt-2">
                   <Brand categoryArray={brandProducts} />
@@ -227,5 +227,5 @@ export default function HomePage(props) {
         </DialogBox> */}
       </div>
     </>
-  )
+  );
 }

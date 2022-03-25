@@ -72,7 +72,12 @@ const ADSlider = ({
         </Carousel>
       </div>
       <div className="mx-auto block md:hidden">
-        <Carousel showArrows={false} infiniteLoop={true} autoPlay={true}>
+        <Carousel
+          showArrows={false}
+          showIndicators={false}
+          infiniteLoop={true}
+          autoPlay={true}
+        >
           {MobileBanner.length > 0 &&
             MobileBanner.map((ad, index) => (
               <div

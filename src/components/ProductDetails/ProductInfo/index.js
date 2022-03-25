@@ -68,7 +68,7 @@ import {
   WEBSITE_NAME,
 } from "../../../constant/contactUs";
 
-export const ProductSharingBox = ({ shared_url = "", isShow = false }) => {
+export const ProductSharingBox = ({ shared_url = "", isShow = true }) => {
   return (
     <>
       <div
@@ -292,8 +292,8 @@ const ProductInfo = ({
       <Popover className="relative">
         <Popover.Button>
           <div
-            className="hidden md:flex justify-end cursor-pointer"
-            // onClick={() => setIsShowShareBox(!isShowShareBox)}
+            className="md:flex justify-end cursor-pointer flex items-center"
+            onClick={() => setIsShowShareBox(!isShowShareBox)}
           >
             <img
               src={ShareIconOne}
@@ -306,7 +306,7 @@ const ProductInfo = ({
           </div>
         </Popover.Button>
 
-        <Popover.Panel className="absolute z-10">
+        <Popover.Panel className="md:absolute md:-bottom-16 fixed bottom-10 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
           <ProductSharingBox shared_url={sharedUrl} isShow={true} />
         </Popover.Panel>
       </Popover>
